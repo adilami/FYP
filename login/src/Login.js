@@ -34,6 +34,8 @@ function Login() {
       // console.log('hh',data);
 
       if (res.status === 200) {
+
+        toast.success("Logged In Successfully")
         history("/home");
       }
     } catch (error) {

@@ -28,6 +28,7 @@ function Register() {
         pass: input.pass,
       })
       if (res.status === 201) {
+        toast.success("Registered Successfully")
         history("/");
       }}
       catch(error){
