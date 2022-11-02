@@ -7,6 +7,15 @@ const jwtSecretKey = "secret123";
 const register = async (req, res) => {
   const { userName, email, pass } = req.body;
   let existingUser;
+  if(!userName||!email||!pass){
+    return res
+      .status(400)
+      .json({
+        message:
+          "All the text fields are required",
+      });
+  }
+  else{
   try {
     existingUser = await user.findOne({ email: email });
   } catch (e) {
@@ -17,9 +26,7 @@ const register = async (req, res) => {
       .status(400)
       .json({
         message:
-          "The user with this email, " +
-          email +
-          ", is already registered. Proceed to Login!",
+          "Email is already taken.",
       });
   }
   const encryptedPass = bCrypt.hashSync(pass);
@@ -36,6 +43,7 @@ const register = async (req, res) => {
   }
   return res.status(201).json({ message: User });
 };
+}
 const login = async (req, res) => {
   const { email, pass } = req.body;
   let existingUser;
@@ -49,14 +57,12 @@ const login = async (req, res) => {
       .status(500)
       .json({
         message:
-          "User with the given email, " +
-          email +
-          " was not found. Please Sign Up!",
+          "The Email/Password is Invalid!",
       });
   }
   const correctPass = bCrypt.compareSync(pass, existingUser.pass);
   if (!correctPass) {
-    return res.status(400).json({ message: "The Email/Password is Invalid!" });
+    return res.status(500).json({ message: "The Email/Password is Invalid!" });
   }
   const token = jwt.sign({ id: existingUser._id }, jwtSecretKey, {
     expiresIn: "30s",

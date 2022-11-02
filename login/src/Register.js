@@ -20,27 +20,37 @@ function Register() {
     }));
   };
   const sendReq = async () => {  
+    try{
       const res = await axios
       .post("http://localhost:8000/api/register", {
         userName: input.userName,
         email: input.email,
         pass: input.pass,
       })
-      .catch(() => toast.error("The email already exists. Please Login instead!"))
-    const data = await res.data;
-    return data;
-  };
-    const submit = (e) => {
-      if(!input.userName||!input.email||!input.pass){
-        toast.error("All the text field needs to be filled!!!");
+      if (res.status === 201) {
+        history("/");
+      }}
+      catch(error){
+        if(!input.userName||!input.email||!input.pass){
+          toast.error("All text fields are required.")
+        }
+        else if(error.status!==201){
+          toast.error(error.response.data.message)
+
+        }
       }
-      else{
-        sendReq().then(() => history("/"));
-      }
   };
+  //   const submit = (e) => {
+  //     if(!input.userName||!input.email||!input.pass){
+  //       toast.error("All the text field needs to be filled!!!");
+  //     }
+  //     else{
+  //       sendReq().then(() => history("/"));
+  //     }
+  // };
   const handleSubmit = (e) => {
     if (e.key === "Enter") {
-      submit();
+      sendReq();
     }
   };
   const navigate = useNavigate();
@@ -83,7 +93,7 @@ function Register() {
               onChange={setChange}
               onKeyPress={handleSubmit}
             />
-            <button className="create-acount-btn" onClick={submit}>
+            <button className="create-acount-btn" onClick={sendReq}>
               Register
             </button>
             <p>Already have an account, <a href="./">Login</a></p>

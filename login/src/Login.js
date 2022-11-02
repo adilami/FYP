@@ -22,7 +22,6 @@ function Login() {
       [e.target.name]: e.target.value,
     }));
   };
-  console.log(input);
   const sendReq = async () => {
     try {
       const res = await axios.post("http://localhost:8000/api/login", {
@@ -32,13 +31,12 @@ function Login() {
       // .catch(() => {toast.error("Incorrect Email or Password")});
       // const data = await res.data;
       // return data;
-      // console.log('hh',data)
+      // console.log('hh',data);
 
       if (res.status === 200) {
         history("/home");
       }
     } catch (error) {
-      console.log(error);
       if (!input.email || !input.pass) {
         toast.error("Email and password are required.");
       } else if (error.status !== 200) {
