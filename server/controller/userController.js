@@ -57,12 +57,12 @@ const login = async (req, res) => {
       .status(500)
       .json({
         message:
-          "The Email/Password is Invalid!",
+          "The Email/Password is Incorrect!",
       });
   }
   const correctPass = bCrypt.compareSync(pass, existingUser.pass);
   if (!correctPass) {
-    return res.status(500).json({ message: "The Email/Password is Invalid!" });
+    return res.status(500).json({ message: "The Email/Password is Incorrect!" });
   }
   const token = jwt.sign({ id: existingUser._id }, jwtSecretKey, {
     expiresIn: "30s",
