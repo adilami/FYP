@@ -50,6 +50,7 @@ function Register() {
       }}
     }
       catch(error){
+      try{
         if(!input.userName||!input.email||!input.pass){
           toast.error("All text fields are required.")
         }
@@ -57,6 +58,10 @@ function Register() {
           toast.error(error.response.data.message)
 
         }
+      }
+      catch(e){
+        toast.error("Server is down!")
+      }
       }
     }
   };

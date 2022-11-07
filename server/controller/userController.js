@@ -65,11 +65,14 @@ const login = async (req, res) => {
     return res.status(500).json({ message: "The Email/Password is Incorrect!" });
   }
   const token = jwt.sign({ id: existingUser._id }, jwtSecretKey, {
-    expiresIn: "30s",
+    expiresIn: "1hr",
   });
+  if(req.cookies[`${existingUser._id}`]){
+    req.cookies[`${existingUser._id}`] = ""
+  }
   res.cookie(String(existingUser._id), token, {
     path: "/",
-    expires: new Date(Date.now() + 1000 * 30),
+    expires: new Date(Date.now() + 1000 * 3600),
     httpOnly: true,
     sameSite: "lax",
   });
@@ -94,6 +97,12 @@ const verification = (req, res, next) => {
   next();
 };
 const getUser = async (req, res) => {
+//   jwt.verify(String(preToken),jwtSecretKey, (e, user)=> {
+//     if(e){
+//       console.log(e);
+//       return res.status(403).json({message:"Authentication is failed!"})
+//     }
+// })
   const userId = req.id;
   let use;
   try {
@@ -106,7 +115,53 @@ const getUser = async (req, res) => {
   }
   return res.status(200).json({ use });
 };
+const refreshToken = (req, res,next) => {
+  const cookies = req.headers.cookie;
+  const preToken = cookies.split("=")[1];
+  if(!preToken){
+    return res.status(400).json({message:"Cannot find token"})
+  }
+  jwt.verify(String(preToken),jwtSecretKey, (e, user)=> {
+    if(e){
+      console.log(e);
+      return res.status(403).json({message:"Authentication is failed!"})
+    }
+    res.clearCookie(`${user.id}`);
+    req.cookies[`${user.id}`]="";
+
+    const token = jwt.sign({id: user.id},jwtSecretKey,{
+      expiresIn:"1hr"
+    });
+    res.cookie(String(user.id), token, {
+      path: "/",
+      expires: new Date(Date.now() + 1000 * 3600),
+      httpOnly: true,
+      sameSite: "lax",
+    });
+    req.id = user.id;
+    next();
+  })
+}
+const logout = (req, res) => {
+  const cookies = req.headers.cookie;
+  const preToken = cookies.split("=")[1];
+  if(!preToken){
+    return res.status(400).json({message:"Cannot find token"})
+  }
+  jwt.verify(String(preToken),jwtSecretKey, (e, user)=> {
+    if(e){
+      console.log(e);
+      return res.status(403).json({message:"Authentication is failed!"})
+    }
+    res.clearCookie(`${user.id}`);
+    req.cookies[`${user.id}`]="";
+    return res.status(200).json({message:"Logged out successfully!"})
+  
+  })
+}
 exports.register = register;
 exports.login = login;
 exports.verification = verification;
 exports.getUser = getUser;
+exports.refreshToken=refreshToken;
+exports.logout=logout;

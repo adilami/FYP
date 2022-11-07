@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import axios from "axios";
@@ -42,21 +42,31 @@ function Login() {
       // .catch(() => {toast.error("Incorrect Email or Password")});
       // const data = await res.data;
       // return data;
+
       // console.log('hh',data);
 
       if (res.status === 200) {
-
-        toast.success("Logged In Successfully")
+        localStorage.setItem("token", res.data);
+        window.location.reload();
         history("/home");
+        toast.success("Logged In Successfully");
+        
       }
     } catch (error) {
+      try{
       if (!input.email || !input.pass) {
         toast.error("Email and password are required.");
       } else if (error.status !== 200) {
         toast.error(error.response.data.message);
       }
     }
+    catch(e){
+      toast.error("Server is down");
+    }
+      
+    }
   }
+  
   };
 
   // const submit = (e) => {
