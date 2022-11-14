@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NavigationBar from "./Navbar/NavigationBar";
 
 axios.defaults.withCredentials = true;
 let firstRender = false;
@@ -46,41 +47,43 @@ function Dash() {
           return () => clearInterval(int);
 
   },[]);
-  const history = useNavigate();
+  // const history = useNavigate();
 
-  const sendReqLogout = async () => {
-    const res = await axios.post("http://localhost:8000/api/logout",null,{
-      withCredentials:true
-    })
-    // if(redirect){
-    //   history("/home")
-    // }
+  // const sendReqLogout = async () => {
+  //   const res = await axios.post("http://localhost:8000/api/logout",null,{
+  //     withCredentials:true
+  //   })
+  //   // if(redirect){
+  //   //   history("/home")
+  //   // }
     
-    if(res.status ===200){
-      history("/")
-    }
-    return new Error("Cant logout!")
-  }
-  const toggleLogout=()=>{
-    localStorage.removeItem("token")
-    sendReqLogout();
-    window.location.reload()
-    toast.success("Logged out Successfully!")
-    
-  }
-  const togglevid =()=>{
-    history("/videos")
-  }
+  //   if(res.status ===200){
+  //     history("/")
+  //   }
+  //   else{
+  //     toast.error("Cant logout!");
+  //   }
+  // }
+  // const toggleLogout=()=>{
+  //   localStorage.removeItem("token");
+  //     window.location.reload();
+  //     sendReqLogout();
+  //     toast.success("Logged out Successfully!")
+  //   }
+  // const togglevid =()=>{
+  //   history("/videos")
+  // }
   return (
     <>
       {/* <div>
         <h1>Please login to access the dashboard.</h1>
       </div> */}
       <div>
+        <NavigationBar />
         <div className="center">
-          <h1>Welcome{}</h1>
-          <button onClick={toggleLogout}>Sign out</button>
-          <button onClick={togglevid}>Videos</button>
+          <h1>Welcome</h1>
+          {/* <button onClick={toggleLogout}>Sign out</button>
+          <button onClick={togglevid}>Videos</button> */}
           
           <div className="container">
         </div>

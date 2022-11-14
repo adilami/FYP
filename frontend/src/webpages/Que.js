@@ -1,14 +1,13 @@
 import React from 'react'
 import NavigationBar from './Navbar/NavigationBar'
 
-function Videos() {
-  
+function Que() {
   return (
     <div>
       <NavigationBar />
-      <h1>Videos</h1>
+      <h1>Questions</h1>
     </div>
   )
 }
 
-export default Videos;
+export default Que

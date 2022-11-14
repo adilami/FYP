@@ -16,4 +16,4 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.bq5eppq.mongodb.net/AuthDat
 })
 .catch(
   (e)=> console.log(e)
-  );
+);

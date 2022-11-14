@@ -1,0 +1,124 @@
+*{
+  padding: 0;
+  margin:0;
+}
+.main{
+  /* background-color: red; */
+  width: 100%;
+  height: 6%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid;
+  border-color: black;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+
+}
+h1.navbar{
+  align-items: center;
+  padding: 30px;
+
+}
+.components{
+  width: 100%;
+  height:10%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  
+}
+
+.components{
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.ham{
+  /* width: 200vw; */
+  display: none;
+  padding-right: 24px;
+  cursor: pointer;
+}
+.bar{
+  display: block;
+  width:25px;
+  height:3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+}
+nav{
+  margin:10px;
+  height: 10vh;
+  width:90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+img{
+  height: 30%;
+  width: 110px;
+}
+.first{
+  padding-left: 4%;
+  width: 20%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-right: 42px;
+  align-items: center;
+}
+.links{
+  width:70vw;
+  height:100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.res{
+  width:70vw;
+  height:10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+a{
+  width:20%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid black; */
+}
+@media(max-width:1000px){
+  .links
+  {
+    display: none;
+  }
+  .ham{
+    display: block;
+  }
+  .ham.active  bar:nth-child(2){
+    opacity: 0;
+  }
+  .ham.active  bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .ham.active  bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+    
+  }
+}
+

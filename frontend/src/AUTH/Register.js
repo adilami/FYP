@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { Link } from 'react-router-dom'
-function Register() {
+function Register(){
 
   const history = useNavigate();
   const [input, setInput] = useState({
@@ -126,7 +126,7 @@ function Register() {
             <button className="create-acount-btn" onClick={sendReq}>
               Register
             </button>
-            <p>Already have an account, <a href="./">Login</a></p>
+            <p>Already have an account?</p>
             <button className="mb-1 sig-in-btn" onClick={handleClick}>Login</button>
           </div>
         </div>

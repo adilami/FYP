@@ -5,11 +5,10 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function Login() {
-  const navigate = useNavigate();
+
 
   const handleClick = () => {
-    // 👇️ navigate programmatically
-    navigate("/register", { replace: true });
+    history("/register");
   };
   const history = useNavigate();
   const [input, setInput] = useState({
@@ -115,7 +114,7 @@ function Login() {
               Login
             </button>
             <p>
-              Dont have an Account, <a href="./Register">Register</a>
+              Dont have an Account?
             </p>
             <button className="create-acount-btn" onClick={handleClick}>
               Register
