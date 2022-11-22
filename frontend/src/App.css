@@ -45,11 +45,12 @@
 .main{
   height: 100vh;
   width: 100%;
-  background-image: url(./background.jpg);
+  /* background-image: url(../background.jpg); */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 .center{
   height: 70vh;

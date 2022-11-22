@@ -5,8 +5,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function Login() {
-
-
   const handleClick = () => {
     history("/register");
   };
@@ -15,57 +13,51 @@ function Login() {
     email: "",
     pass: "",
   });
-  const [showpass, setShowpass]=useState(false);
+  const [showpass, setShowpass] = useState(false);
   const togglePass = () => {
-    setShowpass(!showpass)
-  }
+    setShowpass(!showpass);
+  };
   const setChange = (e) => {
     setInput((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
-  
   };
   const sendReq = async () => {
-    const re = /\S+@\S+\.\S+/
+    const re = /\S+@\S+\.\S+/;
     const valEmail = re.test(String(input.email).toLowerCase());
-    if(!valEmail){
-        toast.error('Enter a valid Email')
-    }
-    else{
-    try {
-      const res = await axios.post("http://localhost:8000/api/login", {
-        email: input.email,
-        pass: input.pass,
-      });
-      // .catch(() => {toast.error("Incorrect Email or Password")});
-      // const data = await res.data;
-      // return data;
+    if (!valEmail) {
+      toast.error("Enter a valid Email");
+    } else {
+      try {
+        const res = await axios.post("http://localhost:8000/api/login", {
+          email: input.email,
+          pass: input.pass,
+        });
+        // .catch(() => {toast.error("Incorrect Email or Password")});
+        // const data = await res.data;
+        // return data;
 
-      // console.log('hh',data);
+        // console.log('hh',data);
 
-      if (res.status === 200) {
-        localStorage.setItem("token", res.data);
-        window.location.reload();
-        history("/home");
-        toast.success("Logged In Successfully");
-        
+        if (res.status === 200) {
+          localStorage.setItem("token", res.data);
+          window.location.reload();
+          history("/home");
+          toast.success("Logged In Successfully");
+        }
+      } catch (error) {
+        try {
+          if (!input.email || !input.pass) {
+            toast.error("Email and password are required.");
+          } else if (error.status !== 200) {
+            toast.error(error.response.data.message);
+          }
+        } catch (e) {
+          toast.error("Server is down");
+        }
       }
-    } catch (error) {
-      try{
-      if (!input.email || !input.pass) {
-        toast.error("Email and password are required.");
-      } else if (error.status !== 200) {
-        toast.error(error.response.data.message);
-      }
     }
-    catch(e){
-      toast.error("Server is down");
-    }
-      
-    }
-  }
-  
   };
 
   // const submit = (e) => {
@@ -94,28 +86,25 @@ function Login() {
               onChange={setChange}
             />
             <div className="icon">
-            <input
-              name="pass"
-              className="text-icon"
-              type={showpass ? "text":"password"}
-              minLength={8}
-              placeholder="Password"
-              value={input.pass}
-              onChange={setChange}
-              onKeyPress={handleSubmit}
-              
-             />
-             <button className="eye" onClick={togglePass}>
-             <i class="fa fa-eye"></i>
-            </button>
+              <input
+                name="pass"
+                className="text-icon"
+                type={showpass ? "text" : "password"}
+                minLength={8}
+                placeholder="Password"
+                value={input.pass}
+                onChange={setChange}
+                onKeyPress={handleSubmit}
+              />
+              <button className="eye" onClick={togglePass}>
+                <i class="fa fa-eye"></i>
+              </button>
             </div>
 
             <button className="mb-1 sig-in-btn" onClick={sendReq}>
               Login
             </button>
-            <p>
-              Dont have an Account?
-            </p>
+            <p>Dont have an Account?</p>
             <button className="create-acount-btn" onClick={handleClick}>
               Register
             </button>

@@ -1,124 +1,181 @@
-*{
+* {
   padding: 0;
-  margin:0;
+  margin: 0;
 }
-.main{
+.main {
   /* background-color: red; */
   width: 100%;
-  height: 6%;
+  height: 8%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 2px solid;
-  border-color: black;
+  /* border: 2px solid; */
+  background-color: #dbdbdb;
+  /* position: fixed;  */
+  /* top:0%;  */
+  /* border-color: black;
   border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-
+  border-bottom-right-radius: 12px; */
 }
-h1.navbar{
+h1.navbar {
   align-items: center;
-  padding: 30px;
-
+  /* padding: 30px; */
 }
-.components{
+.components {
   width: 100%;
-  height:10%;
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-between; */
-  align-items: center;
-  
-}
-
-.components{
-
-  width: 100%;
+  height: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
 }
-.ham{
+.ham {
   /* width: 200vw; */
   display: none;
   padding-right: 24px;
   cursor: pointer;
 }
-.bar{
+.bar {
   display: block;
-  width:25px;
-  height:3px;
+  width: 25px;
+  height: 3px;
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: black;
 }
-nav{
-  margin:10px;
-  height: 10vh;
-  width:90%;
+nav {
+  height: 60%;
+  width: 95%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-img{
-  height: 30%;
-  width: 110px;
+.alinks {
+  margin-left: -12%;
+  padding: -20px;
+  height: 6vh;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.first{
+img {
+  height: 80px;
+  width: 80px;
+}
+.first {
   padding-left: 4%;
-  width: 20%;
-  height: 20%;
+  width: 12%;
+  height: 80%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   margin-right: 42px;
   align-items: center;
 }
-.links{
-  width:70vw;
-  height:100%;
+.links {
+  width: 70vw;
+  height: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
 }
-.res{
-  width:70vw;
-  height:10vh;
+.res {
+  width: 70vw;
+  height: 10vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
 }
-a{
-  width:20%;
+a {
+  width: 20%;
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   /* border: 2px solid black; */
+  /* background-color:  */
 }
-@media(max-width:1000px){
-  .links
-  {
+a:hover {
+  background-color: white;
+  border-radius: 8px 8px 8px 8px;
+}
+.m-sign-in-btn {
+  /* padd:20px; */
+  width: 12vw;
+  height: 80%;
+  background-color: #5e5ef7;
+  border: 0;
+  margin-left: -3rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+}
+.sign-in-btn {
+  width: 60%;
+  height: 4vh;
+  background-color: #5e5ef7;
+  border: 0;
+  margin-left: -10px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 6px 4px rgba(0, 0, 0, 0.5);
+}
+.navbutton {
+  width: 12vw;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+}
+@media (min-width: 1001px) {
+  .mobile {
     display: none;
   }
-  .ham{
+}
+@media (max-width: 1400px) {
+  .links {
+    display: none;
+  }
+  .links.mobile {
+    grid-column: 2/4;
+    position: relative;
+    z-index: 99;
+  }
+  .mobile {
+    background-color: white;
+    border: 2px solid;
+    height: 340px;
+    display: grid;
+    grid-column: 3/5;
+    align-items: center;
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+    transition: all 2s linear;
+    transform-origin: top;
+    justify-content: center;
+  }
+  .navbar-button {
+    margin: 16px 0;
+  }
+
+  .ham {
     display: block;
   }
-  .ham.active  bar:nth-child(2){
+  .ham.active bar:nth-child(2) {
     opacity: 0;
   }
-  .ham.active  bar:nth-child(1){
+  .ham.active bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  .ham.active  bar:nth-child(3){
+  .ham.active bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-    
   }
 }
-

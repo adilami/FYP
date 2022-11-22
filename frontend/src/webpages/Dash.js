@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import NavigationBar from "./Navbar/NavigationBar";
 
 axios.defaults.withCredentials = true;
 let firstRender = false;
 function Dash() {
-  const [User, setUser] = useState();
+  const [user, setUser] = useState();
   const refreshToken = async () => {
     try{
     const res = await axios
@@ -79,7 +78,9 @@ function Dash() {
         <h1>Please login to access the dashboard.</h1>
       </div> */}
       <div>
+        <div>
         <NavigationBar />
+        </div>
         <div className="center">
           <h1>Welcome</h1>
           {/* <button onClick={toggleLogout}>Sign out</button>
