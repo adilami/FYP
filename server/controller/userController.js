@@ -11,8 +11,7 @@ const register = async (req, res) => {
     return res
       .status(400)
       .json({
-        message:
-          "All the text fields are required",
+        message: "All the text fields are required",
       });
   }
   else{

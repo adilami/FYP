@@ -8,6 +8,9 @@ function Login() {
   const handleClick = () => {
     history("/register");
   };
+  const adminLogin = () => {
+    history("/adminLogin")
+  }
   const history = useNavigate();
   const [input, setInput] = useState({
     email: "",
@@ -43,7 +46,7 @@ function Login() {
         if (res.status === 200) {
           localStorage.setItem("token", res.data);
           window.location.reload();
-          history("/home");
+          history("/");
           toast.success("Logged In Successfully");
         }
       } catch (error) {
@@ -108,8 +111,14 @@ function Login() {
             <button className="create-acount-btn" onClick={handleClick}>
               Register
             </button>
+            <p>Are you an Admin?</p>
+
+            <button className="create-acount-btn" onClick={adminLogin}>
+              Admin Login
+        </button>
           </div>
         </div>
+        
       </div>
       <ToastContainer />
     </>

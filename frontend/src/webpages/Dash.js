@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import NavigationBar from "./Navbar/NavigationBar";
+import "./Dash.css"
+import { useHref } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 let firstRender = false;
@@ -22,30 +24,30 @@ function Dash() {
     
   };
 
-  const sendReq = async () => {
-    try{
-    const res = await axios
-      .get("http://localhost:8000/api/getUser", {
-        withCredentials: true
-      ,})
-      console.log(res);
-    }
-    catch(e){
-      if(e.status!==200)
-      toast.error(e.response.data.message);
-  }
-  };
-  useEffect(() => {
-    if(firstRender){
-      firstRender=true;
-      sendReq().then((data)=>setUser(data.user)) 
-    }
-      let int = setInterval(() => {
-            refreshToken().then((data) => setUser(data));
-          }, 1000 * 3600);//3600s
-          return () => clearInterval(int);
+  // const sendReq = async () => {
+  //   try{
+  //   const res = await axios
+  //     .get("http://localhost:8000/api/refresh", {
+  //       withCredentials: true
+  //     ,})
+  //     console.log(res);
+  //   }
+  //   catch(e){
+  //     if(e.status!==200)
+  //     toast.error(e.response.data.message);
+  // }
+  // };
+  // useEffect(() => {
+  //   if(firstRender){
+  //     firstRender=true;
+  //     sendReq().then((data)=>setUser(data.user)) 
+  //   }
+  //     let int = setInterval(() => {
+  //           refreshToken().then((data) => setUser(data));
+  //         }, 1000 * 3600);//3600s
+  //         return () => clearInterval(int);
 
-  },[]);
+  // },[]);
   // const history = useNavigate();
 
   // const sendReqLogout = async () => {
@@ -77,17 +79,23 @@ function Dash() {
       {/* <div>
         <h1>Please login to access the dashboard.</h1>
       </div> */}
-      <div>
-        <div>
+      <div className="mainPage">
+        <div className="navbar1">
         <NavigationBar />
         </div>
-        <div className="center">
-          <h1>Welcome</h1>
-          {/* <button onClick={toggleLogout}>Sign out</button>
-          <button onClick={togglevid}>Videos</button> */}
+        <div className="centerHome">
+          <div className="containerHome">
+          <div className="card1">
+            <h1>The key to a healthy life is having a healthy mind</h1>
+           <a className="a" href="/que"><h1>Click here for your Daily Check-in</h1></a>
+          </div>
+          <div className="card2">
+            <h1>Inhale the future, exhale the Past</h1>
+           <a className="a" href="/videos"><h1>Click here to watch wellbeing videos</h1></a>
+
+          </div>
           
-          <div className="container">
-        </div>
+          </div>
         </div>
       </div>
       

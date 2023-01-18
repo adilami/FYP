@@ -126,6 +126,7 @@ a:hover {
   color: white;
   font-weight: 600;
   box-shadow: 6px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 .navbutton {
   width: 12vw;

@@ -58,7 +58,7 @@ function NavigationBar() {
                 </a>
               </div>
               <div className="navbutton">
-                <button className="sign-in-btn" href="" onClick={toggleLogout}>
+                <button className="sign-in-btn" onClick={toggleLogout}>
                   Sign out
                 </button>
               </div>

@@ -57,14 +57,7 @@ function Register() {
       }
     }
   };
-  //   const submit = (e) => {
-  //     if(!input.userName||!input.email||!input.pass){
-  //       toast.error("All the text field needs to be filled!!!");
-  //     }
-  //     else{
-  //       sendReq().then(() => history("/"));
-  //     }
-  // };
+
   const handleSubmit = (e) => {
     if (e.key === "Enter") {
       sendReq();
