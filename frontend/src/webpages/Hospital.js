@@ -5,7 +5,9 @@ function Hospital() {
   return (
     <div>
       <NavigationBar />
-      <h1>Hospitals</h1></div>
+      <h1>Hospitals</h1>
+      <h1>Kathmandu</h1>
+      </div>
   )
 }
 
