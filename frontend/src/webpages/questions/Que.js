@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import NavigationBar from "../Navbar/NavigationBar";
-import questions from "../../database/questions";
 import "./que.css";
 import { toast, ToastContainer } from "react-toastify";
 
 const initialState = {};
-questions.forEach((v) => {
-  const { id, question } = v;
-  return (initialState[id] = { id, question, isSelected: null });
-});
+// questions.forEach((v) => {
+//   const { id, question } = v;
+//   return (initialState[id] = { id, question, isSelected: null });
+// });
 function Que() {
   useEffect(() => {
     console.log();
