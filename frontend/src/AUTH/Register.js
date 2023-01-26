@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { Link } from 'react-router-dom'
-function Register() {
+function Register(){
   const history = useNavigate();
   const [input, setInput] = useState({
     userName: "",
@@ -28,7 +28,8 @@ function Register() {
     const valEmail = re.test(String(input.email).toLowerCase());
     if (!valEmail) {
       toast.error("Enter a valid Email");
-    } else {
+    }
+    else {
       try {
         if (input.pass.length < 8) {
           toast.error("Password must contain atleast 8 characters.");

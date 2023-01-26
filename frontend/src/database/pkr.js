@@ -1,66 +1,32 @@
 export default[
   {
-    name:"CMC Nepal",
+    name:"Nepal Psychoogical Center",
+    location:"Uttam Chowk",
+    maps:"http://bitly.ws/zpCt",
+    phone:"9803222277"
+  },
+  {
+    name:"BG Hospital",
+    location:"Mahendra Pool",
+    maps:"http://bitly.ws/zpCC",
+    phone:"061-538975"
+  }, 
+  {
+    name:"Psychological Help Center",
+    location:"Ratna Chowk",
+    maps:"http://bitly.ws/zpCK",
+    phone:"9825195139"
+  }, 
+  {
+    name:"Kaski Model Hospital",
     location:"Newroad",
-    maps:"maps",
-    phone:"98000000"
+    maps:"http://bitly.ws/zpCY",
+    phone:"061-539803"
   },
   {
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  }, {
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  }, {
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  }, {
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  }, {
-    id:1,
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  }, {
-    id:1,
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  }, {
-    id:1,
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  }, {
-    id:1,
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  }, {
-    id:1,
-    name:"CMC Nepal",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  },
-  {
-    id:2,
-    name:"CMC P",
-    location:"Thapathali",
-    maps:"",
-    phone:""
-  },
+    name:"Manipal Hosital",
+    location:"Fulbari",
+    maps:"http://bitly.ws/zpDb", 
+    phone:"061-526416"
+  }
 ];

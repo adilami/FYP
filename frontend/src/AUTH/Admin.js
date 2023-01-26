@@ -1,11 +1,9 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 function Admin() {
-  const handleClick = () => {
-    history("/register");
-  };
   const userLogin = () => {
     history("/")
   }
@@ -24,51 +22,40 @@ function Admin() {
       [e.target.name]: e.target.value,
     }));
   };
-  const sendReq = () => {
-    history("/adminDash");
-  }
-  // const sendReq = async () => {
-  //   const re = /\S+@\S+\.\S+/;
-  //   const valEmail = re.test(String(input.email).toLowerCase());
-  //   if (!valEmail) {
-  //     toast.error("Enter a valid Email");
-  //   } else {
-  //     try {
-  //       const res = await axios.post("http://localhost:8000/api/login", {
-  //         email: input.email,
-  //         pass: input.pass,
-  //       });
-  //       // .catch(() => {toast.error("Incorrect Email or Password")});
-  //       // const data = await res.data;
-  //       // return data;
+  // const sendReq = () => {
+  //   history("/adminDash");
+  // }
+  const sendReq = async () => {
+      try {
+        const res = await axios.post("http://localhost:8000/api/Adminlogin", {
+          email: input.email,
+          pass: input.pass,
+        });
 
-  //       // console.log('hh',data);
+        if (res.status === 200) {
+          localStorage.setItem("tokenAdmin", res.data); 
+          window.location.reload();
+          history("/adminDash");
+          toast.success("Logged In Successfully");
+        }
+      } catch (error) {
+        try {
+          if (!input.email || !input.pass) {
+            toast.error("Email and password are required.");
+          } else if (error.status !== 200) {
+            toast.error(error.response.data.message);
+          }
+        } catch (e) {
+          toast.error("Server is down");
+        }
+      }
+  };
 
-  //       if (res.status === 200) {
-  //         localStorage.setItem("token", res.data);
-  //         window.location.reload();
-  //         history("/");
-  //         toast.success("Logged In Successfully");
-  //       }
-  //     } catch (error) {
-  //       try {
-  //         if (!input.email || !input.pass) {
-  //           toast.error("Email and password are required.");
-  //         } else if (error.status !== 200) {
-  //           toast.error(error.response.data.message);
-  //         }
-  //       } catch (e) {
-  //         toast.error("Server is down");
-  //       }
-  //     }
-  //   }
-  // };
-
-  // const handleSubmit = (a) => {
-  //   if (a.key === "Enter") {
-  //     sendReq();
-  //   }
-  // };
+  const handleSubmit = (a) => {
+    if (a.key === "Enter") {
+      sendReq();
+    }
+  };
   return (
     <>
     <div className="center-form">

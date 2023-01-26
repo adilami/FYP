@@ -33,7 +33,8 @@ function Login() {
       toast.error("Enter a valid Email");
     } else {
       try {
-        const res = await axios.post("http://localhost:8000/api/login", {
+        const res = await axios.post("http://localhost:8000/api/login",
+        {
           email: input.email,
           pass: input.pass,
         });

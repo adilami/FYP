@@ -9,6 +9,7 @@ import Hospital from "./webpages/Hospital";
 import Que from "./webpages/questions/Que";
 import Videos from "./webpages/videos";
 const user=localStorage.getItem("token");
+const admin = localStorage.getItem("tokenAdmin")
 
 
 function App() {
@@ -18,8 +19,8 @@ function App() {
       <Routes>
         {user&&<Route exact path="/" element={<Dash />} />}
         {!user&&<Route exact path="/" element={<Login />} />}
-        !user&&<Route exact path="/adminLogin" element={<Admin />} />
-        <Route exact path="/adminDash" element={<AdminDash />} />
+        <Route exact path="/adminLogin" element={<Admin />} />
+        {admin&&<Route exact path="/adminDash" element={<AdminDash />} />}
         <Route exact path="/register" element={<Register />} />
         {user&&<Route exact path="/home" element={<Dash />} />}
         {user&&<Route exact path="/videos" element={<Videos />} />}
