@@ -4,6 +4,8 @@ import Admin from "./AUTH/Admin";
 import Login from "./AUTH/Login";
 import Register from "./AUTH/Register";
 import AdminDash from "./webpages/AdminDash";
+import ManageUser from "./webpages/AdminPages/ManageUser";
+import ManageVid from "./webpages/AdminPages/ManageVid";
 import Dash from "./webpages/Dash";
 import Hospital from "./webpages/Hospital";
 import Que from "./webpages/questions/Que";
@@ -21,6 +23,8 @@ function App() {
         {!user&&<Route exact path="/" element={<Login />} />}
         <Route exact path="/adminLogin" element={<Admin />} />
         {admin&&<Route exact path="/adminDash" element={<AdminDash />} />}
+        {admin&&<Route exact path="/manageVid" element={<ManageVid />} />}
+        {admin&&<Route exact path="/manageUser" element={<ManageUser />} />}
         <Route exact path="/register" element={<Register />} />
         {user&&<Route exact path="/home" element={<Dash />} />}
         {user&&<Route exact path="/videos" element={<Videos />} />}

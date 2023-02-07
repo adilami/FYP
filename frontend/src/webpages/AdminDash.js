@@ -1,8 +1,13 @@
 import React from 'react'
+import AdminNav from './Navbar/AdminNav';
 
 function AdminDash() {
   return (
-    <div>AdminDash</div>
+    <>  
+    <AdminNav />
+      <div>AdminDash</div>
+  </>
+
   )
 }
 

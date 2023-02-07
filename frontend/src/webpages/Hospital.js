@@ -39,19 +39,20 @@ function Hospital() {
     const [KTM, setKTM] = useState(false);
     const [ALL, setALL] = useState(false);
     const [name, setName] = useState("");
+    const [country, setCountry] = useState("");
   async function getLocation(){
     let url = "https://ipinfo.io/json?token=25e719ca57a46f";
     let response = await fetch(url);
     let data = await response.json();
-    console.log(data.city);
-  console.log(data.city=="Pokhara")
-  if(data.city=="Pokhara"){
+    console.log(data.country);
+  console.log(data.city === "Pokhara")
+  if(data.city==="Pokhara"){
      setPKR(true);
      setKTM(false);
      setALL(false);
      setName("Pokhara")
   }
-  else if(data.city=="Kathmandu"){
+  else if(data.city==="Kathmandu"){
     setPKR(false);
     setKTM(true);
     setALL(false);
@@ -62,6 +63,7 @@ function Hospital() {
     setKTM(false);
     setALL(true);
  }
+ setCountry(data.country)
 }
 useEffect(()=>{
   getLocation();
@@ -142,6 +144,7 @@ console.log(PKR);
         </tbody>
       </table>
       </div>}
+      <h1>Your present country is {country} and your city is {name}</h1>
       </div>
       </>
   )

@@ -34,8 +34,8 @@ function Admin() {
 
         if (res.status === 200) {
           localStorage.setItem("tokenAdmin", res.data); 
-          window.location.reload();
           history("/adminDash");
+          window.location.reload();
           toast.success("Logged In Successfully");
         }
       } catch (error) {
@@ -79,7 +79,7 @@ function Admin() {
                 placeholder="Password"
                 value={input.pass}
                 onChange={setChange}
-                // onKeyPress={handleSubmit}
+                onKeyPress={handleSubmit}
               />
               <button className="eye" onClick={togglePass}>
                 <i class="fa fa-eye"></i>
