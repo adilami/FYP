@@ -4,8 +4,10 @@ const router = require("./route/userRoute");
 const adminRouter = require("./route/adminRoute");
 const cookie = require("cookie-parser");
 const cors = require("cors");
-
 const app = express();
+
+const cronJob = require("./cron");
+cronJob.sendMailUser();
 
 app.use(cors({credentials:true,origin:"http://localhost:3000"}));
 app.use(cookie());

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import AdminNav from '../Navbar/AdminNav'
+import "./adminPage.css"
 
 function ManageUser() {
   const [data, setData] = useState([]);
@@ -17,8 +18,9 @@ function ManageUser() {
       setData(data.data);
     })
   }
-  const removeUser = (id) => {
-    if(window.confirm(`Do you want to delete the user`)){
+  const removeUser = (id, userName) => {
+    if(window.confirm(`Do you want to delete the user with user name: ${userName}`
+  )){
       fetch("http://localhost:8000/removeUser",{
         method:"POST",
         crossDomain: true,
@@ -42,28 +44,33 @@ function ManageUser() {
   return (
     <>
     <AdminNav />
-
-    <div>
-      <h1>manageUser</h1>
+    <h1>Manage User</h1>
+    <div className='homep'>
+    <div className='table1'>
       </div>
       <table>
+        <thead>
           <tr>
             <th>User Id</th>
             <th>UserName</th>
             <th>Email</th>
             <th>Action</th>
           </tr>
+        </thead>
         {data.map(i=>{
             return(
+            <tbody>
               <tr>
                 <td>{i._id}</td>
                 <td>{i.userName}</td>
                 <td>{i.email}</td>
-                <td><button onClick={()=>removeUser(i._id)}>Remove</button></td>
-                </tr>
+                <td><button className='buttonRemove' onClick={()=>removeUser(i._id, i.userName)}>Remove</button></td>
+              </tr>
+            </tbody>
             )
           })}
       </table>
+      </div>
       </>
   )
 }

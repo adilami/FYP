@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminNav from './Navbar/AdminNav';
+import AdminNav from '../Navbar/AdminNav';
 
 function AdminDash() {
   return (

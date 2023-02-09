@@ -18,13 +18,17 @@ th{
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: #f2f2f2;
+  /* margin: 20px; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
 }
 tr{
   width:100%;
   border: 2px solid black;
   display: flex;
   flex-direction: row;
+  
 }
 thead{
   width: 100%;
@@ -42,6 +46,7 @@ td{
   /* display: flex; */
   flex-direction: row;
   text-align: center;
+  margin: 20px;
 }
 .homep{
   width:100%;

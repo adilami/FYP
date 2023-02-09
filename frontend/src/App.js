@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Admin from "./AUTH/Admin";
 import Login from "./AUTH/Login";
 import Register from "./AUTH/Register";
-import AdminDash from "./webpages/AdminDash";
+import AdminDash from "./webpages/AdminPages/AdminDash";
 import ManageUser from "./webpages/AdminPages/ManageUser";
 import ManageVid from "./webpages/AdminPages/ManageVid";
 import Dash from "./webpages/Dash";
