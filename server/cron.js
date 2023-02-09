@@ -1,5 +1,4 @@
 const User = require("./models/user")
-const mailer = require("./mail/mailer");
 const nodemailer = require("nodemailer");
 const cron = require('node-cron');
 const dotenv = require('dotenv');
@@ -8,9 +7,10 @@ dotenv.config();
 const sendMails = async (reciever) => {
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port:587,
+    port:465,
     secure:false,
     service: 'gmail',
+    priority:"high",
     requireTLS:true,
     auth:{
       user:process.env.GMAIL_USERNAME,
@@ -22,24 +22,24 @@ const mailData = {
   from:'Wellbeing App',
   to:reciever,
   subject:'Reminder for wellness Check-in',
-  html:'<p>Please Checkin to the app for wellness checkin</p>'
+  html:'<h1>Its time for wellness checkin!!!</h1><br><p>Please visit the app for your wellness check-in.</p>'
 }
 transporter.sendMail(mailData, (error)=>{
   if(error){
     console.log(error);
   }
   else{
-    console.log("Email Sent");
+    console.log("Email has been sent to the users");
   }
 });
 }
 const sendMailUser = () =>{
   try{
-    cron.schedule("0 0 6 * * *", async function(){
-      var Udata = await User.find({});
-      if(Udata.length>0){
+    cron.schedule("00 06 * * *", async function(){
+      var data = await User.find({});
+      if(data.length>0){
         var emails = [];
-        Udata.map((i)=>{
+        data.map((i)=>{
           emails.push(i.email)
         });
         sendMails(emails);
