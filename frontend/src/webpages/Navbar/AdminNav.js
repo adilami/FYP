@@ -41,14 +41,14 @@ function AdminNav() {
           <div className={"links"}>
             <nav>
               <div className="alinks">
-                <a className="navbar-button" href="/adminDash">
-                  Home
-                </a>
                 <a className="navbar-button" href="/manageUser">
                   Manage User
                 </a>
-                <a className="navbar-button" href="/manageVid">
-                  Manage Videos
+                <a className="navbar-button" href="/addVid">
+                  Add Videos
+                </a>
+                <a className="navbar-button" href="/deleteVid">
+                  Delete Videos
                 </a>
               </div>
               <div className="navbutton">
@@ -80,14 +80,14 @@ function AdminNav() {
       </div>
       {navbar && (
         <div className="mobile">
-          <a className="navbar-button" href="/adminDash">
-            Home
-          </a>
           <a className="navbar-button" href="/manageUser">
             Manage User
           </a>
-          <a className="navbar-button" href="/manageVid">
-            Manage Videos
+          <a className="navbar-button" href="/addVid">
+            Add Videos
+          </a>
+          <a className="navbar-button" href="/deleteVid">
+            Delete Videos
           </a>
           <button className="m-sign-in-btn" href="" onClick={toggleLogout}>
             Sign out

@@ -52,23 +52,23 @@ function Que() {
             <ul>
               <li>
                 <input className="queInput" type="radio" id="sleep" name="1" value="y" />
-                <label for="sleep" id="sleep">
+                <label className="queLabel" for="sleep" id="sleep">
                   Having Problem Sleeping
                 </label>
               </li>
               <li> 
                 <input className="queInput" type="radio" id="focus" name="1" value="y" />
-                <label for="focus">
+                <label className="queLabel" for="focus">
                   Having problem to focus
                 </label>
               </li>
               <li>
                 <input className="queInput" type="radio" id="both" name="1" value="y" />
-                <label for="both">Both sleep and focus problems</label>
+                <label className="queLabel" for="both">Both sleep and focus problems</label>
               </li>
               <li>
                 <input className="queInput" type="radio" id="none" name="1" value="y" />
-                <label for="none">No problems at the moment</label>
+                <label className="queLabel" for="none">No problems at the moment</label>
               </li>
             </ul>
           </form>

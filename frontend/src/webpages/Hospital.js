@@ -45,6 +45,7 @@ function Hospital() {
     let response = await fetch(url);
     let data = await response.json();
     console.log(data.country);
+    console.log(data.city);
   console.log(data.city === "Pokhara")
   if(data.city==="Pokhara"){
      setPKR(true);

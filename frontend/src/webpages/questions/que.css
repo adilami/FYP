@@ -26,7 +26,7 @@
 .queInput{
   visibility: hidden;
 }
-label{
+.queLabel{
   width:20vw;
   height: 8vh;
   display: flex;

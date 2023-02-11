@@ -3,13 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import Admin from "./AUTH/Admin";
 import Login from "./AUTH/Login";
 import Register from "./AUTH/Register";
-import AdminDash from "./webpages/AdminPages/AdminDash";
+import AddVid from "./webpages/AdminPages/AddVid";
 import ManageUser from "./webpages/AdminPages/ManageUser";
-import ManageVid from "./webpages/AdminPages/ManageVid";
 import Dash from "./webpages/Dash";
 import Hospital from "./webpages/Hospital";
 import Que from "./webpages/questions/Que";
 import Videos from "./webpages/videos";
+import DelVid from "./webpages/AdminPages/DelVid";
 const user=localStorage.getItem("token");
 const admin = localStorage.getItem("tokenAdmin")
 
@@ -22,8 +22,8 @@ function App() {
         {user&&<Route exact path="/" element={<Dash />} />}
         {!user&&<Route exact path="/" element={<Login />} />}
         <Route exact path="/adminLogin" element={<Admin />} />
-        {admin&&<Route exact path="/adminDash" element={<AdminDash />} />}
-        {admin&&<Route exact path="/manageVid" element={<ManageVid />} />}
+        {admin&&<Route exact path="/addVid" element={<AddVid />} />}
+        {admin&&<Route exact path="/deleteVid" element={<DelVid />} />}
         {admin&&<Route exact path="/manageUser" element={<ManageUser />} />}
         <Route exact path="/register" element={<Register />} />
         {user&&<Route exact path="/home" element={<Dash />} />}
