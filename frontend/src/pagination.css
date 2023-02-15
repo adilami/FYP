@@ -1,0 +1,29 @@
+*{
+  padding: 0%;
+  margin: 0%;
+}
+.pagination{
+  width:6vw;
+  height: auto;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  cursor: pointer;
+  text-decoration: none;
+
+
+}
+.list{
+  width:100%;
+  height: 100%;
+  justify-content: center;
+  border: 2px solid black;
+  list-style: none;
+
+}
+.pagList{
+  width: 100%;
+  height:100%;
+  align-items: center;
+  text-decoration: none;
+}

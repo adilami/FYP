@@ -28,5 +28,23 @@ export default[
     location:"Madhya Marg",
     maps:"http://bitly.ws/zeRf",
     phone:"9801031443"
-  }
+  },
+  {
+    name:"Norvic Hospital",
+    location:"Thapathali",
+    maps:"http://bitly.ws/AhvT",
+    phone:"01-5970032"
+  },
+  {
+    name:"Grande International Hospital",
+    location:"Tokha Road",
+    maps:"http://bitly.ws/Ahw3",
+    phone:"01-5159267"
+  },
+  {
+    name:"Nepal Medicity Hospital",
+    location:"Nakhkhu Road",
+    maps:"http://bitly.ws/Ahwg",
+    phone:"01-4217766"
+  },
 ];

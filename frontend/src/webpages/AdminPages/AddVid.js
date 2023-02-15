@@ -72,6 +72,7 @@ function AddVid() {
         value={imgURL}
       />
       <br></br>
+      <h3>Type of Video</h3>
       <input type="radio" id="sleep" name="1" value="y" />
       <label for="sleep" id="sleep">
         Sleep

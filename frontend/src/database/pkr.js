@@ -28,5 +28,42 @@ export default[
     location:"Fulbari",
     maps:"http://bitly.ws/zpDb", 
     phone:"061-526416"
-  }
+  },
+  {
+    name:"Fishtail Hosital",
+    location:"Gairapatan",
+    maps:"http://bitly.ws/Ahit", 
+    phone:"061-577553"
+  },
+  {
+    name:"Metrocity Hosital",
+    location:"Srijana Chowk",
+    maps:"http://bitly.ws/AhiU", 
+    phone:"061-576531"
+  },
+  {
+    name:"Metrocity Hosital",
+    location:"Srijana Chowk",
+    maps:"http://bitly.ws/AhiU", 
+    phone:"061-576531"
+  },
+  {
+    name:"Fewa City Hosital",
+    location:"Nagdhunga",
+    maps:"http://bitly.ws/Ahjj", 
+    phone:"061-532685"
+  },
+  {
+    name:"Charak Memorial Hosital",
+    location:"Nagdhunga",
+    maps:"http://bitly.ws/AhjA", 
+    phone:"061-582778"
+  },
+  {
+    name:"Western Regional Hosital",
+    location:"Ramghat",
+    maps:"http://bitly.ws/AhjH", 
+    phone:"061-520461"
+  },
+  
 ];

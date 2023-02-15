@@ -77,7 +77,7 @@ h1{
   opacity: .9;
   color: white;
 }
-li{
+.questionList{
   width:20vw;
   height:12vh;
   /* background-color: blue; */

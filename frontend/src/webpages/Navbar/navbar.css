@@ -90,7 +90,7 @@ img {
   justify-content: flex-end;
   align-items: center;
 }
-a {
+.navbar-button {
   width: 20%;
   height: 100%;
   display: flex;
@@ -100,7 +100,7 @@ a {
   /* border: 2px solid black; */
   /* background-color:  */
 }
-a:hover {
+.navbar-button:hover {
   background-color: white;
   border-radius: 8px 8px 8px 8px;
 }

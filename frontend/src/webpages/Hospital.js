@@ -3,10 +3,20 @@ import NavigationBar from './Navbar/NavigationBar'
 import ktmdata from "../database/ktm"
 import pkrdata from "../database/pkr"
 import "../webpages/hospital.css";
+import Paginations from '../pagination';
 
 function Hospital() {
+  const[currentPage, setCurrentPage] = useState(1);
+  const[post] = useState(5);
+  const indexOfLastPost = currentPage * post;
+  const indexOfFirstPost = indexOfLastPost-post;
+  const currentPostKTM = ktmdata.slice(indexOfFirstPost, indexOfLastPost)
+  const currentPostPKR = pkrdata.slice(indexOfFirstPost, indexOfLastPost)
+  const paginate = (pageN) => setCurrentPage(pageN);
 
-    let ktm = ktmdata.map ((items)=>{
+
+
+    let ktm = currentPostKTM.map ((items)=>{
       return(
         <>
         <tbody>
@@ -20,7 +30,7 @@ function Hospital() {
         </>
       )
     })
-    let pkr = pkrdata.map ((items)=>{
+    let pkr = currentPostPKR.map ((items)=>{
       return(
         <>
         <tbody>
@@ -75,8 +85,11 @@ console.log(PKR);
     <>
     <NavigationBar />
     <div className='homep'>
+    <h1>Your present country is {country} and your city is {name}</h1>
+<br></br>
       {KTM && <div className='table1'>
-      <h1>{name}</h1>
+        
+      <h2>Help centers in {name}</h2>
       <table>
         <thead>
           <tr>
@@ -93,8 +106,11 @@ console.log(PKR);
         </tbody>
       </table>
       </div>}
+   {KTM && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
+   {KTM&&<h5>Showing {currentPostKTM.length} out of {ktmdata.length}</h5>}
+
      {PKR && <div className='table1'>
-     <h1>{name}</h1>
+     <h2>Help centers in {name}</h2>
       <table>
         <thead>
           <tr>
@@ -110,9 +126,14 @@ console.log(PKR);
           </tr>
         </tbody>
       </table>
-      </div>}
+    </div>
+  }
+   {PKR && <Paginations post={post} totalPosts={pkrdata.length} paginate={paginate}/>}
+    {PKR&&<h5>Showing {currentPostPKR.length} out of {pkrdata.length} hospitals.</h5>}
+
+
       {ALL && <div className='table1'>
-        <h1>Kathmandu</h1>
+        <h2>Help centers in Kathmandu</h2>
       <table>
         <thead>
           <tr>
@@ -128,7 +149,10 @@ console.log(PKR);
           </tr>
         </tbody>
       </table>
-     <h1>Pokhara</h1>
+   {ALL && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
+   {ALL&&<h5>Showing {currentPostKTM.length} out of {ktmdata.length}</h5>}
+
+     <h2>Help centers in Pokhara</h2>
       <table>
         <thead>
           <tr>
@@ -145,8 +169,12 @@ console.log(PKR);
         </tbody>
       </table>
       </div>}
-      <h1>Your present country is {country} and your city is {name}</h1>
       </div>
+   {ALL && <Paginations post={post} totalPosts={pkrdata.length} paginate={paginate} />}
+   {ALL&&<h5>Showing {currentPostPKR.length} out of {pkrdata.length} hospitals.</h5>}
+
+
+
       </>
   )
 }
