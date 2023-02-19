@@ -31,7 +31,10 @@ function Login() {
     const valEmail = re.test(String(input.email).toLowerCase());
     if (!valEmail) {
       toast.error("Enter a valid Email");
-    } else {
+    } 
+    
+
+    else {
       try {
         const res = await axios.post("http://localhost:8000/api/login",
         {
@@ -43,7 +46,9 @@ function Login() {
         // return data;
 
         // console.log('hh',data);
-
+        if(res.status === 403){
+          toast.error("The user is banned!!!")
+        }
         if (res.status === 200) {
           localStorage.setItem("token", res.data);
           window.location.reload();

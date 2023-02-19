@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   userName: { type: String, required:true },
   email: { type: String, required:true, unique:true },
-  pass: { type: String, required:true}
-})
+  pass: { type: String, required:true},
+  isBan: { type:Boolean, default:false},
+},
+{timestamps:true}
+)
 const model = mongoose.model("user", userSchema)
 module.exports = model;

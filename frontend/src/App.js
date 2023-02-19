@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Admin from "./AUTH/Admin";
 import Login from "./AUTH/Login";
@@ -14,12 +14,11 @@ const user=localStorage.getItem("token");
 const admin = localStorage.getItem("tokenAdmin")
 
 
-function App() {
-  
+function App() {  
   return (
     <>
       <Routes>
-        {user&&<Route exact path="/" element={<Dash />} />}
+        {user && <Route exact path="/" element={<Dash />} />}
         {!user&&<Route exact path="/" element={<Login />} />}
         <Route exact path="/adminLogin" element={<Admin />} />
         {admin&&<Route exact path="/addVid" element={<AddVid />} />}

@@ -33,7 +33,8 @@ const register = async (req, res) => {
     userName,
     email,
     // encryptedPass,
-    pass: encryptedPass
+    pass: encryptedPass,
+    isBan:"false"
   });
   try {
     await User.save();
@@ -50,6 +51,13 @@ const login = async (req, res) => {
     existingUser = await user.findOne({ email: email });
   } catch (e) {
     return e;
+  }
+  if(existingUser.isBan){
+    return res
+    .status(403)
+    .json({
+      message:"User is banned",
+    })
   }
   if (!existingUser) {
     return res
@@ -125,6 +133,7 @@ const refreshToken = (req, res,next) => {
       console.log(e);
       return res.status(403).json({message:"Authentication is failed!"})
     }
+    req.ban = ban;
     res.clearCookie(`${user.id}`);
     req.cookies[`${user.id}`]="";
 
@@ -158,9 +167,46 @@ const logout = (req, res) => {
   
   })
 }
+
+const banUser = async (req, res)=>{
+  const { id } = req.params;
+  try{
+    const ban = await user.findByIdAndUpdate(
+      id, 
+      { isBan:true },
+      { new:true }
+    )
+    res.json({
+      ban
+    })
+  }
+  catch(e){
+    res.status(500).json({message:e.message})
+  }
+}
+const unbanUser = async (req, res)=>{
+  const { id } = req.params;
+  try{
+    const ban = await user.findByIdAndUpdate(
+      id, 
+      { isBan:false },
+      { new:true }
+    )
+    res.json({
+      ban
+    })
+  }
+  catch(e){
+    res.status(500).json({message:e.message})
+  }
+}
+
 exports.register = register;
 exports.login = login;
 exports.verification = verification;
 exports.getUser = getUser;
 exports.refreshToken=refreshToken;
 exports.logout=logout;
+exports.banUser=banUser;
+exports.unbanUser=unbanUser;
+

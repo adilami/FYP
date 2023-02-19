@@ -110,8 +110,8 @@ function DelVid() {
     <>
       <AdminNav />
       <div>
-        <h1>Delete Videos</h1>
-        <h1>Sleep</h1>
+        <h2>Delete Videos</h2>
+        <h3>Sleep</h3>
       </div>
       <div className="homep">
         <div className="table1">
@@ -148,7 +148,7 @@ function DelVid() {
           </table>
         </div>
       </div>
-      <h2>Yoga</h2>
+      <h3>Yoga</h3>
       <div className="homep">
         <div className="table1">
           <table>
@@ -184,7 +184,7 @@ function DelVid() {
           </table>
         </div>
       </div> 
-      <h2>Productivity</h2>
+      <h3>Productivity</h3>
       <div className="homep">
         <div className="table1">
           <table>

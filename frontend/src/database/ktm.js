@@ -47,4 +47,40 @@ export default[
     maps:"http://bitly.ws/Ahwg",
     phone:"01-4217766"
   },
+  {
+    name:"CIWEC Hospital",
+    location:"Kapurdhara Marga",
+    maps:"http://bitly.ws/AsXU",
+    phone:"01-4435232"
+  },
+  {
+    name:"Himal Hospital",
+    location:"Thirbum Marga",
+    maps:"http://bitly.ws/AsYq",
+    phone:"01-4536348"
+  },
+  {
+    name:"Metro Kathmandu Hospital",
+    location:"Maharajgunj",
+    maps:"http://bitly.ws/AsYq",
+    phone:"01-4536348"
+  },
+  {
+    name:"Nepal Police Hospital",
+    location:"Panipokhari Marga",
+    maps:"http://bitly.ws/AsYH",
+    phone:"01-4412430"
+  },
+  {
+    name:"Birendra Army Hospital",
+    location:"Chhauni Hospital Road",
+    maps:"http://bitly.ws/AsYS",
+    phone:"01-4274019"
+  },
+  {
+    name:"Grande City Hospital",
+    location:"Kanti Path",
+    maps:"http://bitly.ws/AsZ9",
+    phone:"01-4163500"
+  },
 ];

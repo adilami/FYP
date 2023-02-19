@@ -83,13 +83,14 @@ useEffect(()=>{
 console.log(PKR);
   return (
     <>
+
     <NavigationBar />
-    <div className='homep'>
-    <h1>Your present country is {country} and your city is {name}</h1>
+    <div className='homeH'>
+    <h2>Present country: {country} and City: {name}</h2>
 <br></br>
       {KTM && <div className='table1'>
         
-      <h2>Help centers in {name}</h2>
+      <h3>Help centers in {name}</h3>
       <table>
         <thead>
           <tr>
@@ -106,11 +107,11 @@ console.log(PKR);
         </tbody>
       </table>
       </div>}
-   {KTM && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
-   {KTM&&<h5>Showing {currentPostKTM.length} out of {ktmdata.length}</h5>}
+        {KTM && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
+        {KTM&&<h5>Showing {currentPostKTM.length}/{ktmdata.length} hospitals.</h5>}
 
      {PKR && <div className='table1'>
-     <h2>Help centers in {name}</h2>
+     <h3>Help centers in {name}</h3>
       <table>
         <thead>
           <tr>
@@ -129,11 +130,11 @@ console.log(PKR);
     </div>
   }
    {PKR && <Paginations post={post} totalPosts={pkrdata.length} paginate={paginate}/>}
-    {PKR&&<h5>Showing {currentPostPKR.length} out of {pkrdata.length} hospitals.</h5>}
+    {PKR&&<h5>Showing {currentPostPKR.length}/{pkrdata.length} hospitals.</h5>}
 
 
       {ALL && <div className='table1'>
-        <h2>Help centers in Kathmandu</h2>
+        <h3>Help centers in Kathmandu</h3>
       <table>
         <thead>
           <tr>
@@ -150,9 +151,9 @@ console.log(PKR);
         </tbody>
       </table>
    {ALL && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
-   {ALL&&<h5>Showing {currentPostKTM.length} out of {ktmdata.length}</h5>}
+   {ALL&&<h5>Showing {currentPostKTM.length}/{ktmdata.length}</h5>}
 
-     <h2>Help centers in Pokhara</h2>
+     <h3>Help centers in Pokhara</h3>
       <table>
         <thead>
           <tr>
@@ -171,10 +172,7 @@ console.log(PKR);
       </div>}
       </div>
    {ALL && <Paginations post={post} totalPosts={pkrdata.length} paginate={paginate} />}
-   {ALL&&<h5>Showing {currentPostPKR.length} out of {pkrdata.length} hospitals.</h5>}
-
-
-
+   {ALL&&<h5>Showing {currentPostPKR.length}/{pkrdata.length} hospitals.</h5>}
       </>
   )
 }
