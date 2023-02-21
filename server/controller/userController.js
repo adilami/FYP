@@ -2,6 +2,7 @@
 const user = require("../models/user");
 const bCrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { use } = require("../route/userRoute");
 const jwtSecretKey = "secret123";
 
 const register = async (req, res) => {
@@ -200,6 +201,41 @@ const unbanUser = async (req, res)=>{
     res.status(500).json({message:e.message})
   }
 }
+const changePass = async (req, res)=>{
+  const { email, oldPass, newPass, confirmNewPass } = req.body;
+  if(!email || !oldPass || !newPass || !confirmNewPass ){
+    return res
+      .status(400)
+      .json({
+        message: "All the text fields are required",
+      });
+  }
+  const existingUser = await user.findOne({email:email});
+  if(!existingUser){
+    return res
+    .status(400)
+    .json({
+      message: "The user is not found",
+    });
+  }
+  if(newPass!==confirmNewPass){
+    return res
+    .status(400)
+    .json({
+      message: "The new passwords don't match !!!",
+    });
+  }
+  const encryptedPass = bCrypt.hashSync(newPass);
+  const changedPass = await user.findOneAndUpdate({email}, {
+    $set:{
+      pass:encryptedPass
+    }
+  })
+  if(changedPass){
+    res.status(200).json({message:"Password changed Successfully"});
+  }
+
+}
 
 exports.register = register;
 exports.login = login;
@@ -209,4 +245,5 @@ exports.getUser = getUser;
 exports.logout=logout;
 exports.banUser=banUser;
 exports.unbanUser=unbanUser;
+exports.changePass=changePass;
 
