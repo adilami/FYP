@@ -58,9 +58,17 @@ function NavigationBar() {
                 </a>
               </div>
               <div className="navbutton">
-                <button className="sign-in-btn" onClick={toggleLogout}>
-                  Sign out
-                </button>
+                <div class="dropdown">
+                  <button class="dropbtn"></button>
+                  <div class="dropdown-content">
+                    <a href="/changePassword">Change Password</a>
+                    <a>
+                      <button className="sign-in-btn" onClick={toggleLogout}>
+                        Sign out
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </nav>
           </div>
@@ -70,17 +78,18 @@ function NavigationBar() {
               setNavbar(!navbar);
             }}
           >
-            {navbar ?   (
+            {navbar ? (
               <>
                 <h1>X</h1>
               </>
-            ):(
+            ) : (
               <>
                 <span className="bar"></span>
                 <span className="bar"></span>
                 <span className="bar"></span>
               </>
             )}
+            
           </div>
         </div>
       </div>
@@ -97,6 +106,9 @@ function NavigationBar() {
           </a>
           <a className="navbar-button" href="/hospital">
             Hospitals
+          </a>
+          <a className="navbar-button" href="/changePassword">
+            Change Password
           </a>
           <button className="m-sign-in-btn" href="" onClick={toggleLogout}>
             Sign out

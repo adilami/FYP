@@ -42,7 +42,7 @@ function ManageUser() {
   };
   const handleunBanClick = async (userId, userName) => {
     if (
-      window.confirm(`Do you want to ban the user with user name: ${userName}`)
+      window.confirm(`Do you want to Un-Ban the user with user name: ${userName}`)
     ) {
       try {
         const response = await axios.put(

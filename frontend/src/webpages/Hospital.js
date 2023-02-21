@@ -23,7 +23,7 @@ function Hospital() {
           <tr>
             <td>{items.name}</td>
             <td>{items.location}</td>
-            <td>{items.maps}</td>
+            <td> <a className="anchor" href={items.maps} target={'_blank'}>{items.maps}</a></td>
             <td>{items.phone}</td>
           </tr>
         </tbody>
@@ -37,7 +37,7 @@ function Hospital() {
           <tr>
             <td>{items.name}</td>
             <td>{items.location}</td>
-            <td>{items.maps}</td>
+            <td><a className="anchor" href={items.maps} target={'_blank'}>{items.maps}</a></td>
             <td>{items.phone}</td>
           </tr>
         </tbody>
@@ -107,8 +107,9 @@ console.log(PKR);
         </tbody>
       </table>
       </div>}
+      {KTM&&<h5 className='head5'>Showing {currentPostKTM.length}/{ktmdata.length} hospitals</h5>}
+
         {KTM && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
-        {KTM&&<h5>Showing {currentPostKTM.length}/{ktmdata.length} hospitals.</h5>}
 
      {PKR && <div className='table1'>
      <h3>Help centers in {name}</h3>
@@ -129,8 +130,8 @@ console.log(PKR);
       </table>
     </div>
   }
+    {PKR&&<h5 className='head5'>Showing {currentPostPKR.length}/{pkrdata.length} hospitals</h5>}
    {PKR && <Paginations post={post} totalPosts={pkrdata.length} paginate={paginate}/>}
-    {PKR&&<h5>Showing {currentPostPKR.length}/{pkrdata.length} hospitals.</h5>}
 
 
       {ALL && <div className='table1'>
@@ -150,8 +151,12 @@ console.log(PKR);
           </tr>
         </tbody>
       </table>
+      </div>}
+   {ALL&&<h5 className='head5'>Showing {currentPostKTM.length}/{ktmdata.length} hospitals</h5>}
+
    {ALL && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
-   {ALL&&<h5>Showing {currentPostKTM.length}/{ktmdata.length}</h5>}
+
+   {ALL && <div className='table1'>
 
      <h3>Help centers in Pokhara</h3>
       <table>
@@ -169,10 +174,11 @@ console.log(PKR);
           </tr>
         </tbody>
       </table>
-      </div>}
+  </div>}
       </div>
+   {ALL&&<h5 className='head5'>Showing {currentPostPKR.length}/{pkrdata.length} hospitals</h5>}
+
    {ALL && <Paginations post={post} totalPosts={pkrdata.length} paginate={paginate} />}
-   {ALL&&<h5>Showing {currentPostPKR.length}/{pkrdata.length} hospitals.</h5>}
       </>
   )
 }

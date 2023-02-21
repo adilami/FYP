@@ -52,13 +52,7 @@ const login = async (req, res) => {
   } catch (e) {
     return e;
   }
-  if(existingUser.isBan){
-    return res
-    .status(403)
-    .json({
-      message:"User is banned",
-    })
-  }
+ 
   if (!existingUser) {
     return res
       .status(500)
@@ -66,6 +60,13 @@ const login = async (req, res) => {
         message:
           "The Email/Password is Incorrect!",
       });
+  }
+  if(existingUser.isBan){
+    return res
+    .status(403)
+    .json({
+      message:"User is banned",
+    })
   }
   const correctPass = bCrypt.compareSync(pass, existingUser.pass);
   if (!correctPass) {
@@ -122,34 +123,33 @@ const getUser = async (req, res) => {
   }
   return res.status(200).json({ use });
 };
-const refreshToken = (req, res,next) => {
-  const cookies = req.headers.cookie;
-  const preToken = cookies.split("=")[1];
-  if(!preToken){
-    return res.status(400).json({message:"Cannot find token"})
-  }
-  jwt.verify(String(preToken),jwtSecretKey, (e, user)=> {
-    if(e){
-      console.log(e);
-      return res.status(403).json({message:"Authentication is failed!"})
-    }
-    req.ban = ban;
-    res.clearCookie(`${user.id}`);
-    req.cookies[`${user.id}`]="";
+// const refreshToken = (req, res,next) => {
+//   const cookies = req.headers.cookie;
+//   const preToken = cookies.split("=")[1];
+//   if(!preToken){
+//     return res.status(400).json({message:"Cannot find token"})
+//   }
+//   jwt.verify(String(preToken),jwtSecretKey, (e, user)=> {
+//     if(e){
+//       console.log(e);
+//       return res.status(403).json({message:"Authentication is failed!"})
+//     }
+//     res.clearCookie(`${user.id}`);
+//     req.cookies[`${user.id}`]="";
 
-    const token = jwt.sign({id: user.id},jwtSecretKey,{
-      expiresIn:"1hr"
-    });
-    res.cookie(String(user.id), token, {
-      path: "/",
-      expires: new Date(Date.now() + 1000 * 3600),
-      httpOnly: true,
-      sameSite: "lax",
-    });
-    req.id = user.id;
-    next();
-  })
-}
+//     const token = jwt.sign({id: user.id},jwtSecretKey,{
+//       expiresIn:"1hr"
+//     });
+//     res.cookie(String(user.id), token, {
+//       path: "/",
+//       expires: new Date(Date.now() + 1000 * 3600),
+//       httpOnly: true,
+//       sameSite: "lax",
+//     });
+//     req.id = user.id;
+//     next();
+//   })
+// }
 const logout = (req, res) => {
   const cookies = req.headers.cookie;
   const preToken = cookies.split("=")[1];
@@ -205,7 +205,7 @@ exports.register = register;
 exports.login = login;
 exports.verification = verification;
 exports.getUser = getUser;
-exports.refreshToken=refreshToken;
+// exports.refreshToken=refreshToken;
 exports.logout=logout;
 exports.banUser=banUser;
 exports.unbanUser=unbanUser;

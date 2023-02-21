@@ -8,7 +8,7 @@ const { register, verification, getUser, login, refreshToken, logout, banUser, u
 router.post("/register", register);
 router.post("/login", login);
 router.get("/home",verification, getUser);
-router.get('/refresh',refreshToken, verification, getUser);
+// router.get('/refresh',refreshToken, verification, getUser);
 router.post("/logout",verification, logout);
 router.put("/banUser/:id", banUser);
 router.put("/unbanUser/:id", unbanUser);

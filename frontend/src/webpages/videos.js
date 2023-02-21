@@ -7,6 +7,11 @@ function Videos() {
     <div>
       <NavigationBar />
       <h1>Videos</h1>
+      <div className='center'>
+        <div className='card'>
+          
+        </div>
+      </div>
     </div>
   )
 }

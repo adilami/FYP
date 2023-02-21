@@ -10,6 +10,7 @@ import Hospital from "./webpages/Hospital";
 import Que from "./webpages/questions/Que";
 import Videos from "./webpages/videos";
 import DelVid from "./webpages/AdminPages/DelVid";
+import ChangePass from "./webpages/ChangePass";
 const user=localStorage.getItem("token");
 const admin = localStorage.getItem("tokenAdmin")
 
@@ -29,6 +30,7 @@ function App() {
         {user&&<Route exact path="/videos" element={<Videos />} />}
         {user&&<Route exact path="/hospital" element={<Hospital />} />}
         {user&&<Route exact path="/que" element={<Que />} />}
+        {user&&<Route exact path="/changePassword" element={<ChangePass />} />}
         <Route path="*" element={<PageNotFound />}/>
       </Routes>
     </>

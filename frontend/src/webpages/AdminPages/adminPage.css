@@ -71,6 +71,7 @@ td{
   width: 30%;
   height:4vh;
   border-radius: 8px;
+  border-color: gray;
 }
 .buttonRemove:hover{
   background-color: red;
