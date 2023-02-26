@@ -34,7 +34,7 @@ function Admin() {
 
         if (res.status === 200) {
           localStorage.setItem("tokenAdmin", res.data); 
-          history("/manageUser");
+          history("/adminDash");
           window.location.reload();
           toast.success("Logged In Successfully");
         }

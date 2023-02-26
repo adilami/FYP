@@ -41,6 +41,9 @@ function AdminNav() {
           <div className={"links"}>
             <nav>
               <div className="alinks">
+              <a className="navbar-button" href="/adminDash">
+                  Dashboard
+                </a>
                 <a className="navbar-button" href="/manageUser">
                   Manage User
                 </a>

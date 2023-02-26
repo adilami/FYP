@@ -33,7 +33,7 @@ function ManageUser() {
           // window.location.reload();
           setTimeout(() => {
             window.location.reload();
-          }, 2500);
+          }, 2000);
         }
       } catch (error) {
         console.error(error);
@@ -145,6 +145,7 @@ function ManageUser() {
           {tableContent}
         </table>
       </div>
+      <h5 className='head5'>Showing {currentPost.length}/{data.length} users</h5>
       <Paginations post={post} totalPosts={data.length} paginate={paginate} />
       <ToastContainer />
     </>

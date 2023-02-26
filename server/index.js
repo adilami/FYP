@@ -162,6 +162,46 @@ app.post("/removeVideoP", async(req, res)=>{
     console.log(e);
   }
 })
+app.get("/userCount", async(req, res)=>{
+  User.count(function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(result)
+    }
+  })
+}) 
+app.get("/videoSCount", async(req, res)=>{
+  Videos1.count(function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(result)
+    }
+  })
+}) 
+app.get("/videoYCount", async(req, res)=>{
+  Videos2.count(function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(result)
+    }
+  })
+}) 
+app.get("/videoPCount", async(req, res)=>{
+  Videos3.count(function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(result)
+    }
+  })
+}) 
 
 
 

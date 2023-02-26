@@ -11,6 +11,7 @@ import Que from "./webpages/questions/Que";
 import Videos from "./webpages/videos";
 import DelVid from "./webpages/AdminPages/DelVid";
 import ChangePass from "./webpages/ChangePass";
+import AdminDash from "./webpages/AdminPages/AdminDash";
 const user=localStorage.getItem("token");
 const admin = localStorage.getItem("tokenAdmin")
 
@@ -22,6 +23,7 @@ function App() {
         {user && <Route exact path="/" element={<Dash />} />}
         {!user&&<Route exact path="/" element={<Login />} />}
         <Route exact path="/adminLogin" element={<Admin />} />
+        {admin&&<Route exact path="/adminDash" element={<AdminDash />} />}
         {admin&&<Route exact path="/addVid" element={<AddVid />} />}
         {admin&&<Route exact path="/deleteVid" element={<DelVid />} />}
         {admin&&<Route exact path="/manageUser" element={<ManageUser />} />}

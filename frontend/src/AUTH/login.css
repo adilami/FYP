@@ -18,6 +18,16 @@ body {
   background-color: rgb(119, 119, 215);
   border-radius: 12px;
 }
+.login-form-changePass {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 50vh;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgb(119, 119, 215);
+  border-radius: 12px;
+}
 .mb-1 {
   /* height: 20%; */
   margin-bottom: 15px;

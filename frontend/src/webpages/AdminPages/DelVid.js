@@ -9,11 +9,11 @@ function DelVid() {
 
   
   useEffect(() => {
-    fetchUserS();
-    fetchUserY();
-    fetchUserP();
+    fetchVidS();
+    fetchVidY();
+    fetchVidP();
   }, []);
-  const fetchUserS = () => {
+  const fetchVidS = () => {
     fetch("http://localhost:8000/getVideoS", {
       method: "GET",
     })
@@ -23,7 +23,7 @@ function DelVid() {
         setData(data.data);
       });
   };
-  const fetchUserY = () => {
+  const fetchVidY = () => {
     fetch("http://localhost:8000/getVideoY", {
       method: "GET",
     })
@@ -33,7 +33,7 @@ function DelVid() {
         setDataY(dataY.data);
       });
   };
-  const fetchUserP = () => {
+  const fetchVidP = () => {
     fetch("http://localhost:8000/getVideoP", {
       method: "GET",
     })
