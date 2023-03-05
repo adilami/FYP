@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const vidSchema = mongoose.Schema({
   name:String,
-  imgURL:String,
-  vidUrl:String
+  vidUrl:String,
+  description:String
 });
-module.exports = mongoose.model("videoProd", vidSchema);
+module.exports = mongoose.model("videoSleep", vidSchema);
 
 

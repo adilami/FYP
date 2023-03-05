@@ -83,8 +83,8 @@ input {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-direction: row;
   background-image: url(./background.jpg);
 }
 .container {
@@ -95,6 +95,8 @@ input {
   justify-content: space-between;
   flex-direction: column;
   overflow-y: scroll;
+  /* padding-left: 12px; */
+
 }
 .container::-webkit-scrollbar {
   display: none;

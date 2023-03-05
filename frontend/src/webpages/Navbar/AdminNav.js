@@ -51,7 +51,10 @@ function AdminNav() {
                   Add Videos
                 </a>
                 <a className="navbar-button" href="/deleteVid">
-                  Delete Videos
+                  Manage Generic Videos
+                </a>
+                <a className="navbar-button" href="/deleteLevelVid">
+                  Manage Leveled Videos
                 </a>
               </div>
               <div className="navbutton">
@@ -90,7 +93,10 @@ function AdminNav() {
             Add Videos
           </a>
           <a className="navbar-button" href="/deleteVid">
-            Delete Videos
+            Manage Generic Videos
+          </a>
+          <a className="navbar-button" href="/deleteLevelVid">
+            Manage Leveled Videos
           </a>
           <button className="m-sign-in-btn" href="" onClick={toggleLogout}>
             Sign out

@@ -47,7 +47,7 @@ h1.navbar {
 }
 nav {
   height: 60%;
-  width: 95%;
+  width: 84%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -191,13 +191,13 @@ img {
 }
 /* The dropdown container */
 .dropdown {
-  height: 5vh;
-  width:2.5vw;
+  height: 6.5vh;
+  width:3vw;
   float: left;
   overflow: hidden;
   border: 2px solid black;
   border-radius: 100px;
-  background-image: url("../pictures/avatar.png");
+  /* background-image: url("../pictures/avatar.png"); */
 }
 
 
@@ -207,19 +207,22 @@ img {
   border: none;
   outline: none;
   color: white;
-  padding: 24px ;
+  padding: -2px ;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
 }
 /* Dropdown content (hidden by default) */
 .dropdown-content {
+  width:14%;
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 4vw;
+  min-width: 2vw;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 2;
+  border-radius: 12px;
+
 }
 
 /* Links inside the dropdown */
@@ -240,4 +243,8 @@ img {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.avatar{
+  width: 100%;
+  height:100%;
 }

@@ -7,9 +7,13 @@ const cors = require("cors");
 const app = express();
 
 const cronJob = require("./cron");
-const videoSleep = require('./models/videosSleep');
-const videosProd = require('./models/videosProd');
-const videosYoga = require('./models/videosYoga');
+const videoSleep = require('./models/genericVid/videosSleep');
+const videosProd = require('./models/genericVid/videosProd');
+const videosYoga = require('./models/genericVid/videosYoga');
+const sleepLevel = require('./models/leveledVid/levelSleep');
+const prodLevel = require('./models/leveledVid/levelProd');
+const yogaLevel = require('./models/leveledVid/levelYoga');
+
 cronJob.sendMailUser();
 
 app.use(cors({credentials:true,origin:"http://localhost:3000"}));
@@ -64,10 +68,34 @@ app.post('/addVidS',(req, res)=>{
     }
   })
 })
+app.post('/addVidSlevel',(req, res)=>{
+  const vid = req.body
+  console.log(vid);
+  sleepLevel.create(vid, (e, data)=>{
+    if(e){
+      res.status(500).send(e.message);
+    }
+    else{
+      res.status(201).send(data);
+    }
+  })
+})
 app.post('/addVidP',(req, res)=>{
   const vid = req.body
   console.log(vid);
   videosProd.create(vid, (e, data)=>{
+    if(e){
+      res.status(500).send(e.message);
+    }
+    else{
+      res.status(201).send(data);
+    }
+  })
+})
+app.post('/addVidPlevel',(req, res)=>{
+  const vid = req.body
+  console.log(vid);
+  prodLevel.create(vid, (e, data)=>{
     if(e){
       res.status(500).send(e.message);
     }
@@ -88,9 +116,26 @@ app.post('/addVidY',(req, res)=>{
     }
   })
 })
+app.post('/addVidYlevel',(req, res)=>{
+  const vid = req.body
+  console.log(vid);
+  yogaLevel.create(vid, (e, data)=>{
+    if(e){
+      res.status(500).send(e.message);
+    }
+    else{
+      res.status(201).send(data);
+    }
+  })
+})
 const Videos1 = mongoose.model("videoSleep");
 const Videos2 = mongoose.model("videoYoga");
 const Videos3 = mongoose.model("videoProd");
+const levelVid1 = mongoose.model("levelSleep");
+const levelVid2 = mongoose.model("levelYoga");
+const levelVid3 = mongoose.model("levelProd");
+
+
 
 
 app.get("/getVideoS", async(req, res)=>{
@@ -120,6 +165,39 @@ app.get("/getVideoP", async(req, res)=>{
     console.log(e);
   }
 })
+
+//get leveled videos
+
+
+app.get("/getVideoSlevel", async(req, res)=>{
+  try{
+    const allVideoS = await levelVid1.find({});
+    res.send({ status: "ok", data: allVideoS})
+  }
+  catch(e){
+    console.log(e);
+  }
+})
+app.get("/getVideoYlevel", async(req, res)=>{
+  try{
+    const allVideoP = await levelVid2.find({});
+    res.send({ status: "ok", data: allVideoP})
+  }
+  catch(e){
+    console.log(e);
+  }
+})
+app.get("/getVideoPlevel", async(req, res)=>{
+  try{
+    const allVideoY = await levelVid3.find({});
+    res.send({ status: "ok", data: allVideoY})
+  }
+  catch(e){
+    console.log(e);
+  }
+})
+
+
 app.post("/removeVideoS", async(req, res)=>{
   const {vidId} = req.body;
   try{
@@ -162,6 +240,52 @@ app.post("/removeVideoP", async(req, res)=>{
     console.log(e);
   }
 })
+
+//remove leveled Video
+app.post("/removeVideoSlevel", async(req, res)=>{
+  const {vidId} = req.body;
+  try{
+    levelVid1.deleteOne({_id:vidId}, function(err){
+        console.log(err);
+      }
+    )
+    res.send({ status:"ok", data: "Video Removed" });
+  }
+  catch(e){
+    console.log(e);
+  }
+})
+
+app.post("/removeVideoYlevel", async(req, res)=>{
+  const {vidId} = req.body;
+
+  try{
+    levelVid2.deleteOne({_id:vidId}, function(err){
+        console.log(err);
+      }
+    )
+    res.send({ status:"ok", data: "Video Removed" });
+  }
+  catch(e){
+    console.log(e);
+  }
+})
+app.post("/removeVideoPlevel", async(req, res)=>{
+  const {vidId} = req.body;
+
+  try{
+    levelVid3.deleteOne({_id:vidId}, function(err){
+        console.log(err);
+      }
+    )
+    res.send({ status:"ok", data: "Video Removed" });
+  }
+  catch(e){
+    console.log(e);
+  }
+})
+
+
 app.get("/userCount", async(req, res)=>{
   User.count(function(err, result){
     if(err){
@@ -202,6 +326,41 @@ app.get("/videoPCount", async(req, res)=>{
     }
   })
 }) 
+
+//count the leveled videos
+
+app.get("/videoSCountlevel", async(req, res)=>{
+  levelVid1.count(function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(result)
+    }
+  })
+}) 
+app.get("/videoYCountlevel", async(req, res)=>{
+  levelVid2.count(function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(result)
+    }
+  })
+}) 
+app.get("/videoPCountlevel", async(req, res)=>{
+  levelVid3.count(function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(result)
+    }
+  })
+}) 
+
+
 
 
 

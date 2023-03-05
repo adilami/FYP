@@ -2,16 +2,18 @@ import React, { useEffect } from "react";
 import NavigationBar from "../Navbar/NavigationBar";
 import "./que.css";
 import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 // questions.forEach((v) => {
 //   const { id, question } = v;
 //   return (initialState[id] = { id, question, isSelected: null });
 // });
+
 function Que() {
+const history = useNavigate();
   useEffect(() => {
     console.log();
   });
-
   const sub = (e) => {
     e.preventDefault();
 
@@ -29,6 +31,7 @@ function Que() {
     }
     if (document.getElementById("focus").checked) {
       toast.success("Focus problem");
+      history("/prod")
     }
     if (document.getElementById("both").checked) {
       toast.success("Both Sleep and Focus problem");
@@ -51,28 +54,28 @@ function Que() {
             })} */}
             <ul>
               <li className="questionList">
-                <input className="queInput" type="radio" id="sleep" name="1" value="y" />
+                <input className="queInput" type="radio" id="sleep" name="1" value="y" onClick={sub}/>
                 <label className="queLabel" for="sleep" id="sleep">
                   Having Problem Sleeping
                 </label>
               </li>
-              <li className="questionList"> 
-                <input className="queInput" type="radio" id="focus" name="1" value="y" />
+              <li className="questionList" > 
+                <input className="queInput" type="radio" id="focus" name="1" value="y" onClick={sub}/>
                 <label className="queLabel" for="focus">
                   Having problem to focus
                 </label>
               </li>
-              <li className="questionList">
-                <input className="queInput" type="radio" id="both" name="1" value="y" />
+              <li className="questionList" >
+                <input className="queInput" type="radio" id="both" name="1" value="y" onClick={sub}/>
                 <label className="queLabel" for="both">Both sleep and focus problems</label>
               </li>
-              <li className="questionList">
-                <input className="queInput" type="radio" id="none" name="1" value="y" />
+              <li className="questionList" >
+                <input className="queInput" type="radio" id="none" name="1" value="y" onClick={sub}/>
                 <label className="queLabel" for="none">No problems at the moment</label>
               </li>
             </ul>
           </form>
-          <button className="submit" onClick={sub}>Submit</button>
+          {/* <button className="submit" onClick={sub}>Submit</button> */}
         </div>
       </div>
       <ToastContainer />

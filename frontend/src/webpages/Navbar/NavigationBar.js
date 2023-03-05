@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./navbar.css";
 import logo from "./wellbeing.png";
+import avatar from "../pictures/avatar.png";
+
 
 function NavigationBar() {
   const history = useNavigate();
@@ -32,7 +34,7 @@ function NavigationBar() {
   // const hamburger = () =>{
   //   hamburger.
   // }
-  const [navbar, setNavbar] = useState(false);
+  const [navbar, setNavbar] = useState(false); 
   return (
     <>
       <div className="main">
@@ -59,6 +61,7 @@ function NavigationBar() {
               </div>
               <div className="navbutton">
                 <div class="dropdown">
+                  <img className="avatar" src={avatar}></img>
                   <button class="dropbtn"></button>
                   <div class="dropdown-content">
                     <a href="/changePassword">Change Password</a>

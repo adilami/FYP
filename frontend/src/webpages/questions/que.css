@@ -65,8 +65,8 @@ h1{
   color: black;
 }
 .questions{
-  width:40%;
-  height:88%;
+  width:36%;
+  height:80%;
   display: flex;
   flex-direction: column;
   align-items: center;

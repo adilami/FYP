@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import { toast } from "react-toastify";
 import AdminNav from "../Navbar/AdminNav";
 
-function DelVid() {
+function DelLevelVid() {
   const [data, setData] = useState([]);
   const [dataY, setDataY] = useState([]);
   const [dataP, setDataP] = useState([]);
@@ -14,7 +14,7 @@ function DelVid() {
     fetchVidP();
   }, []);
   const fetchVidS = () => {
-    fetch("http://localhost:8000/getVideoS", {
+    fetch("http://localhost:8000/getVideoSlevel", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -24,7 +24,7 @@ function DelVid() {
       });
   };
   const fetchVidY = () => {
-    fetch("http://localhost:8000/getVideoY", {
+    fetch("http://localhost:8000/getVideoYlevel", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -34,7 +34,7 @@ function DelVid() {
       });
   };
   const fetchVidP = () => {
-    fetch("http://localhost:8000/getVideoP", {
+    fetch("http://localhost:8000/getVideoPlevel", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -45,7 +45,7 @@ function DelVid() {
   };
   const removeVidS = (id) => {
     if (window.confirm(`Do you want to delete the video`)) {
-      fetch("http://localhost:8000/removeVideoS", {
+      fetch("http://localhost:8000/removeVideoSlevel", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -66,7 +66,7 @@ function DelVid() {
   };
   const removeVidY = (id) => {
     if (window.confirm(`Do you want to delete the video`)) {
-      fetch("http://localhost:8000/removeVideoY", {
+      fetch("http://localhost:8000/removeVideoYlevel", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -87,7 +87,7 @@ function DelVid() {
   };
   const removeVidP = (id) => {
     if (window.confirm(`Do you want to delete the video`)) {
-      fetch("http://localhost:8000/removeVideoP", {
+      fetch("http://localhost:8000/removeVideoPlevel", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -110,7 +110,7 @@ function DelVid() {
     <>
       <AdminNav />
       <div>
-        <h2>Manage Generic Videos</h2>
+        <h2>Manage Leveled Videos</h2>
         <h3>Sleep</h3>
       </div>
       <div className="homep">
@@ -219,4 +219,4 @@ function DelVid() {
   );
 }
 
-export default DelVid;
+export default DelLevelVid

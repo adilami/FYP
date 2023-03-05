@@ -1,0 +1,90 @@
+
+.video-responsive {
+  position: relative;
+  height: 30vh;
+  
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width:90%;
+  position: absolute;
+  border-radius: 40px;
+  padding: 24px;
+}
+.main-container {
+  margin: 0 auto;
+  max-width: 100vw;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+
+
+}
+
+/* Video container styles */
+.video-container {
+  width: 100vw;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+
+/* Video card styles */
+.video-card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 8px 5px rgba(0, 0, 1, 0.5);
+  padding: 1rem;
+  width:30vw;
+  text-align: left;
+}
+
+/* Video title styles */
+.video-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Video description styles */
+.video-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Navigation bar styles */
+.navigation-bar {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.navigation-bar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation-bar a:hover {
+  text-decoration: underline;
+}
+.h5{
+  font-size: 18px;
+  text-align: left;
+  padding-left: 24px;
+  padding-top: 12px;
+}
+.h6{
+  font-size: 14px;
+  text-align: left;
+  padding-left: 24px;
+  /* padding-top: 12px; */
+  color: rgb(65, 64, 64);
+}
