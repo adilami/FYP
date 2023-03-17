@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Form } from "react-router-dom";
 import Admin from "./AUTH/Admin";
 import Login from "./AUTH/Login";
 import Register from "./AUTH/Register";
@@ -12,8 +12,12 @@ import Videos from "./webpages/videos";
 import DelVid from "./webpages/AdminPages/DelVid";
 import ChangePass from "./webpages/ChangePass";
 import AdminDash from "./webpages/AdminPages/AdminDash";
-import Prod from "./webpages/queRedirect/Prod";
 import DelLevelVid from "./webpages/AdminPages/DelLevelVid";
+import ProdLevel from "./webpages/queRedirect/ProdLevel";
+import SleepLevel from "./webpages/queRedirect/SleepLevel";
+import AnxietyLevel from "./webpages/queRedirect/AnxietyLevel";
+import Review from "./webpages/Review";
+import FetchReview from "./webpages/AdminPages/FetchReview";
 const user=localStorage.getItem("token");
 const admin = localStorage.getItem("tokenAdmin")
 
@@ -30,13 +34,18 @@ function App() {
         {admin&&<Route exact path="/deleteVid" element={<DelVid />} />}
         {admin&&<Route exact path="/deleteLevelVid" element={<DelLevelVid />} />}
         {admin&&<Route exact path="/manageUser" element={<ManageUser />} />}
+        {admin&&<Route exact path="/fetchReview" element={<FetchReview />} />}
         <Route exact path="/register" element={<Register />} />
         {user&&<Route exact path="/home" element={<Dash />} />}
         {user&&<Route exact path="/videos" element={<Videos />} />}
         {user&&<Route exact path="/hospital" element={<Hospital />} />}
         {user&&<Route exact path="/que" element={<Que />} />}
         {user&&<Route exact path="/changePassword" element={<ChangePass />} />}
-        {user&&<Route exact path="/prod" element={<Prod />} />}
+        {user&&<Route exact path="/prod" element={<ProdLevel />} />}
+        {user&&<Route exact path="/sleep" element={<SleepLevel />} />}
+        {user&&<Route exact path="/anxiety" element={<AnxietyLevel />} />}
+        {user&&<Route exact path="/review" element={<Review />} />}
+
         
         <Route path="*" element={<PageNotFound />}/>
       </Routes>

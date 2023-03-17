@@ -28,16 +28,19 @@ const history = useNavigate();
 
     if (document.getElementById("sleep").checked) {
       toast.success("Sleep problem");
+      history("/sleep")
     }
     if (document.getElementById("focus").checked) {
       toast.success("Focus problem");
       history("/prod")
     }
     if (document.getElementById("both").checked) {
+      history("/anxiety")
       toast.success("Both Sleep and Focus problem");
     }
     if (document.getElementById("none").checked) {
-      toast.success("No problem");
+      history("/videos")
+      toast.success("Hurray! No problems.");
     }
   };
 
@@ -67,7 +70,7 @@ const history = useNavigate();
               </li>
               <li className="questionList" >
                 <input className="queInput" type="radio" id="both" name="1" value="y" onClick={sub}/>
-                <label className="queLabel" for="both">Both sleep and focus problems</label>
+                <label className="queLabel" for="both">Anxiety problems</label>
               </li>
               <li className="questionList" >
                 <input className="queInput" type="radio" id="none" name="1" value="y" onClick={sub}/>

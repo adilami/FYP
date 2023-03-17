@@ -58,6 +58,9 @@ function NavigationBar() {
                 <a className="navbar-button" href="/hospital">
                   Hospitals
                 </a>
+                <a className="navbar-button" href="/review">
+                  Review
+                </a>
               </div>
               <div className="navbutton">
                 <div class="dropdown">
@@ -110,9 +113,13 @@ function NavigationBar() {
           <a className="navbar-button" href="/hospital">
             Hospitals
           </a>
+          <a className="navbar-button" href="/review">
+                  Review
+          </a>
           <a className="navbar-button" href="/changePassword">
             Change Password
           </a>
+          
           <button className="m-sign-in-btn" href="" onClick={toggleLogout}>
             Sign out
           </button>

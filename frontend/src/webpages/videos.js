@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 import NavigationBar from "./Navbar/NavigationBar";
 import YoutubeEmbed from "./YoutubeEmbed";
 
@@ -107,6 +108,7 @@ function Videos() {
           );
         })}
       </div>
+      <ToastContainer />
     </>
   );
 }

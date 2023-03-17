@@ -121,6 +121,7 @@ function DelLevelVid() {
                 <th>ID</th>
                 <th>Name</th>
                 <th>Video URL</th>
+                <th>Level</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -131,6 +132,7 @@ function DelLevelVid() {
                     <td>{i._id}</td>
                     <td>{i.name}</td>
                     <td>{i.vidUrl}</td>
+                    <td>{i.level}</td>
                     <td>
                       <button
                         className="buttonRemove"
@@ -155,6 +157,7 @@ function DelLevelVid() {
                 <th>ID</th>
                 <th>Name</th>
                 <th>Video URL</th>
+                <th>Level</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -165,6 +168,7 @@ function DelLevelVid() {
                     <td>{i._id}</td>
                     <td>{i.name}</td>
                     <td>{i.vidUrl}</td>
+                    <td>{i.level}</td>
                     {console.log(i.level)}
                     <td>
                       <button
@@ -190,6 +194,7 @@ function DelLevelVid() {
                 <th>ID</th>
                 <th>Name</th>
                 <th>Video URL</th>
+                <th>Level</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -200,6 +205,7 @@ function DelLevelVid() {
                     <td>{i._id}</td>
                     <td>{i.name}</td>
                     <td>{i.vidUrl}</td>
+                    <td>{i.level}</td>
                     <td>
                       <button
                         className="buttonRemove"
