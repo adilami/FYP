@@ -11,8 +11,8 @@ body {
 .login-form {
   display: flex;
   flex-direction: column;
-  height: 50vh;
-  width: 50vh;
+  height: 70vh;
+  width: 70vh;
   text-align: center;
   padding: 2rem;
   background-color: rgb(119, 119, 215);

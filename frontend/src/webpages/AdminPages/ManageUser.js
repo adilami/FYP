@@ -86,14 +86,14 @@ function ManageUser() {
     }
   };
   const [currentPage, setCurrentPage] = useState(1);
-  const [post, setPost] = useState(5);
+  const [post] = useState(5);
   const indexOfLastPost = currentPage * post;
   const indexOfFirstPost = indexOfLastPost - post;
   const currentPost = data.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageN) => setCurrentPage(pageN);
   let tableContent = currentPost.map((i) => {
     return (
-      <tbody>
+      <tbody className="table-group-divider">
         <tr>
           <td>{i._id}</td>
           <td>{i.userName}</td>
@@ -103,19 +103,19 @@ function ManageUser() {
           <td>
             <div className="actio">
               <button
-                className="buttonRemove"
+                type="button" class="btn btn-outline-danger btn-sm"
                 onClick={() => handleBanClick(i._id, i.userName)}
               >
                 Ban User
               </button>
               <button
-                className="buttonRemove"
+              type="button" class="btn btn-outline-success btn-sm"
                 onClick={() => handleunBanClick(i._id, i.userName)}
               >
                 Un-Ban User
               </button>
               <button
-                className="buttonRemove"
+                      type="button" class="btn btn-outline-danger btn-sm"
                 onClick={() => removeUser(i._id, i.userName)}
               >
                 Remove User
@@ -129,13 +129,13 @@ function ManageUser() {
   return (
     <>
       <AdminNav />
-      <h2>Manage User</h2>
       <div className="homep">
-        <div className="table1"></div>
-        <table>
+      <h2>Manage User</h2>
+        <div className="table-responsive"></div>
+        <table className="table table-dark table-hover table-striped">
           <thead>
             <tr>
-              <th>User Id</th>
+              <th >User Id</th>
               <th>UserName</th>
               <th>Email</th>
               <th>Ban Status</th>
@@ -144,10 +144,12 @@ function ManageUser() {
           </thead>
           {tableContent}
         </table>
-      </div>
-      <h5 className='head5'>Showing {currentPost.length}/{data.length} users</h5>
-      <Paginations post={post} totalPosts={data.length} paginate={paginate} />
+
       <ToastContainer />
+      </div>
+              <h5 className='head5'>Showing {currentPost.length}/{data.length} users</h5>
+      <Paginations post={post} totalPosts={data.length} paginate={paginate} />
+   
     </>
   );
 }

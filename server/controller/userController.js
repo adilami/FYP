@@ -2,7 +2,6 @@
 const user = require("../models/user");
 const bCrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { use } = require("../route/userRoute");
 const jwtSecretKey = "secret123";
 
 const register = async (req, res) => {
@@ -81,7 +80,7 @@ const login = async (req, res) => {
   }
   res.cookie(String(existingUser._id), token, {
     path: "/",
-    expires: new Date(Date.now() + 1000 * 3600),
+    expires: new Date(Date.now() + 1000 * 3000),
     httpOnly: true,
     sameSite: "lax",
   });
@@ -89,9 +88,10 @@ const login = async (req, res) => {
     .status(200)
     .json({ message: "Logged In Successfully", user: existingUser, token });
 };
-const verification = (req, res, next) => {
+function verification (req, res, next) {
   const cookies = req.headers.cookie;
-  const token = cookies.split("=")[1];
+  const token = cookies.split('=')[1];
+
   console.log(token);
   if (!token) {
     return res.status(404).json({ message: "No token is found" });
@@ -106,12 +106,6 @@ const verification = (req, res, next) => {
   next();
 };
 const getUser = async (req, res) => {
-//   jwt.verify(String(preToken),jwtSecretKey, (e, user)=> {
-//     if(e){
-//       console.log(e);
-//       return res.status(403).json({message:"Authentication is failed!"})
-//     }
-// })
   const userId = req.id;
   let use;
   try {
@@ -120,7 +114,7 @@ const getUser = async (req, res) => {
     return new Error(e);
   }
   if (!use) {
-    return res.status(404).json({ message: "User was not found!!!" });
+    res.status(404).json({ message: "User was not found!!!" });
   }
   return res.status(200).json({ use });
 };
@@ -211,6 +205,7 @@ const changePass = async (req, res)=>{
 
 }
 
+
 exports.register = register;
 exports.login = login;
 exports.verification = verification;
@@ -219,4 +214,6 @@ exports.logout=logout;
 exports.banUser=banUser;
 exports.unbanUser=unbanUser;
 exports.changePass=changePass;
+
+
 

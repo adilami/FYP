@@ -14,7 +14,7 @@ function FetchReview() {
   }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [post, setPost] = useState(20);
+  const [post] = useState(20);
   const indexOfLastPost = currentPage * post;
   const indexOfFirstPost = indexOfLastPost - post;
   const currentPost = reviews.slice(indexOfFirstPost, indexOfLastPost);
@@ -39,8 +39,7 @@ function FetchReview() {
     <div>
       <h1>Reviews</h1>
       <div className="homep">
-      <div className="table1">
-      <table>
+      <table className='table table-dark table-hover table-striped'>
         <thead>
           <tr>
             <th>Name</th>
@@ -50,14 +49,13 @@ function FetchReview() {
             <th>Is the videos relevant to your problems?</th>
           </tr>
         </thead>
-      <tbody style={{width:"100%", display:'flex', flexDirection:'column'}}>
+      <tbody className="table-group-divider">
       {review}
       </tbody>
 
       </table>
       </div>
       </div>
-    </div>
     <h5 className='head5'>Showing {currentPost.length}/{reviews.length} reviews</h5>
     <Paginations post={post} totalPosts={reviews.length} paginate={paginate} />
     </>

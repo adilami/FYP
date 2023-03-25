@@ -5,6 +5,9 @@ const userSchema = new Schema({
   email: { type: String, required:true, unique:true },
   pass: { type: String, required:true},
   isBan: { type:Boolean, default:false},
+  prodCount: { type: Number, default: 0 },
+  sleepCount: { type: Number, default: 0 },
+  yogaCount: { type: Number, default: 0 },
 },
 {timestamps:true}
 )

@@ -42,11 +42,6 @@ function Videos() {
         setDataP(dataP.data);
       });
   };
-  const newData = dataP.filter((i) => {
-    if (i.level == "1") {
-      return i;
-    }
-  });
   return (
     <>
       <NavigationBar />

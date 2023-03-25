@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 const router = require("./route/userRoute");
 const adminRouter = require("./route/adminRoute");
-const cookie = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const app = express();
 
@@ -14,10 +14,12 @@ const sleepLevel = require('./models/leveledVid/levelSleep');
 const prodLevel = require('./models/leveledVid/levelProd');
 const yogaLevel = require('./models/leveledVid/levelYoga');
 
+
+
 cronJob.sendMailUser();
 
-app.use(cors({credentials:true,origin:"http://localhost:3000"}));
-app.use(cookie());
+app.use(cors({credentials: true, origin:"http://localhost:3000"}));
+app.use(cookieParser());
 app.use(express.json());
 app.use('/api', router);
 app.use('/api', adminRouter);
@@ -361,6 +363,85 @@ app.get("/videoPCountlevel", async(req, res)=>{
 }) 
 
 
+app.put('/prodCount/:userId', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    user.prodCount++;
+    await user.save();
+    res.status(200).send({ count: user.prodCount });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
 
+// retrieve the level count for a specific user
+app.get('/getprodCount/:userId', async (req, res) => {
+  try {
+    const userId=req.params.userId;
+    const user = await User.findById(userId, '-pass');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    return res.status(200).json({ user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
 
+app.put('/sleepCount/:userId', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    console.log("PArama",req.params.userId);
+    user.sleepCount++;
+    await user.save();
+    res.status(200).send({ count: user.sleepCount });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
 
+// retrieve the level count for a specific user
+app.get('/getsleepCount/:userId', async (req, res) => {
+  try {
+    const userId=req.params.userId;
+    const user = await User.findById(userId, '-pass');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    return res.status(200).json({ user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+
+app.put('/yogaCount/:userId', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    console.log("PArama",req.params.userId);
+    user.yogaCount++;
+    await user.save();
+    res.status(200).send({ count: user.yogaCount });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+
+// retrieve the level count for a specific user
+app.get('/getyogaCount/:userId', async (req, res) => {
+  try {
+    const userId=req.params.userId;
+    const user = await User.findById(userId, '-pass');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    return res.status(200).json({ user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});

@@ -113,9 +113,8 @@ function DelVid() {
         <h2>Manage Generic Videos</h2>
         <h3>Sleep</h3>
       </div>
-      <div className="homep">
         <div className="table1">
-          <table>
+          <table className="table table-dark table-hover table-striped">
             <thead>
               <tr>
                 <th>ID</th>
@@ -126,14 +125,14 @@ function DelVid() {
             </thead>
             {data.map((i) => {
               return (
-                <tbody>
+                <tbody className="table-group-divider">
                   <tr>
                     <td>{i._id}</td>
                     <td>{i.name}</td>
                     <td>{i.vidUrl}</td>
                     <td>
                       <button
-                        className="buttonRemove"
+                        type="button" class="btn btn-outline-danger btn-sm"
                         onClick={() => removeVidS(i._id)}
                       >
                         Remove
@@ -145,11 +144,10 @@ function DelVid() {
             })}
           </table>
         </div>
-      </div>
       <h3>Yoga</h3>
-      <div className="homep">
+      
         <div className="table1">
-          <table>
+          <table className="table table-dark table-hover table-striped">
             <thead>
               <tr>
                 <th>ID</th>
@@ -160,7 +158,7 @@ function DelVid() {
             </thead>
             {dataY.map((i) => {
               return (
-                <tbody>
+                <tbody className="table-group-divider">
                   <tr>
                     <td>{i._id}</td>
                     <td>{i.name}</td>
@@ -168,7 +166,7 @@ function DelVid() {
                     {console.log(i.level)}
                     <td>
                       <button
-                        className="buttonRemove"
+                        type="button" class="btn btn-outline-danger btn-sm"
                         onClick={() => removeVidY(i._id)}
                       >
                         Remove
@@ -179,12 +177,10 @@ function DelVid() {
               );
             })}
           </table>
-        </div>
       </div> 
       <h3>Productivity</h3>
-      <div className="homep">
         <div className="table1">
-          <table>
+          <table className="table table-dark table-hover table-striped">
             <thead>
               <tr>
                 <th>ID</th>
@@ -195,14 +191,14 @@ function DelVid() {
             </thead>
             {dataP.map((i) => {
               return (
-                <tbody>
+                <tbody className="table-group-divider">
                   <tr>
                     <td>{i._id}</td>
                     <td>{i.name}</td>
                     <td>{i.vidUrl}</td>
                     <td>
                       <button
-                        className="buttonRemove"
+                        type="button" class="btn btn-outline-danger btn-sm"
                         onClick={() => removeVidP(i._id)}
                       >
                         Remove
@@ -214,7 +210,6 @@ function DelVid() {
             })}
           </table>
         </div>
-      </div>
     </>
   );
 }

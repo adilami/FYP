@@ -58,24 +58,22 @@ function NavigationBar() {
                 <a className="navbar-button" href="/hospital">
                   Hospitals
                 </a>
-                <a className="navbar-button" href="/review">
-                  Review
-                </a>
+
               </div>
-              <div className="navbutton">
-                <div class="dropdown">
-                  <img className="avatar" src={avatar}></img>
-                  <button class="dropbtn"></button>
-                  <div class="dropdown-content">
-                    <a href="/changePassword">Change Password</a>
-                    <a>
+              <div class="dropdown">
+                  {/* <img className="avatar" src={avatar}></img> */}
+                  <button  class="btn " type="button" data-bs-toggle="dropdown">                    <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span></button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                   <li> <a class="dropdown-item" href="/changePassword">Change Password</a></li>
+                    <li><a class="dropdown-item">
                       <button className="sign-in-btn" onClick={toggleLogout}>
                         Sign out
                       </button>
-                    </a>
+                    </a></li>
+                    </ul>
                   </div>
-                </div>
-              </div>
             </nav>
           </div>
           <div
@@ -112,9 +110,6 @@ function NavigationBar() {
           </a>
           <a className="navbar-button" href="/hospital">
             Hospitals
-          </a>
-          <a className="navbar-button" href="/review">
-                  Review
           </a>
           <a className="navbar-button" href="/changePassword">
             Change Password

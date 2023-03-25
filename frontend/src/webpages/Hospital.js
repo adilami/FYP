@@ -19,11 +19,11 @@ function Hospital() {
     let ktm = currentPostKTM.map ((items)=>{
       return(
         <>
-        <tbody>
+        <tbody className="table-group-divider">
           <tr>
             <td>{items.name}</td>
             <td>{items.location}</td>
-            <td> <a className="anchor" href={items.maps} target={'_blank'}>{items.maps}</a></td>
+            <td> <a  href={items.maps} target={'_blank'}>{items.maps}</a></td>
             <td>{items.phone}</td>
           </tr>
         </tbody>
@@ -33,7 +33,7 @@ function Hospital() {
     let pkr = currentPostPKR.map ((items)=>{
       return(
         <>
-        <tbody>
+        <tbody className="table-group-divider">
           <tr>
             <td>{items.name}</td>
             <td>{items.location}</td>
@@ -91,7 +91,7 @@ console.log(PKR);
       {KTM && <div className='table1'>
         
       <h3>Help centers in {name}</h3>
-      <table>
+      <table className="table table-dark table-hover table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -100,11 +100,9 @@ console.log(PKR);
             <th>Phone Number</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{ktm}</td>
-          </tr>
-        </tbody>
+
+          {ktm}
+
       </table>
       </div>}
       {KTM&&<h5 className='head5'>Showing {currentPostKTM.length}/{ktmdata.length} hospitals</h5>}
@@ -113,7 +111,7 @@ console.log(PKR);
 
      {PKR && <div className='table1'>
      <h3>Help centers in {name}</h3>
-      <table>
+      <table className="table table-dark table-hover table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -122,11 +120,7 @@ console.log(PKR);
             <th>Phone Number</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{pkr}</td>
-          </tr>
-        </tbody>
+        {pkr}
       </table>
     </div>
   }
@@ -136,7 +130,7 @@ console.log(PKR);
 
       {ALL && <div className='table1'>
         <h3>Help centers in Kathmandu</h3>
-      <table>
+      <table className="table table-dark table-hover table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -145,11 +139,7 @@ console.log(PKR);
             <th>Phone Number</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{ktm}</td>
-          </tr>
-        </tbody>
+       {ktm}
       </table>
       </div>}
    {ALL&&<h5 className='head5'>Showing {currentPostKTM.length}/{ktmdata.length} hospitals</h5>}
@@ -159,7 +149,7 @@ console.log(PKR);
    {ALL && <div className='table1'>
 
      <h3>Help centers in Pokhara</h3>
-      <table>
+      <table className="table table-dark table-hover table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -168,11 +158,7 @@ console.log(PKR);
             <th>Phone Number</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{pkr}</td>
-          </tr>
-        </tbody>
+       {pkr}
       </table>
   </div>}
       </div>
