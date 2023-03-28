@@ -204,7 +204,135 @@ const changePass = async (req, res)=>{
   }
 
 }
+const PLevel2 = async (req, res)=>{
+  const { id } = req.params;
+  const { timestamp } = req.body;
+  setTimeout(async () => {
+  try{
+    const PLevel2 = await user.findByIdAndUpdate(
+      id, 
+  
+        { PLevel2 : true },
+      { new:true }
+    )
+    res.json({
+      PLevel2
+    })
+  }
+  catch(e){
+    res.status(500).json({message:e.message})
+  }
+}
+,10000)
+}
 
+const PLevel3 = async (req, res)=>{
+  const { id } = req.params;
+  setTimeout(async () => {
+  try{
+    const PLevel3 = await user.findByIdAndUpdate(
+      id, 
+  
+      { PLevel3 : true },
+      { new:true }
+    )
+    res.json({
+      PLevel3
+    })
+  }
+  catch(e){
+    res.status(500).json({message:e.message})
+  }
+}
+  ,10000)
+}
+
+
+const SLevel2 = async (req, res)=>{
+  const { id } = req.params;
+  const { timestamp } = req.body;
+  setTimeout(async () => {
+  try{
+    const SLevel2 = await user.findByIdAndUpdate(
+      id, 
+  
+      { SLevel2 : true },
+      { new:true }
+    )
+    res.json({
+      SLevel2
+    })
+  }
+  catch(e){
+    res.status(500).json({message:e.message})
+  }
+}
+,10000)
+}
+
+const SLevel3 = async (req, res)=>{
+  const { id } = req.params;
+  setTimeout(async () => {
+  try{
+    const SLevel3 = await user.findByIdAndUpdate(
+      id, 
+  
+      { SLevel3 : true },
+      { new:true }
+    )
+    res.json({
+      SLevel3
+    })
+  }
+  catch(e){
+    res.status(500).json({message:e.message})
+  }
+}
+  ,10000)
+}
+
+const ALevel2 = async (req, res)=>{
+  const { id } = req.params;
+  const { timestamp } = req.body;
+  setTimeout(async () => {
+  try{
+    const ALevel2 = await user.findByIdAndUpdate(
+      id, 
+  
+      { ALevel2 : true },
+      { new:true }
+    )
+    res.json({
+      ALevel2
+    })
+  }
+  catch(e){
+    res.status(500).json({message:e.message})
+  }
+}
+,10000)
+}
+
+const ALevel3 = async (req, res)=>{
+  const { id } = req.params;
+  setTimeout(async () => {
+  try{
+    const ALevel3 = await user.findByIdAndUpdate(
+      id, 
+  
+      { ALevel3 : true },
+      { new:true }
+    )
+    res.json({
+      ALevel3
+    })
+  }
+  catch(e){
+    res.status(500).json({message:e.message})
+  }
+}
+  ,10000)
+}
 
 exports.register = register;
 exports.login = login;
@@ -214,6 +342,13 @@ exports.logout=logout;
 exports.banUser=banUser;
 exports.unbanUser=unbanUser;
 exports.changePass=changePass;
+exports.PLevel2 = PLevel2;
+exports.PLevel3 = PLevel3;
+exports.SLevel2 = SLevel2;
+exports.SLevel3 = SLevel3;
+exports.ALevel2 = ALevel2;
+exports.ALevel3 = ALevel3;
+
 
 
 

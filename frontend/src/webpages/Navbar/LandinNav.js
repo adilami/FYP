@@ -6,7 +6,7 @@ import "./navbar.css";
 import logo from "./wellbeing.png";
 
 
-function NavigationBar() {
+function LandinNav() {
   const history = useNavigate();
   const sendReqLogout = async () => {
     const res = await axios.post("http://localhost:8000/api/logout", null, {
@@ -22,13 +22,9 @@ function NavigationBar() {
       toast.error("Cant logout!");
     }
   };
-  const toggleLogout = () => {
-    localStorage.removeItem("token");
-    history("/");
-    window.location.reload();
-    sendReqLogout();
-
-    toast.success("Logged out Successfully!");
+  const toggleLogin = () => {
+    history("/login");
+  
   };
   // const hamburger = () =>{
   //   hamburger.
@@ -49,30 +45,17 @@ function NavigationBar() {
                   Home
                 </a>
                 <a className="navbar-button" href="/que">
-                  Questionnaire
+                  About Us
                 </a>
                 <a className="navbar-button" href="/videos">
-                  Videos
+                  Contact Us
                 </a>
-                <a className="navbar-button" href="/hospital">
-                  Hospitals
-                </a>
+                <div className="navbutton"></div>
+                <button className="m-sign-in-btn" href="" onClick={toggleLogin}>
+            Login
+          </button>
+          </div>
 
-              </div>
-              <div class="dropdown">
-                  {/* <img className="avatar" src={avatar}></img> */}
-                  <button  class="btn " type="button" data-bs-toggle="dropdown">                    <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span></button>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                   <li> <a class="dropdown-item" href="/changePassword">Change Password</a></li>
-                    <li><a class="dropdown-item">
-                      <button className="sign-in-btn" onClick={toggleLogout}>
-                        Sign out
-                      </button>
-                    </a></li>
-                    </ul>
-                  </div>
             </nav>
           </div>
           <div
@@ -98,24 +81,18 @@ function NavigationBar() {
       </div>
       {navbar && (
         <div className="mobile">
-          <a className="navbar-button" href="/">
-            Home
-          </a>
-          <a className="navbar-button" href="/que">
-            Questionnaire
-          </a>
-          <a className="navbar-button" href="/videos">
-            Videos
-          </a>
-          <a className="navbar-button" href="/hospital">
-            Hospitals
-          </a>
-          <a className="navbar-button" href="/changePassword">
-            Change Password
-          </a>
+<a className="navbar-button" href="/">
+                  Home
+                </a>
+                <a className="navbar-button" href="/que">
+                  About Us
+                </a>
+                <a className="navbar-button" href="/videos">
+                  Contact Us
+                </a>
           
-          <button className="m-sign-in-btn" href="" onClick={toggleLogout}>
-            Sign out
+          <button className="m-sign-in-btn" href="" onClick={toggleLogin}>
+            Login
           </button>
         </div>
       )}
@@ -123,4 +100,4 @@ function NavigationBar() {
   );
 }
 
-export default NavigationBar;
+export default LandinNav;

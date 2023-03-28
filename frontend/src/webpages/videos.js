@@ -55,7 +55,7 @@ function Videos() {
               <div className="video-container">
                 <div className="video-card">
                   <div className="video-responsive">
-                    <YoutubeEmbed embedId={i.vidUrl} />
+                   <a href={`https://www.youtube.com/watch?v=${i.vidUrl}`} target={'_blank'}> <img className="cardImg" src={i.imgUrl}></img></a>
                   </div>
                   <h5 className="h5">Name: {i.name}</h5>
                   <h5 className="h6">Description: {i.description}</h5>
@@ -74,7 +74,7 @@ function Videos() {
               <div className="video-container">
                 <div className="video-card">
                   <div className="video-responsive">
-                    <YoutubeEmbed embedId={i.vidUrl} />
+                   <a href={`https://www.youtube.com/watch?v=${i.vidUrl}`} target={'_blank'}> <img className="cardImg" src={i.imgUrl}></img></a>
                   </div>
                   <h5 className="h5">Name: {i.name}</h5>
                   <h5 className="h6">Description: {i.description}</h5>
@@ -93,7 +93,7 @@ function Videos() {
               <div className="video-container">
                 <div className="video-card">
                   <div className="video-responsive">
-                    <YoutubeEmbed embedId={i.vidUrl} />
+                  <a href={`https://www.youtube.com/watch?v=${i.vidUrl}`} target={'_blank'}> <img className="cardImg" src={i.imgUrl}></img></a>
                   </div>
                   <h5 className="h5">Name: {i.name}</h5>
                   <h5 className="h6">Description: {i.description}</h5>

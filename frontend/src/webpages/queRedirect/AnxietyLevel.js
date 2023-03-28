@@ -6,6 +6,8 @@ import YoutubeEmbed from "../YoutubeEmbed";
 function AnxietyLevel() {
   const [dataP, setDataP] = useState([]);
   const [userId, setUserId] = useState(null);
+  const [level2, setLevel2]= useState(false);
+  const [level3, setLevel3]= useState(false);
   const [counter, setCounter] = useState(0);
   const [form, setForm] = useState(false);
 
@@ -75,6 +77,8 @@ function AnxietyLevel() {
         });
         const data = await response.json();
         setUserId(data.use._id);
+        setLevel2(data.use.ALevel2)
+        setLevel3(data.use.ALevel3)
       } catch (error) {
         console.error(error);
       }
@@ -102,6 +106,45 @@ function AnxietyLevel() {
         .then(res => parseInt(setCounter(res.data.user.prodCount)))
         .catch(err => console.error(err));
       }
+
+      const handleLevel2 = async () => {
+    console.log(userId);
+
+      try {
+        const timestamp = Date.now();
+        const response = await axios.put(
+          `http://localhost:8000/api/aLevel2/${userId}`,{
+            body: JSON.stringify({timestamp})
+          }
+        );
+
+        if (response.status === 200) {
+          toast.success("Level 2 unlocked!");
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error(error);}
+  };
+  const handleLevel3 = async () => {
+    console.log(userId);
+    const timestamp = Date.now();
+
+
+      try {
+        const response = await axios.put(
+          `http://localhost:8000/api/aLevel3/${userId}`,{
+            body: JSON.stringify({timestamp})
+          }
+        );
+
+        if (response.status === 200) {
+          toast.success("Level 3 unlocked!");
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error(error);
+      }
+  };
   return (
     <>
       <NavigationBar />
@@ -143,7 +186,7 @@ function AnxietyLevel() {
       </div>
       <h3>Level 2</h3>
       
-      <div className="main-container">
+      {level2&&<div className="main-container">
         {newDataLevel2.map((i) => {
           return (
             <>
@@ -160,9 +203,9 @@ function AnxietyLevel() {
             </>
           );
         })}
-      </div>
+      </div>}
       <h3>Level 3</h3>
-      <div className="main-container">
+      {level3&&<div className="main-container">
         {newDataLevel3.map((i) => {
           return (
             <>
@@ -179,7 +222,10 @@ function AnxietyLevel() {
             </>
           );
         })}
-      </div>
+      </div>}
+                <button onClick={handleLevel2}>Level2</button>
+          <button onClick={handleLevel3}>Level3</button>
+
       </div>}
       {form&& <div>
       

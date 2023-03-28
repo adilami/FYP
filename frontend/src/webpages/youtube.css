@@ -2,7 +2,7 @@
 .video-responsive {
   position: relative;
   height: 30vh;
-  
+
 }
 
 .video-responsive iframe {
@@ -24,6 +24,13 @@
 
 
 }
+.cardImg{
+
+  width: 100%;
+  height: 90%;
+  border-radius: 12px;
+}
+
 
 /* Video container styles */
 .video-container {
@@ -40,7 +47,8 @@
   border-radius: 0.5rem;
   box-shadow: 5px 5px 8px 5px rgba(0, 0, 1, 0.5);
   padding: 1rem;
-  width:30vw;
+  width:24vw;
+  height: 52vh;
   text-align: left;
 }
 

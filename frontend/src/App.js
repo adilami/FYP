@@ -18,6 +18,7 @@ import ProdLevel from "./webpages/queRedirect/ProdLevel";
 import SleepLevel from "./webpages/queRedirect/SleepLevel";
 import AnxietyLevel from "./webpages/queRedirect/AnxietyLevel";
 import FetchReview from "./webpages/AdminPages/FetchReview";
+import LandingPage from "./webpages/LandingPage";
 const user=localStorage.getItem("token");
 const admin = localStorage.getItem("tokenAdmin")
 
@@ -26,8 +27,9 @@ function App() {
   return (
     <>
       <Routes>
-        {user && <Route exact path="/" element={<Dash />} />}
-        {!user&&<Route exact path="/" element={<Login />} />}
+        <Route exact path="/" element={<LandingPage />} />
+        {user && <Route exact path="/home" element={<Dash />} />}
+        <Route exact path="/login" element={<Login />} />
         <Route exact path="/adminLogin" element={<Admin />} />
         {admin&&<Route exact path="/adminDash" element={<AdminDash />} />}
         {admin&&<Route exact path="/addVid" element={<AddVid />} />}

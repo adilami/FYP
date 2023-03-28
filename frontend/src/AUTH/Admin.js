@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 function Admin() {
   const userLogin = () => {
-    history("/")
+    history("/login")
   }
   const history = useNavigate();
   const [input, setInput] = useState({

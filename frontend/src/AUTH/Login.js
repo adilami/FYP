@@ -51,8 +51,9 @@ function Login() {
         }
         if (res.status === 200) {
           localStorage.setItem("token", res.data);
+          history("/home");
           window.location.reload();
-          history("/");
+
           toast.success("Logged In Successfully");
         }
       } catch (error) {

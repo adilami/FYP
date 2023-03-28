@@ -36,7 +36,7 @@ const history = useNavigate();
     }
     if (document.getElementById("both").checked) {
       history("/anxiety")
-      toast.success("Both Sleep and Focus problem");
+      toast.success("Anxiety problem");
     }
     if (document.getElementById("none").checked) {
       history("/videos")

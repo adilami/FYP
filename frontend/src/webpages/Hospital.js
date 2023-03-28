@@ -23,7 +23,7 @@ function Hospital() {
           <tr>
             <td>{items.name}</td>
             <td>{items.location}</td>
-            <td> <a  href={items.maps} target={'_blank'}>{items.maps}</a></td>
+            <td> <a href={items.maps} target={'_blank'}>{items.maps}</a></td>
             <td>{items.phone}</td>
           </tr>
         </tbody>

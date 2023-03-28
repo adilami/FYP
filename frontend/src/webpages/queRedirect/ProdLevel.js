@@ -9,6 +9,8 @@ axios.defaults.withCredentials = true;
 function ProdLevel() {
   const [dataP, setDataP] = useState([]);
   const [userId, setUserId] = useState(null);
+  const [level2, setLevel2]= useState(false);
+  const [level3, setLevel3]= useState(false);
   const [counter, setCounter] = useState(0);
   const [form, setForm] = useState(false);
 
@@ -75,6 +77,9 @@ function ProdLevel() {
         });
         const data = await response.json();
         setUserId(data.use._id);
+        setLevel2(data.use.PLevel2)
+        setLevel3(data.use.PLevel3)
+
       } catch (error) {
         console.error(error);
       }
@@ -104,6 +109,45 @@ function ProdLevel() {
       .then((res) => parseInt(setCounter(res.data.user.prodCount)))
       .catch((err) => console.error(err));
   };
+
+  const handleLevel2 = async () => {
+    console.log(userId);
+
+      try {
+        const timestamp = Date.now();
+        const response = await axios.put(
+          `http://localhost:8000/api/pLevel2/${userId}`,{
+            body: JSON.stringify({timestamp})
+          }
+        );
+
+        if (response.status === 200) {
+          toast.success("Level 2 unlocked!");
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error(error);}
+  };
+  const handleLevel3 = async () => {
+    console.log(userId);
+    const timestamp = Date.now();
+
+
+      try {
+        const response = await axios.put(
+          `http://localhost:8000/api/pLevel3/${userId}`,{
+            body: JSON.stringify({timestamp})
+          }
+        );
+
+        if (response.status === 200) {
+          toast.success("Level 3 unlocked!");
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error(error);
+      }
+  };
   return (
     <>
       <NavigationBar />
@@ -114,7 +158,7 @@ function ProdLevel() {
           <h1>Level 1</h1>
           {/* {userId&&<h3>Count: {(counter.count)}</h3>} */}
           {userId ? <h1>User ID: {userId}</h1> : <h1>Loading user ID...</h1>}
-          {userId && <h1>Counter: {counter.count}</h1>}
+          { userId && <h1>Counter: {counter.count}</h1> }
           <div className="main-container">
             {newDataLevel1.map((i) => {
               return (
@@ -137,6 +181,7 @@ function ProdLevel() {
                         </div>
                       </div>
                       <h5 className="h5">Name: {i.name}</h5>
+                      <h5 className="h5">Id: {i._id}</h5>
                       <h5 className="h6">Description: {i.description}</h5>
                     </div>
                   </div>
@@ -146,17 +191,10 @@ function ProdLevel() {
           </div>
           <h1>Level 2</h1>
 
-          <div className="main-container">
+          {level2&&<div className="main-container">
             {newDataLevel2.map((i) => {
               return (
                 <>
-                  <header class="bg-white shadow">
-                    <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
-                      <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-                        Dashboard
-                      </h1>
-                    </div>
-                  </header>
                   {console.log(i.name)}
                   <div className="video-container">
                     <div className="video-card">
@@ -170,9 +208,9 @@ function ProdLevel() {
                 </>
               );
             })}
-          </div>
+          </div>}
           <h1>Level 3</h1>
-          <div className="main-container">
+          {level3&&<div className="main-container">
             {newDataLevel3.map((i) => {
               return (
                 <>
@@ -189,7 +227,10 @@ function ProdLevel() {
                 </>
               );
             })}
-          </div>
+          </div>}
+          <button onClick={handleLevel2}>Level2</button>
+          <button onClick={handleLevel3}>Level3</button>
+
         </div>
       )}
       {form && (

@@ -8,48 +8,58 @@ function AddVid() {
   const [vid, setVid] = useState("");
   const [description, setDesc] = useState("");
   const [level, setLevel] = useState("");
+  const [imageL, setImageL] = useState("");
+
 
   const [namelevel, setNamelevel] = useState("");
   const [vidlevel, setVidlevel] = useState("");
   const [descriptionlevel, setDesclevel] = useState("");
+  const [imagelevel, setimagelevel] = useState("");
 
   const toggleSub = (e) => {
-    if (!name || !vid ||!description) {
+    if (!name || !vid ||!description||!imageL) {
       toast.error("All the fields are required!!!");
     } else {
       if (document.getElementById("sleep").checked) {
         axios.post("http://localhost:8000/addVidS", {
           name: name,
           vidUrl: vid,
-          level:level,
+          imgUrl:imageL,
           description: description
         });
         toast.success("Video Details Added Successfully");
         setName("");
         setVid("");
         setDesc("");
+        setImageL("");
       }
       if (document.getElementById("focus").checked) {
         axios.post("http://localhost:8000/addVidY", {
           name: name,
           vidUrl: vid,
-          description: description
+          description: description,
+          imgUrl:imageL,
         });
         toast.success("Video Details Added Successfully");
         setName("");
         setVid("");
         setDesc("");
+        setImageL("");
+
       }
       if (document.getElementById("productivity").checked) {
         axios.post("http://localhost:8000/addVidP", {
           name: name,
           vidUrl: vid,
+          imgUrl:imageL,
           description: description
         });
         toast.success("Video Details Added Successfully");
         setName("");
         setVid("");
         setDesc("");
+        setImageL("");
+
       }
     }
   };
@@ -63,6 +73,7 @@ function AddVid() {
           name: namelevel,
           vidUrl: vidlevel,
           level:level,
+          imagelevel:imagelevel,
           description: descriptionlevel
         });
         toast.success("Video Details Added Successfully");
@@ -70,12 +81,14 @@ function AddVid() {
         setVidlevel("");
         setLevel("");
         setDesclevel("");
+        setimagelevel("");
       }
       if (document.getElementById("focuslevel").checked) {
         axios.post("http://localhost:8000/addVidYlevel", {
           name: namelevel,
           vidUrl: vidlevel,
           level:level,
+          imagelevel:imagelevel,
           description: descriptionlevel
         });
         toast.success("Video Details Added Successfully");
@@ -83,12 +96,15 @@ function AddVid() {
         setVidlevel("");
         setLevel("");
         setDesclevel("");
+        setimagelevel("");
+
       }
       if (document.getElementById("productivitylevel").checked) {
         axios.post("http://localhost:8000/addVidPlevel", {
           name: namelevel,
           vidUrl: vidlevel,
           level:level,
+          imagelevel:imagelevel,
           description: descriptionlevel
         });
         toast.success("Video Details Added Successfully");
@@ -96,6 +112,8 @@ function AddVid() {
         setVidlevel("");
         setLevel("");
         setDesclevel("");
+        setimagelevel("");
+
       }
     }
   };
@@ -121,6 +139,13 @@ function AddVid() {
         placeholder="Video URL"
         onChange={(e) => setVid(e.target.value)}
         value={vid}
+      />
+      <p>Image URL</p>
+      <input
+        type={"text"}
+        placeholder="Image URL"
+        onChange={(e) => setImageL(e.target.value)}
+        value={imageL}
       />
       <p>Description</p>
       <input
@@ -178,6 +203,13 @@ function AddVid() {
         placeholder="Level"
         onChange={(e) => setLevel(e.target.value)}
         value={level}
+      />
+        <p>Image URL</p>
+      <input
+        type={"text"}
+        placeholder="Image URL"
+        onChange={(e) => setimagelevel(e.target.value)}
+        value={imagelevel}
       />
       <p>Description</p>
       <input
