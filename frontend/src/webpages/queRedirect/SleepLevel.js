@@ -11,6 +11,9 @@ function SleepLevel() {
   const [level3, setLevel3]= useState(false);
   const [counter, setCounter] = useState(0);
   const [form, setForm] = useState(false);
+  const [id, setId] = useState([]);
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
 ;
   useEffect(() => {
     fetchUserP();
@@ -48,17 +51,6 @@ function SleepLevel() {
     toggleForm();
   }
   
-  function handleFocus() {
-    console.log("document focused");
-  }
-  React.useEffect(() => {
-    window.addEventListener("focus", handleFocus);
-    window.addEventListener("blur", handleBlur);
-    return () => {
-      window.removeEventListener("focus", handleFocus);
-      window.removeEventListener("blur", handleBlur);
-    };
-  });
 
 
   const toggleForm = () => {
@@ -157,19 +149,20 @@ function SleepLevel() {
                 <div className="video-card"   >
                   <div className="video-responsive">
                     <div className="video-responsive">
-                      <iframe
-                        width="853"
-                        height="480"
-                        src={`https://www.youtube.com/embed/${i.vidUrl}`}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title="Embedded youtube"
-                        id="Frame"
-                        
-                       
+                    <img
+                      className="cardImg"
+                      src={i.imgUrl}
+                      onClick={() => {
+                        setId(i.vidUrl);
+                        setDesc(i.description);
+                        setTitle(i.name);
+                        handleBlur()
+                        handleLevel2();
 
-                      ></iframe>
+                      }}
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    ></img>
                     </div>
                   </div>
                   <h5 className="h5">Name: {i.name}</h5>
@@ -191,7 +184,20 @@ function SleepLevel() {
               <div className="video-container">
                 <div className="video-card">
                   <div className="video-responsive">
-                    <YoutubeEmbed embedId={i.vidUrl} />
+                  <img
+                      className="cardImg"
+                      src={i.imgUrl}
+                      onClick={() => {
+                        setId(i.vidUrl);
+                        setDesc(i.description);
+                        setTitle(i.name);
+                        handleBlur()
+                        handleLevel3();
+
+                      }}
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    ></img>
                   </div>
                   <h5 className="h5">Name: {i.name}</h5>
                   <h5 className="h6">Description: {i.description}</h5>
@@ -210,7 +216,20 @@ function SleepLevel() {
               <div className="video-container">
                 <div className="video-card">
                   <div className="video-responsive">
-                    <YoutubeEmbed embedId={i.vidUrl} />
+                  <img
+                      className="cardImg"
+                      src={i.imgUrl}
+                      onClick={() => {
+                        setId(i.vidUrl);
+                        setDesc(i.description);
+                        setTitle(i.name);
+                        handleBlur()
+                        handleLevel2();
+
+                      }}
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    ></img>
                   </div>
                   <h5 className="h5">Name: {i.name}</h5>
                   <h5 className="h6">Description: {i.description}</h5>
@@ -233,6 +252,48 @@ function SleepLevel() {
           <button className="sign-in-btn" style={{width:"20%"}} onClick={() => setForm(false)}>Back to videos</button>
         </div>}
         <ToastContainer/>
+        <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-body">
+              <YoutubeEmbed embedId={id} />
+              <div
+                className="videoData"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "left",
+                }}
+              >
+                <h5 class="modal-title fs-5 text-start">
+                  <strong>Name:</strong> {title}
+                </h5>
+                <h5 class="modal-title fs-5 text-start">
+                  <strong>Description:</strong> {desc}
+                </h5>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                onClick={() => {
+                  window.location.reload();
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

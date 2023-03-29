@@ -42,7 +42,9 @@ function ManageUser() {
   };
   const handleunBanClick = async (userId, userName) => {
     if (
-      window.confirm(`Do you want to Un-Ban the user with user name: ${userName}`)
+      window.confirm(
+        `Do you want to Un-Ban the user with user name: ${userName}`
+      )
     ) {
       try {
         const response = await axios.put(
@@ -93,29 +95,33 @@ function ManageUser() {
   const paginate = (pageN) => setCurrentPage(pageN);
   let tableContent = currentPost.map((i) => {
     return (
-      <tbody className="table-group-divider">
+
         <tr>
           <td>{i._id}</td>
           <td>{i.userName}</td>
           <td>{i.email}</td>
-          <td>{i.isBan? "Banned" : "Active"}</td> {/* React doesnt render boolean value so using ternary operator to show the results.*/}
+          <td>{i.isBan ? "Banned" : "Active"}</td>{" "}
+          {/* React doesnt render boolean value so using ternary operator to show the results.*/}
           {console.log(i.createdAt)}
           <td>
             <div className="actio">
               <button
-                type="button" class="btn btn-outline-danger btn-sm"
+                type="button"
+                class="btn btn-outline-danger btn-sm"
                 onClick={() => handleBanClick(i._id, i.userName)}
               >
                 Ban User
               </button>
               <button
-              type="button" class="btn btn-outline-success btn-sm"
+                type="button"
+                class="btn btn-outline-success btn-sm"
                 onClick={() => handleunBanClick(i._id, i.userName)}
               >
                 Un-Ban User
               </button>
               <button
-                      type="button" class="btn btn-outline-danger btn-sm"
+                type="button"
+                class="btn btn-outline-danger btn-sm"
                 onClick={() => removeUser(i._id, i.userName)}
               >
                 Remove User
@@ -123,33 +129,38 @@ function ManageUser() {
             </div>
           </td>
         </tr>
-      </tbody>
     );
   });
   return (
     <>
       <AdminNav />
-      <div className="homep">
-      <h2>Manage User</h2>
-        <div className="table-responsive"></div>
-        <table className="table table-dark table-hover table-striped">
-          <thead>
-            <tr>
-              <th >User Id</th>
-              <th>UserName</th>
-              <th>Email</th>
-              <th>Ban Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          {tableContent}
-        </table>
+      <div className="homeH">
+        <h2>Manage User</h2>
+        <div className="table1">
+          <div className="table-responsive"></div>
+          <table className="table table-dark table-hover table-striped">
+            <thead>
+              <tr>
+                <th>User Id</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Ban Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody className="table-group-divider">
+            {tableContent}
+            </tbody>
+          </table>
+        </div>
 
-      <ToastContainer />
+        <ToastContainer />
+
+        <h5 className="head5">
+          Showing {currentPost.length}/{data.length} Users
+        </h5>
+        <Paginations post={post} totalPosts={data.length} paginate={paginate} />
       </div>
-              <h5 className='head5'>Showing {currentPost.length}/{data.length} users</h5>
-      <Paginations post={post} totalPosts={data.length} paginate={paginate} />
-   
     </>
   );
 }

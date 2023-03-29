@@ -38,7 +38,8 @@ function FetchReview() {
     <AdminNav />
     <div>
       <h1>Reviews</h1>
-      <div className="homep">
+      <div className="homeH">
+        <div className='table1'>
       <table className='table table-dark table-hover table-striped'>
         <thead>
           <tr>
@@ -55,9 +56,11 @@ function FetchReview() {
 
       </table>
       </div>
-      </div>
+
     <h5 className='head5'>Showing {currentPost.length}/{reviews.length} reviews</h5>
     <Paginations post={post} totalPosts={reviews.length} paginate={paginate} />
+    </div>
+    </div>
     </>
   );
           }

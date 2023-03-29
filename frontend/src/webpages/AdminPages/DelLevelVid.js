@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import AdminNav from "../Navbar/AdminNav";
 
@@ -7,7 +7,6 @@ function DelLevelVid() {
   const [dataY, setDataY] = useState([]);
   const [dataP, setDataP] = useState([]);
 
-  
   useEffect(() => {
     fetchVidS();
     fetchVidY();
@@ -113,6 +112,7 @@ function DelLevelVid() {
         <h2>Manage Leveled Videos</h2>
         <h3>Sleep</h3>
       </div>
+      <div className="homeH">
         <div className="table1">
           <table className="table table-dark table-hover table-striped">
             <thead>
@@ -124,9 +124,10 @@ function DelLevelVid() {
                 <th>Action</th>
               </tr>
             </thead>
+            <tbody className="table-group-divider">
+
             {data.map((i) => {
               return (
-                <tbody  className="table-group-divider">
                   <tr>
                     <td>{i._id}</td>
                     <td>{i.name}</td>
@@ -134,19 +135,23 @@ function DelLevelVid() {
                     <td>{i.level}</td>
                     <td>
                       <button
-                        type="button" class="btn btn-outline-danger btn-sm"
+                        type="button"
+                        class="btn btn-outline-danger btn-sm"
                         onClick={() => removeVidS(i._id)}
                       >
                         Remove
                       </button>
                     </td>
                   </tr>
-                </tbody>
               );
             })}
+                </tbody>
+
           </table>
+        </div>
       </div>
       <h3>Yoga</h3>
+      <div className="homeH">
         <div className="table1">
           <table className="table table-dark table-hover table-striped">
             <thead>
@@ -158,9 +163,10 @@ function DelLevelVid() {
                 <th>Action</th>
               </tr>
             </thead>
+            <tbody className="table-group-divider">
+
             {dataY.map((i) => {
               return (
-                <tbody  className="table-group-divider">
                   <tr>
                     <td>{i._id}</td>
                     <td>{i.name}</td>
@@ -169,19 +175,23 @@ function DelLevelVid() {
                     {console.log(i.level)}
                     <td>
                       <button
-                        type="button" class="btn btn-outline-danger btn-sm"
+                        type="button"
+                        class="btn btn-outline-danger btn-sm"
                         onClick={() => removeVidY(i._id)}
                       >
                         Remove
                       </button>
                     </td>
                   </tr>
-                </tbody>
               );
             })}
+                </tbody>
+
           </table>
-      </div> 
+        </div>
+      </div>
       <h3>Productivity</h3>
+      <div className="homeH">
         <div className="table1">
           <table className="table table-dark table-hover table-striped">
             <thead>
@@ -193,9 +203,10 @@ function DelLevelVid() {
                 <th>Action</th>
               </tr>
             </thead>
+            <tbody className="table-group-divider">
+
             {dataP.map((i) => {
               return (
-                <tbody  className="table-group-divider">
                   <tr>
                     <td>{i._id}</td>
                     <td>{i.name}</td>
@@ -203,20 +214,23 @@ function DelLevelVid() {
                     <td>{i.level}</td>
                     <td>
                       <button
-                        type="button" class="btn btn-outline-danger btn-sm"
+                        type="button"
+                        class="btn btn-outline-danger btn-sm"
                         onClick={() => removeVidP(i._id)}
                       >
                         Remove
                       </button>
                     </td>
                   </tr>
-                </tbody>
               );
             })}
+                </tbody>
+
           </table>
         </div>
+      </div>
     </>
   );
 }
 
-export default DelLevelVid
+export default DelLevelVid;

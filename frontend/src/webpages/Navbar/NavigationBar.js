@@ -39,13 +39,13 @@ function NavigationBar() {
       <div className="main">
         <div className="components">
           <div className="first">
-            <img src={logo} alt="Logo" />
+            <img className="img" src={logo} alt="Logo" />
             <h1 className="navbar">Wellbeing</h1>
           </div>
           <div className={"links"}>
             <nav>
               <div className="alinks">
-                <a className="navbar-button" href="/">
+                <a className="navbar-button" href="/home">
                   Home
                 </a>
                 <a className="navbar-button" href="/que">

@@ -19,28 +19,24 @@ function Hospital() {
     let ktm = currentPostKTM.map ((items)=>{
       return(
         <>
-        <tbody className="table-group-divider">
           <tr>
             <td>{items.name}</td>
             <td>{items.location}</td>
             <td> <a href={items.maps} target={'_blank'}>{items.maps}</a></td>
             <td>{items.phone}</td>
           </tr>
-        </tbody>
         </>
       )
     })
     let pkr = currentPostPKR.map ((items)=>{
       return(
         <>
-        <tbody className="table-group-divider">
           <tr>
             <td>{items.name}</td>
             <td>{items.location}</td>
             <td><a className="anchor" href={items.maps} target={'_blank'}>{items.maps}</a></td>
             <td>{items.phone}</td>
           </tr>
-        </tbody>
         </>
       )
     })
@@ -100,13 +96,14 @@ console.log(PKR);
             <th>Phone Number</th>
           </tr>
         </thead>
+        <tbody className="table-group-divider">
 
           {ktm}
-
+      </tbody>
       </table>
       </div>}
-      {KTM&&<h5 className='head5'>Showing {currentPostKTM.length}/{ktmdata.length} hospitals</h5>}
-
+      {KTM&&<h6 className='head5'>Showing {currentPostKTM.length}/{ktmdata.length} hospitals</h6>}
+  <br/>
         {KTM && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
 
      {PKR && <div className='table1'>
@@ -120,11 +117,14 @@ console.log(PKR);
             <th>Phone Number</th>
           </tr>
         </thead>
+        <tbody className="table-group-divider">
+
         {pkr}
+        </tbody>
       </table>
     </div>
   }
-    {PKR&&<h5 className='head5'>Showing {currentPostPKR.length}/{pkrdata.length} hospitals</h5>}
+    {PKR&&<h6 className='head5'>Showing {currentPostPKR.length}/{pkrdata.length} Hospitals</h6>}
    {PKR && <Paginations post={post} totalPosts={pkrdata.length} paginate={paginate}/>}
 
 
@@ -139,10 +139,14 @@ console.log(PKR);
             <th>Phone Number</th>
           </tr>
         </thead>
+        <tbody className="table-group-divider">
+
        {ktm}
+       </tbody>
       </table>
       </div>}
-   {ALL&&<h5 className='head5'>Showing {currentPostKTM.length}/{ktmdata.length} hospitals</h5>}
+   {ALL&&<h6 className='head5'>Showing {currentPostKTM.length}/{ktmdata.length} Hospitals</h6>}
+   <br/>
 
    {ALL && <Paginations post={post} totalPosts={ktmdata.length} paginate={paginate} />}
 
@@ -158,12 +162,15 @@ console.log(PKR);
             <th>Phone Number</th>
           </tr>
         </thead>
+        <tbody className="table-group-divider">
+
        {pkr}
+       </tbody>
       </table>
   </div>}
       </div>
-   {ALL&&<h5 className='head5'>Showing {currentPostPKR.length}/{pkrdata.length} hospitals</h5>}
-
+   {ALL&&<h6 className='head5'>Showing {currentPostPKR.length}/{pkrdata.length} Hospitals</h6>}
+  <br/>
    {ALL && <Paginations post={post} totalPosts={pkrdata.length} paginate={paginate} />}
       </>
   )

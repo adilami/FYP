@@ -1,6 +1,11 @@
 
 .video-responsive {
   position: relative;
+  height: 60vh;
+
+}
+.video-responsive1 {
+  position: relative;
   height: 30vh;
 
 }
@@ -9,7 +14,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  width:90%;
+  width:100%;
   position: absolute;
   border-radius: 40px;
   padding: 24px;

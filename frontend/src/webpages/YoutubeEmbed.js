@@ -5,10 +5,10 @@ const YoutubeEmbed = ({ embedId, button }) => (
   <div className="video-responsive">
     <iframe
       width="853"
-      height="480"
+      height="800"
       src={`https://www.youtube.com/embed/${embedId}`}
       frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allow="autoplay"
       allowFullScreen
       title="Embedded youtube"
       onClick={button}

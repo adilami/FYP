@@ -35,7 +35,7 @@ function LandinNav() {
       <div className="main">
         <div className="components">
           <div className="first">
-            <img src={logo} alt="Logo" />
+            <img className="img" src={logo} alt="Logo" />
             <h1 className="navbar">Wellbeing</h1>
           </div>
           <div className={"links"}>
@@ -84,10 +84,10 @@ function LandinNav() {
 <a className="navbar-button" href="/">
                   Home
                 </a>
-                <a className="navbar-button" href="/que">
+                <a className="navbar-button" href="/aboutUs">
                   About Us
                 </a>
-                <a className="navbar-button" href="/videos">
+                <a className="navbar-button" href="/contactUs">
                   Contact Us
                 </a>
           

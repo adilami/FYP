@@ -7,7 +7,6 @@ function DelVid() {
   const [dataY, setDataY] = useState([]);
   const [dataP, setDataP] = useState([]);
 
-  
   useEffect(() => {
     fetchVidS();
     fetchVidY();
@@ -106,6 +105,63 @@ function DelVid() {
         });
     }
   };
+  const Sleep = data.map((i) => {
+    return (
+      <tr>
+        <td>{i._id}</td>
+        <td>{i.name}</td>
+        <td>{i.vidUrl}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            onClick={() => removeVidS(i._id)}
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
+    );
+  });
+
+  const Yoga = dataY.map((i) => {
+    return (
+      <tr>
+        <td>{i._id}</td>
+        <td>{i.name}</td>
+        <td>{i.vidUrl}</td>
+        {console.log(i.level)}
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            onClick={() => removeVidY(i._id)}
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
+    );
+  });
+
+  const Prod = dataP.map((i) => {
+    return (
+        <tr>
+          <td>{i._id}</td>
+          <td>{i.name}</td>
+          <td>{i.vidUrl}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              onClick={() => removeVidP(i._id)}
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+    );
+  });
   return (
     <>
       <AdminNav />
@@ -113,6 +169,7 @@ function DelVid() {
         <h2>Manage Generic Videos</h2>
         <h3>Sleep</h3>
       </div>
+      <div className="homeH">
         <div className="table1">
           <table className="table table-dark table-hover table-striped">
             <thead>
@@ -123,29 +180,12 @@ function DelVid() {
                 <th>Action</th>
               </tr>
             </thead>
-            {data.map((i) => {
-              return (
-                <tbody className="table-group-divider">
-                  <tr>
-                    <td>{i._id}</td>
-                    <td>{i.name}</td>
-                    <td>{i.vidUrl}</td>
-                    <td>
-                      <button
-                        type="button" class="btn btn-outline-danger btn-sm"
-                        onClick={() => removeVidS(i._id)}
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              );
-            })}
+            <tbody className="table-group-divider">{Sleep}</tbody>
           </table>
         </div>
+      </div>
       <h3>Yoga</h3>
-      
+      <div className="homeH">
         <div className="table1">
           <table className="table table-dark table-hover table-striped">
             <thead>
@@ -156,60 +196,26 @@ function DelVid() {
                 <th>Action</th>
               </tr>
             </thead>
-            {dataY.map((i) => {
-              return (
-                <tbody className="table-group-divider">
-                  <tr>
-                    <td>{i._id}</td>
-                    <td>{i.name}</td>
-                    <td>{i.vidUrl}</td>
-                    {console.log(i.level)}
-                    <td>
-                      <button
-                        type="button" class="btn btn-outline-danger btn-sm"
-                        onClick={() => removeVidY(i._id)}
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              );
-            })}
-          </table>
-      </div> 
-      <h3>Productivity</h3>
-        <div className="table1">
-          <table className="table table-dark table-hover table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Video URL</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            {dataP.map((i) => {
-              return (
-                <tbody className="table-group-divider">
-                  <tr>
-                    <td>{i._id}</td>
-                    <td>{i.name}</td>
-                    <td>{i.vidUrl}</td>
-                    <td>
-                      <button
-                        type="button" class="btn btn-outline-danger btn-sm"
-                        onClick={() => removeVidP(i._id)}
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              );
-            })}
+            <tbody className="table-group-divider">{Yoga}</tbody>
           </table>
         </div>
+      </div>
+      <h3>Productivity</h3>
+      <div className="homeH">
+        <div className="table1">
+          <table className="table table-dark table-hover table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Video URL</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody className="table-group-divider">{Prod}</tbody>
+          </table>
+        </div>
+      </div>
     </>
   );
 }

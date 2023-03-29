@@ -35,7 +35,7 @@ function AdminNav() {
       <div className="main">
         <div className="components">
           <div className="first">
-            <img src={logo} alt="Logo" />
+            <img className="img" src={logo} alt="Logo" />
             <h1 className="navbar">Wellbeing</h1>
           </div>
           <div className={"links"}>

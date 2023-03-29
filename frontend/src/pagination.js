@@ -11,10 +11,10 @@ const Paginations = ({ post, totalPosts, paginate, pagFirst, pagLast }) => {
   return(
     <>
       
-        <ul className='pagination'>
+        <ul className='pagination pagination-lg justify-content-start'>
           {pageN.map(number =>(
-            <li  class="page-item" key = {number}>
-              <a class="page-link" onClick={() => paginate(number)}>
+            <li  className="page-item" key = {number}>
+              <a onClick={() => paginate(number)}>
                 <Pagination.Item>{number}</Pagination.Item>
                 
               </a>
