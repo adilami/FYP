@@ -36,6 +36,7 @@ function NavigationBar() {
   const [navbar, setNavbar] = useState(false); 
   return (
     <>
+
       <div className="main">
         <div className="components">
           <div className="first">

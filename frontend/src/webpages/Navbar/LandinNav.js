@@ -32,6 +32,7 @@ function LandinNav() {
   const [navbar, setNavbar] = useState(false); 
   return (
     <>
+      <div className="fixed">
       <div className="main">
         <div className="components">
           <div className="first">
@@ -41,21 +42,21 @@ function LandinNav() {
           <div className={"links"}>
             <nav>
               <div className="alinks">
-                <a className="navbar-button" href="/">
+                <a className="navbar-button" href="#home">
                   Home
                 </a>
-                <a className="navbar-button" href="/que">
+                <a className="navbar-button" href="#aboutUs">
                   About Us
                 </a>
-                <a className="navbar-button" href="/videos">
+                <a className="navbar-button" href="/#contactUs">
                   Contact Us
                 </a>
-                <div className="navbutton"></div>
-                <button className="m-sign-in-btn" href="" onClick={toggleLogin}>
+          </div>
+          <div className="navbutton1">
+              <button className="m-sign-in-btn" href="" onClick={toggleLogin}>
             Login
           </button>
           </div>
-
             </nav>
           </div>
           <div
@@ -79,6 +80,7 @@ function LandinNav() {
           </div>
         </div>
       </div>
+      
       {navbar && (
         <div className="mobile">
 <a className="navbar-button" href="/">
@@ -96,6 +98,7 @@ function LandinNav() {
           </button>
         </div>
       )}
+      </div>
     </>
   );
 }

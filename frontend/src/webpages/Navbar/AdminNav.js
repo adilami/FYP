@@ -24,10 +24,10 @@ function AdminNav() {
   const toggleLogout = () => {
     localStorage.removeItem("tokenAdmin");
     sendReqLogout();
-    history("/adminLogin")
+    history("/adminLogin");
     window.location.reload();
     toast.success("Logged out Successfully!");
-  }
+  };
 
   const [navbar, setNavbar] = useState(false);
   return (
@@ -41,7 +41,7 @@ function AdminNav() {
           <div className={"links"}>
             <nav>
               <div className="alinks">
-              <a className="navbar-button" href="/adminDash">
+                <a className="navbar-button" href="/adminDash">
                   Dashboard
                 </a>
                 <a className="navbar-button" href="/manageUser">
@@ -50,12 +50,26 @@ function AdminNav() {
                 <a className="navbar-button" href="/addVid">
                   Add Videos
                 </a>
-                <a className="navbar-button" href="/deleteVid">
-                  Manage Generic Videos
-                </a>
-                <a className="navbar-button" href="/deleteLevelVid">
-                  Manage Leveled Videos
-                </a>
+                <div class="dropdown">
+                  {/* <img className="avatar" src={avatar}></img> */}
+                  <button class="btn " type="button" data-bs-toggle="dropdown">
+                    Manage Videos
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li>
+                      {" "}
+                      <a class="dropdown-item" href="/deleteVid">
+                        Generic Videos
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/deleteLevelVid">
+                        Leveled Videos
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
                 <a className="navbar-button" href="/fetchreview">
                   Check Reviews
                 </a>
@@ -73,11 +87,11 @@ function AdminNav() {
               setNavbar(!navbar);
             }}
           >
-            {navbar ?   (
+            {navbar ? (
               <>
                 <h1>X</h1>
               </>
-            ):(
+            ) : (
               <>
                 <span className="bar"></span>
                 <span className="bar"></span>
@@ -88,7 +102,7 @@ function AdminNav() {
         </div>
       </div>
       {navbar && (
-        <div className="mobile">
+        <div className="mobileA">
           <a className="navbar-button" href="/manageUser">
             Manage User
           </a>
@@ -102,8 +116,8 @@ function AdminNav() {
             Manage Leveled Videos
           </a>
           <a className="navbar-button" href="/fetchreview">
-                  Check Reviews
-                </a>
+            Check Reviews
+          </a>
           <button className="m-sign-in-btn" href="" onClick={toggleLogout}>
             Sign out
           </button>

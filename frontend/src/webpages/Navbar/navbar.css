@@ -18,8 +18,9 @@
   border-bottom-right-radius: 12px; */
 }
 h1.navbar {
-  align-items: center;
-  /* padding: 30px; */
+  height: 100%;
+  text-align: center;
+  padding-bottom: 16px;
 }
 .components {
   width: 100%;
@@ -28,7 +29,7 @@ h1.navbar {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
+  
 }
 .ham {
   /* width: 200vw; */
@@ -63,6 +64,13 @@ nav {
   align-items: center;
   justify-content: space-around;
 }
+.fixed{
+  width: 100%;
+  margin-top: -4vh;
+  position: fixed;
+  z-index: 1;
+}
+
 .img {
   height: 80px;
   width: 80px;
@@ -116,7 +124,19 @@ nav {
   border-radius: 8px;
   color: white;
   font-weight: 600;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px rgba(0, 0, 0, 0.3);
+}
+.m-sign-in-btn1 {
+  /* padd:20px; */
+  width: 12vw;
+  height: 6vh;
+  background-color: #5e5ef7;
+  border: 0;
+  margin-left: -3rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 3px 4px rgba(0, 0, 0, 0.3);
 }
 .sign-in-btn {
   width: 60%;
@@ -127,12 +147,20 @@ nav {
   border-radius: 8px;
   color: white;
   font-weight: 600;
-  box-shadow: 6px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 .navbutton {
   width: 12vw;
   height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+}
+.navbutton1 {
+  width: 10vw;
+  height: 6vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -156,6 +184,19 @@ nav {
     background-color: white;
     border: 2px solid;
     height: 380px;
+    display: grid;
+    grid-column: 3/5;
+    align-items: center;
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+    transition: all 2s linear;
+    transform-origin: top;
+    justify-content: center;
+  }
+  .mobileA {
+    background-color: white;
+    border: 2px solid;
+    height: 500px;
     display: grid;
     grid-column: 3/5;
     align-items: center;

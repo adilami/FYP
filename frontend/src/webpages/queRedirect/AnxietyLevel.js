@@ -234,9 +234,6 @@ function AnxietyLevel() {
           );
         })}
       </div>}
-                <button onClick={handleLevel2}>Level2</button>
-          <button onClick={handleLevel3}>Level3</button>
-
       </div>}
       {form&& <div>
       

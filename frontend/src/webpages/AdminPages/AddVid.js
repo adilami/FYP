@@ -124,7 +124,7 @@ function AddVid() {
         <div className="login-form">
         <h1>Add Generic Video</h1>
 
-        <div className="container">
+        <div className="containerLogin">
 
       <p>Name</p>
       <input
@@ -179,7 +179,7 @@ function AddVid() {
       <div className="login-form">
         <h1>Add Leveled Redirect Video</h1>
 
-        <div className="container">
+        <div className="containerLogin">
 
       <p>Name</p>
       <input

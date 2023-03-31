@@ -7,7 +7,7 @@ import Paginations from '../pagination';
 
 function Hospital() {
   const[currentPage, setCurrentPage] = useState(1);
-  const[post] = useState(5);
+  const[post] = useState(10);
   const indexOfLastPost = currentPage * post;
   const indexOfFirstPost = indexOfLastPost-post;
   const currentPostKTM = ktmdata.slice(indexOfFirstPost, indexOfLastPost)
@@ -87,13 +87,13 @@ console.log(PKR);
       {KTM && <div className='table1'>
         
       <h3>Help centers in {name}</h3>
-      <table className="table table-dark table-hover table-striped">
+      <table className="table table-dark table-hover table-bordered table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Maps Link</th>
-            <th>Phone Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Maps Link</th>
+            <th scope="col">Phone Number</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -108,13 +108,13 @@ console.log(PKR);
 
      {PKR && <div className='table1'>
      <h3>Help centers in {name}</h3>
-      <table className="table table-dark table-hover table-striped">
+      <table className="table table-dark table-hover table-bordered table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Maps Link</th>
-            <th>Phone Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Maps Link</th>
+            <th scope="col">Phone Number</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -130,13 +130,13 @@ console.log(PKR);
 
       {ALL && <div className='table1'>
         <h3>Help centers in Kathmandu</h3>
-      <table className="table table-dark table-hover table-striped">
+      <table className="table table-dark table-hover table-bordered table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Maps Link</th>
-            <th>Phone Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Maps Link</th>
+            <th scope="col">Phone Number</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -153,13 +153,13 @@ console.log(PKR);
    {ALL && <div className='table1'>
 
      <h3>Help centers in Pokhara</h3>
-      <table className="table table-dark table-hover table-striped">
+      <table className="table table-dark table-hover table-bordered table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Maps Link</th>
-            <th>Phone Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Maps Link</th>
+            <th scope="col">Phone Number</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">

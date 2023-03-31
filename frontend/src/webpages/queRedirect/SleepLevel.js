@@ -7,14 +7,13 @@ import YoutubeEmbed from "../YoutubeEmbed";
 function SleepLevel() {
   const [dataP, setDataP] = useState([]);
   const [userId, setUserId] = useState(null);
-  const [level2, setLevel2]= useState(false);
-  const [level3, setLevel3]= useState(false);
+  const [level2, setLevel2] = useState(false);
+  const [level3, setLevel3] = useState(false);
   const [counter, setCounter] = useState(0);
   const [form, setForm] = useState(false);
   const [id, setId] = useState([]);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-;
   useEffect(() => {
     fetchUserP();
   }, []);
@@ -50,34 +49,31 @@ function SleepLevel() {
 
     toggleForm();
   }
-  
-
 
   const toggleForm = () => {
-    if(counter.count%10==0){
-      setForm(true)
-      toast.success("Please fill the review form!!!")
+    if (counter.count % 10 == 0) {
+      setForm(true);
+      toast.success("Please fill the review form!!!");
     }
-
-  }
+  };
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/home', {
-          method: 'GET',
-          credentials: 'include'
+        const response = await fetch("http://localhost:8000/api/home", {
+          method: "GET",
+          credentials: "include",
         });
         const data = await response.json();
         setUserId(data.use._id);
-        setLevel2(data.use.SLevel2)
-        setLevel3(data.use.SLevel3)
+        setLevel2(data.use.SLevel2);
+        setLevel3(data.use.SLevel3);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchUser();
-    fetchCount()
+    fetchCount();
   }, [userId]);
   const handleLevelClick = () => {
     // increment the level count for the current user
@@ -93,166 +89,174 @@ function SleepLevel() {
       .then((res) => parseInt(setCounter(res.data.user.prodCount)))
       .catch((err) => console.error(err));
   };
-  
+
   const handleLevel2 = async () => {
     console.log(userId);
 
-      try {
-        const timestamp = Date.now();
-        const response = await axios.put(
-          `http://localhost:8000/api/sLevel2/${userId}`,{
-            body: JSON.stringify({timestamp})
-          }
-        );
-
-        if (response.status === 200) {
-          toast.success("Level 2 unlocked!");
-          window.location.reload();
+    try {
+      const timestamp = Date.now();
+      const response = await axios.put(
+        `http://localhost:8000/api/sLevel2/${userId}`,
+        {
+          body: JSON.stringify({ timestamp }),
         }
-      } catch (error) {
-        console.error(error);}
+      );
+
+      if (response.status === 200) {
+        toast.success("Level 2 unlocked!");
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   const handleLevel3 = async () => {
     console.log(userId);
     const timestamp = Date.now();
 
-
-      try {
-        const response = await axios.put(
-          `http://localhost:8000/api/sLevel3/${userId}`,{
-            body: JSON.stringify({timestamp})
-          }
-        );
-
-        if (response.status === 200) {
-          toast.success("Level 3 unlocked!");
-          window.location.reload();
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/api/sLevel3/${userId}`,
+        {
+          body: JSON.stringify({ timestamp }),
         }
-      } catch (error) {
-        console.error(error);
+      );
+
+      if (response.status === 200) {
+        toast.success("Level 3 unlocked!");
+        window.location.reload();
       }
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <>
       <NavigationBar />
 
-      {!form && <div>
-        <h1>User ID: {userId}</h1>
-      <h1> Sleep Videos</h1>
-      <h3>Level 1</h3>
-      <div className="main-container">
-        {newDataLevel1.map((i) => {
-          return (
-            <>
-              {console.log(i.name)}
-              <div className="video-container">
-                <div className="video-card"   >
-                  <div className="video-responsive">
-                    <div className="video-responsive">
-                    <img
-                      className="cardImg"
-                      src={i.imgUrl}
-                      onClick={() => {
-                        setId(i.vidUrl);
-                        setDesc(i.description);
-                        setTitle(i.name);
-                        handleBlur()
-                        handleLevel2();
-
-                      }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    ></img>
+      {!form && (
+        <div>
+          <h1>User ID: {userId}</h1>
+          <h1> Sleep Videos</h1>
+          <h3>Level 1</h3>
+          <div className="main-container">
+            {newDataLevel1.map((i) => {
+              return (
+                <>
+                  {console.log(i.name)}
+                  <div className="video-container">
+                    <div className="video-card">
+                      <div className="video-responsive">
+                        <div className="video-responsive">
+                          <img
+                            className="cardImg"
+                            src={i.imgUrl}
+                            onClick={() => {
+                              setId(i.vidUrl);
+                              setDesc(i.description);
+                              setTitle(i.name);
+                              handleBlur();
+                              handleLevel2();
+                            }}
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          ></img>
+                        </div>
+                      </div>
+                      <h5 className="h5">Name: {i.name}</h5>
+                      <h5 className="h6">Description: {i.description}</h5>
+                      <h1>You clicked {counter} times</h1>
                     </div>
                   </div>
-                  <h5 className="h5">Name: {i.name}</h5>
-                  <h5 className="h6">Description: {i.description}</h5>
-                  <h1>You clicked {counter} times</h1>
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </div>
-      <h3>Level 2</h3>
-      
-      {level2&&<div className="main-container">
-        {newDataLevel2.map((i) => {
-          return (
-            <>
-              {console.log(i.name)}
-              <div className="video-container">
-                <div className="video-card">
-                  <div className="video-responsive">
-                  <img
-                      className="cardImg"
-                      src={i.imgUrl}
-                      onClick={() => {
-                        setId(i.vidUrl);
-                        setDesc(i.description);
-                        setTitle(i.name);
-                        handleBlur()
-                        handleLevel3();
+                </>
+              );
+            })}
+          </div>
+          <h3>Level 2</h3>
 
-                      }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    ></img>
-                  </div>
-                  <h5 className="h5">Name: {i.name}</h5>
-                  <h5 className="h6">Description: {i.description}</h5>
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </div>}
-      <h3>Level 3</h3>
-      {level3&&<div className="main-container">
-        {newDataLevel3.map((i) => {
-          return (
-            <>
-              {console.log(i.name)}
-              <div className="video-container">
-                <div className="video-card">
-                  <div className="video-responsive">
-                  <img
-                      className="cardImg"
-                      src={i.imgUrl}
-                      onClick={() => {
-                        setId(i.vidUrl);
-                        setDesc(i.description);
-                        setTitle(i.name);
-                        handleBlur()
-                        handleLevel2();
-
-                      }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    ></img>
-                  </div>
-                  <h5 className="h5">Name: {i.name}</h5>
-                  <h5 className="h6">Description: {i.description}</h5>
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </div>}
-      <button onClick={handleLevel2}>Level2</button>
-        <button onClick={handleLevel3}>Level3</button>
-
-      </div>}
-      {form&& <div>
-      
-        <iframe
-          style={{ width: "100%", height: "85vh" }}
-          src="https://form.jotform.com/wellbeingappfyp/form"
-        ></iframe>
-          <button className="sign-in-btn" style={{width:"20%"}} onClick={() => setForm(false)}>Back to videos</button>
-        </div>}
-        <ToastContainer/>
-        <div
+          {level2 && (
+            <div className="main-container">
+              {newDataLevel2.map((i) => {
+                return (
+                  <>
+                    {console.log(i.name)}
+                    <div className="video-container">
+                      <div className="video-card">
+                        <div className="video-responsive">
+                          <img
+                            className="cardImg"
+                            src={i.imgUrl}
+                            onClick={() => {
+                              setId(i.vidUrl);
+                              setDesc(i.description);
+                              setTitle(i.name);
+                              handleBlur();
+                              handleLevel3();
+                            }}
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          ></img>
+                        </div>
+                        <h5 className="h5">Name: {i.name}</h5>
+                        <h5 className="h6">Description: {i.description}</h5>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+          )}
+          <h3>Level 3</h3>
+          {level3 && (
+            <div className="main-container">
+              {newDataLevel3.map((i) => {
+                return (
+                  <>
+                    {console.log(i.name)}
+                    <div className="video-container">
+                      <div className="video-card">
+                        <div className="video-responsive">
+                          <img
+                            className="cardImg"
+                            src={i.imgUrl}
+                            onClick={() => {
+                              setId(i.vidUrl);
+                              setDesc(i.description);
+                              setTitle(i.name);
+                              handleBlur();
+                            }}
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          ></img>
+                        </div>
+                        <h5 className="h5">Name: {i.name}</h5>
+                        <h5 className="h6">Description: {i.description}</h5>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
+      {form && (
+        <div>
+          <iframe
+            style={{ width: "100%", height: "85vh" }}
+            src="https://form.jotform.com/wellbeingappfyp/form"
+          ></iframe>
+          <button
+            className="sign-in-btn"
+            style={{ width: "20%" }}
+            onClick={() => setForm(false)}
+          >
+            Back to videos
+          </button>
+        </div>
+      )}
+      <ToastContainer />
+      <div
         class="modal fade"
         id="exampleModal"
         tabindex="-1"

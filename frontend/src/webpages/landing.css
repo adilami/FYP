@@ -2,7 +2,7 @@
   width:100vw;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 .slider{
@@ -12,7 +12,56 @@
 
 
 }
+.sliderMain{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .fill{
   object-fit: cover;
+
+}
+.footer{
+  background-color: #2c3e50;
+  color: #fff;
+  padding-top:24px;
+  padding-bottom:24px;
+}
+.navTop{
+  width: 100%;
+  height:4vh;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  z-index: -10;
+}
+.about{
+  width:72%;
+  height:100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.aboutContent{
+  width: 64%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 42px;
+  padding-bottom: 42px;
+  padding-left: 24px;
+  padding-right: 24px;
+  /* margin-bottom: 50px; */
+}
+.aboutCard{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom:50px ;
 
 }

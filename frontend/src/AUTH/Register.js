@@ -75,8 +75,8 @@ function Register(){
     <>
       <div className="center-form">
         <div className="login-form">
-          <h1>Register</h1>
-          <div className="container">
+          <h1 className="display-6">Register</h1>
+          <div className="containerLogin">
             <input
               name="userName"
               className="mb-1"

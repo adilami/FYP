@@ -85,8 +85,8 @@ function Login() {
     <>
       <div className="center-form">
         <div className="login-form">
-          <h1>Login</h1>
-          <div className="container">
+          <h1 className="display-6">Login</h1>
+          <div className="containerLogin">
             <input
               name="email"
               className="mb-1"

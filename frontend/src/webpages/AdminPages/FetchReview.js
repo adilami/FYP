@@ -23,7 +23,7 @@ function FetchReview() {
     return(
       <>
             <tr key={submission.id}>
-            <td>{submission.answers['3'].answer.first} {submission.answers['3'].answer.last}</td>
+            <td width='12px'>{submission.answers['3'].answer.first}{" "}{submission.answers['3'].answer.last}</td>
             <td>{submission.answers['4'].answer}</td>
             <td>{submission.answers['6'].answer}</td>
             <td>{submission.answers['5'].answer}</td>
@@ -37,17 +37,17 @@ function FetchReview() {
     <>
     <AdminNav />
     <div>
-      <h1>Reviews</h1>
+      <h1 className="display-5">Reviews</h1>
       <div className="homeH">
         <div className='table1'>
-      <table className='table table-dark table-hover table-striped'>
+      <table className='table table-dark  table-hover table-bordered table-striped'>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Ratings</th>
-            <th>Is the App Helping You?</th>
-            <th>Is the videos relevant to your problems?</th>
+            <th scope="col" width='8%'>Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Ratings</th>
+            <th scope="col">App Helping?</th>
+            <th scope="col">Videos relevant?</th>
           </tr>
         </thead>
       <tbody className="table-group-divider">

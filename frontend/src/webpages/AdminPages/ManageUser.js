@@ -135,10 +135,10 @@ function ManageUser() {
     <>
       <AdminNav />
       <div className="homeH">
-        <h2>Manage User</h2>
+        <h1 className="display-5">Manage User</h1>
         <div className="table1">
           <div className="table-responsive"></div>
-          <table className="table table-dark table-hover table-striped">
+          <table className="table table-dark table-bordered table-hover table-striped">
             <thead>
               <tr>
                 <th>User Id</th>

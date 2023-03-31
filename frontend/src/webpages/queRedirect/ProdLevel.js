@@ -20,6 +20,10 @@ function ProdLevel() {
 
   useEffect(() => {
     fetchUserP();
+    handleLevel2();
+    handleLevel3();
+
+    
   }, []);
   const fetchUserP = () => {
     fetch("http://localhost:8000/getVideoPlevel", {
@@ -243,8 +247,6 @@ function ProdLevel() {
               );
             })}
           </div>}
-          <button onClick={handleLevel2}>Level2</button>
-          <button onClick={handleLevel3}>Level3</button>
 
         </div>
       )}

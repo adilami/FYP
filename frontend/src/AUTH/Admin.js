@@ -1,12 +1,12 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 function Admin() {
   const userLogin = () => {
-    history("/login")
-  }
+    history("/login");
+  };
   const history = useNavigate();
   const [input, setInput] = useState({
     email: "",
@@ -26,29 +26,29 @@ function Admin() {
   //   history("/adminDash");
   // }
   const sendReq = async () => {
-      try {
-        const res = await axios.post("http://localhost:8000/api/Adminlogin", {
-          email: input.email,
-          pass: input.pass,
-        });
+    try {
+      const res = await axios.post("http://localhost:8000/api/Adminlogin", {
+        email: input.email,
+        pass: input.pass,
+      });
 
-        if (res.status === 200) {
-          localStorage.setItem("tokenAdmin", res.data); 
-          history("/adminDash");
-          window.location.reload();
-          toast.success("Logged In Successfully");
-        }
-      } catch (error) {
-        try {
-          if (!input.email || !input.pass) {
-            toast.error("Email and password are required.");
-          } else if (error.status !== 200) {
-            toast.error(error.response.data.message);
-          }
-        } catch (e) {
-          toast.error("Server is down");
-        }
+      if (res.status === 200) {
+        localStorage.setItem("tokenAdmin", res.data);
+        history("/adminDash");
+        window.location.reload();
+        toast.success("Logged In Successfully");
       }
+    } catch (error) {
+      try {
+        if (!input.email || !input.pass) {
+          toast.error("Email and password are required.");
+        } else if (error.status !== 200) {
+          toast.error(error.response.data.message);
+        }
+      } catch (e) {
+        toast.error("Server is down");
+      }
+    }
   };
 
   const handleSubmit = (a) => {
@@ -58,10 +58,10 @@ function Admin() {
   };
   return (
     <>
-    <div className="center-form">
+      <div className="center-form">
         <div className="login-form">
-          <h1>Admin Login</h1>
-          <div className="container">
+          <h1 className="display-6">Admin Login</h1>
+          <div className="containerLogin">
             <input
               name="email"
               className="mb-1"
@@ -95,11 +95,10 @@ function Admin() {
             </button>
           </div>
         </div>
-       
       </div>
       <ToastContainer />
     </>
-  )
+  );
 }
 
-export default Admin
+export default Admin;

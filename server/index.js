@@ -138,8 +138,6 @@ const levelVid2 = mongoose.model("levelYoga");
 const levelVid3 = mongoose.model("levelProd");
 
 
-
-
 app.get("/getVideoS", async(req, res)=>{
   try{
     const allVideoS = await Videos1.find({});

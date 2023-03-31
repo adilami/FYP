@@ -48,8 +48,8 @@ function Videos() {
   return (
     <>
       <NavigationBar />
-      <h1>Videos</h1>
-      <h1> Sleep Videos</h1>
+      <h1 className="display-5">Videos</h1>
+      <h1 className="display-6"> Sleep Videos</h1>
       <div className="main-container">
         {data.map((i) => {
           return (
@@ -78,7 +78,7 @@ function Videos() {
           );
         })}
       </div>
-      <h1> Yoga Videos</h1>
+      <h1 className="display-6"> Yoga Videos</h1>
       <div className="main-container">
         {dataY.map((i) => {
           return (
@@ -108,7 +108,7 @@ function Videos() {
           );
         })}
       </div>
-      <h1> Productivity Videos</h1>
+      <h1 className="display-6"> Productivity Videos</h1>
       <div className="main-container">
         {dataP.map((i) => {
           return (
@@ -156,9 +156,9 @@ function Videos() {
                   textAlign: "left",
                 }}
               >
-                <h5 class="modal-title fs-5 text-start">
-                  <strong>Name:</strong> {title}
-                </h5>
+                <h1 class="modal-title fs-5 text-start">
+                  <strong>{title} </strong>
+                </h1>
                 <h5 class="modal-title fs-5 text-start">
                   <strong>Description:</strong> {desc}
                 </h5>

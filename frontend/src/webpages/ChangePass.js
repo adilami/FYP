@@ -53,8 +53,8 @@ function ChangePass() {
 
       <div className="center-form">
         <div className="login-form-changePass">
-          <h1>Change Password</h1>
-          <div className="container">
+          <h1 className="display-6">Change Password</h1>
+          <div className="containerLogin">
             <p>Email</p>
             <input
               type={"text"}
