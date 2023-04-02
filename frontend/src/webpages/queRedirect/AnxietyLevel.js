@@ -110,6 +110,8 @@ function AnxietyLevel() {
 
         if (response.status === 200) {
           toast.success("Level 2 unlocked!");
+          setLevel2(true);
+
         }
       } catch (error) {
         console.error(error);}
@@ -128,6 +130,8 @@ function AnxietyLevel() {
 
         if (response.status === 200) {
           toast.success("Level 3 unlocked!");
+          setLevel3(true);
+
         }
       } catch (error) {
         console.error(error);
@@ -276,9 +280,6 @@ function AnxietyLevel() {
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
-                onClick={() => {
-                  window.location.reload();
-                }}
               >
                 Close
               </button>

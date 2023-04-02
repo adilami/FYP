@@ -30,10 +30,8 @@ function ManageUser() {
         );
         if (response.status === 200) {
           toast.success("User banned succesfully!");
-          // window.location.reload();
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
+          window.location.reload();
+
         }
       } catch (error) {
         console.error(error);
@@ -52,9 +50,7 @@ function ManageUser() {
         );
         if (response.status === 200) {
           toast.success("User Un-banned succesfully!");
-          setTimeout(() => {
-            window.location.reload();
-          }, 2500);
+          window.location.reload();
         }
       } catch (error) {
         console.error(error);

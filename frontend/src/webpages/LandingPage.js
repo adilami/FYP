@@ -103,9 +103,9 @@ function LandingPage() {
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h2 class="text-uppercase mb-4"><i class="bi bi-geo"></i> Location</h2>
                         <h2 class="lead mb-0">
-                            Baluwatar-4
+                            Baluwatar-4, Kathmandu
                             <br/>
-                            Nepal, 33700
+                            Nepal, 44616
                         </h2>
                     </div>
                     <div class="col-lg-4">
@@ -120,8 +120,8 @@ function LandingPage() {
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h2 class="text-uppercase mb-4">Find Me On</h2>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="bi bi-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="bi bi-linkedin"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/lamichhaneaditya/" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/aditya-lamichhane-a8a967223/" target="_blank"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
             </div>

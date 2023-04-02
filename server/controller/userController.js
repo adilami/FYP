@@ -170,8 +170,8 @@ const unbanUser = async (req, res)=>{
   }
 }
 const changePass = async (req, res)=>{
-  const { email, oldPass, newPass, confirmNewPass } = req.body;
-  if(!email || !oldPass || !newPass || !confirmNewPass ){
+  const { email, name, oldPass, newPass, confirmNewPass } = req.body;
+  if(!email || !name || !oldPass || !newPass || !confirmNewPass ){
     return res
       .status(400)
       .json({
@@ -196,7 +196,8 @@ const changePass = async (req, res)=>{
   const encryptedPass = bCrypt.hashSync(newPass);
   const changedPass = await user.findOneAndUpdate({email}, {
     $set:{
-      pass:encryptedPass
+      pass:encryptedPass,
+      userName:name
     }
   })
   if(changedPass){

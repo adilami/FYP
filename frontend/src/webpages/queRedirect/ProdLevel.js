@@ -22,7 +22,7 @@ function ProdLevel() {
     fetchUserP();
     handleLevel2();
     handleLevel3();
-
+    toggleForm();
     
   }, []);
   const fetchUserP = () => {
@@ -58,7 +58,7 @@ function ProdLevel() {
   }
 
   const toggleForm = () => {
-    if (counter.count % 10 == 0) {
+    if ((counter.count) % 10 == 0) {
       setForm(true);
       toast.success("Please fill the review form!!!");
     }
@@ -119,6 +119,7 @@ function ProdLevel() {
 
         if (response.status === 200) {
           toast.success("Level 2 unlocked!");
+          setLevel2(true);
         }
       } catch (error) {
         console.error(error);}
@@ -137,6 +138,7 @@ function ProdLevel() {
 
         if (response.status === 200) {
           toast.success("Level 3 unlocked!");
+          setLevel3(true);
         }
       } catch (error) {
         console.error(error);
@@ -298,9 +300,6 @@ function ProdLevel() {
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
-                onClick={() => {
-                  window.location.reload();
-                }}
               >
                 Close
               </button>

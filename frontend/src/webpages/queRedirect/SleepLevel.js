@@ -104,7 +104,8 @@ function SleepLevel() {
 
       if (response.status === 200) {
         toast.success("Level 2 unlocked!");
-        window.location.reload();
+        setLevel2(true);
+
       }
     } catch (error) {
       console.error(error);
@@ -124,7 +125,8 @@ function SleepLevel() {
 
       if (response.status === 200) {
         toast.success("Level 3 unlocked!");
-        window.location.reload();
+        setLevel3(true);
+
       }
     } catch (error) {
       console.error(error);
@@ -288,9 +290,6 @@ function SleepLevel() {
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
-                onClick={() => {
-                  window.location.reload();
-                }}
               >
                 Close
               </button>

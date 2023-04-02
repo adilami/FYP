@@ -19,6 +19,7 @@ import SleepLevel from "./webpages/queRedirect/SleepLevel";
 import AnxietyLevel from "./webpages/queRedirect/AnxietyLevel";
 import FetchReview from "./webpages/AdminPages/FetchReview";
 import LandingPage from "./webpages/LandingPage";
+import UserProfile from "./webpages/UserProfile";
 const user=localStorage.getItem("token");
 const admin = localStorage.getItem("tokenAdmin")
 
@@ -46,6 +47,8 @@ function App() {
         {user&&<Route exact path="/prod" element={<ProdLevel userId={user.toString()}/>} />}
         {user&&<Route exact path="/sleep" element={<SleepLevel />} />}
         {user&&<Route exact path="/anxiety" element={<AnxietyLevel />} />}
+        {user&&<Route exact path="/userProfile" element={<UserProfile />} />}
+
 
         
         <Route path="*" element={<PageNotFound />}/>
