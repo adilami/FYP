@@ -59,9 +59,9 @@ function Admin() {
   return (
     <>
       <div className="center-form">
-        <div className="login-form">
+        <div className="login-form-admin">
           <h1 className="display-6">Admin Login</h1>
-          <div className="containerLogin">
+          <div className="containerAdminLogin">
             <input
               name="email"
               className="mb-1"
@@ -89,7 +89,7 @@ function Admin() {
             <button className="mb-1 sig-in-btn" onClick={sendReq}>
               Login
             </button>
-            <p>Are you a User?</p>
+            <p className="label">Are you a User?</p>
             <button className="create-acount-btn" onClick={userLogin}>
               User Login
             </button>

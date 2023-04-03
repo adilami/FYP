@@ -114,11 +114,11 @@ function Login() {
             <button className="mb-1 sig-in-btn" onClick={sendReq}>
               Login
             </button>
-            <p>Dont have an Account?</p>
+            <p className="label">Dont have an Account?</p>
             <button className="create-acount-btn" onClick={handleClick}>
               Register
             </button>
-            <p>Are you an Admin?</p>
+            <p className="label">Are you an Admin?</p>
 
             <button className="create-acount-btn" onClick={adminLogin}>
               Admin Login

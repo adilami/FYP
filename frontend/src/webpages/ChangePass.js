@@ -2,26 +2,24 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import NavigationBar from "./Navbar/NavigationBar";
-
+import trophy from '../webpages/pictures/trophy.png'
 function ChangePass() {
   const [email, setEmail] = useState("");
   const [oldPass, setOldPass] = useState("");
   const [newPass, setNewPass] = useState("");
   const [cNewPass, setCNewPass] = useState("");
   const [userId, setUserId] = useState(null);
-  const [name, setName] = useState('');
-  const[Ban, setBan]=useState(false);
-  const[p1, setP1]=useState(false);
-  const[p2, setP2]=useState(false);
-  const[p3, setP3]=useState(false);
-  const[s1, setS1]=useState(false);
-  const[s2, setS2]=useState(false);
-  const[s3, setS3]=useState(false);
-  const[a1, setA1]=useState(false);
-  const[a2, setA2]=useState(false);
-  const[a3, setA3]=useState(false);
-
-
+  const [name, setName] = useState("");
+  const [Ban, setBan] = useState(false);
+  const [p1, setP1] = useState(false);
+  const [p2, setP2] = useState(false);
+  const [p3, setP3] = useState(false);
+  const [s1, setS1] = useState(false);
+  const [s2, setS2] = useState(false);
+  const [s3, setS3] = useState(false);
+  const [a1, setA1] = useState(false);
+  const [a2, setA2] = useState(false);
+  const [a3, setA3] = useState(false);
 
   const handleSubmit = (a) => {
     if (a.key === "Enter") {
@@ -31,7 +29,7 @@ function ChangePass() {
   const changePassword = async () => {
     try {
       const res = await axios.post("http://localhost:8000/api/changePass", {
-        name:name,
+        name: name,
         email: email,
         oldPass: oldPass,
         newPass: newPass,
@@ -70,9 +68,9 @@ function ChangePass() {
         });
         const data = await response.json();
         setUserId(data.use._id);
-        setEmail(data.use.email)
-        setName(data.use.userName)
-        setBan(data.use.isBan)
+        setEmail(data.use.email);
+        setName(data.use.userName);
+        setBan(data.use.isBan);
         setP1(data.use.PLevel1);
         setP2(data.use.PLevel2);
         setP3(data.use.PLevel3);
@@ -82,13 +80,10 @@ function ChangePass() {
         setA1(data.use.ALevel1);
         setA2(data.use.ALevel2);
         setA3(data.use.ALevel2);
-
-
       } catch (error) {
         console.error(error);
       }
     };
-
 
     fetchUser();
   }, [userId]);
@@ -96,30 +91,49 @@ function ChangePass() {
     <>
       <NavigationBar />
 
-      <div className="center-form">
-        <div className="login-form-changePass">
+      <div className="center-formProfile">
+        <div className="login-form-userProfile">
           <h1 className="display-6">User Profile</h1>
-          <div className="containerLogin">
-          <h4>User Name: {name}</h4>
-            <h4>Email: {email}</h4>
-            <h4>Ban Status: {Ban?"Banned":"Active"}</h4>
-            <h4>Productivity Level 1: {p1?"Completed":"Not Completed"}</h4>
-            <h4>Productivity Level 2: {p2?"Completed":"Not Completed"}</h4>
-            <h4>Productivity Level 3: {p3?"Completed":"Not Completed"}</h4>
-            <h4>Sleep Level 1: {s1?"Completed":"Not Completed"}</h4>
-            <h4>Sleep Level 2: {s2?"Completed":"Not Completed"}</h4>
-            <h4>Sleep Level 3: {s3?"Completed":"Not Completed"}</h4>   
-             <h4>Anxiety Level 1: {a1?"Completed":"Not Completed"}</h4>
-            <h4>Anxiety Level 2: {a2?"Completed":"Not Completed"}</h4>
-            <h4>Anxiety Level 3: {a3?"Completed":"Not Completed"}</h4>
+          <div className="containerProfile">
+            <div className="contentContainer">
+              <h4 className="contentTitle">User Name</h4>
+              <h4 className="contentInfo"> {name}</h4>
+            </div>
+            <div className="contentContainer">
+              <h4 className="contentTitle">Email</h4>
+              <h4 className="contentInfo"> {email}</h4>
+            </div>
+            <div className="contentContainer">
+              <h4 className="contentTitle">Ban Status</h4>
+              <h4 className="contentInfo"> {Ban ? "Banned" : "Active"}</h4>
+            </div>
+            <div className="contentContainer">
+              <h4 className="contentTitle">Productivity</h4>
 
+              {p1&&!p2&&!p3 && <h4 className="contentInfo"><img className="trophy" src={trophy}/>{p1 ? "Level 1" : "Active"}</h4>}
+              {p1&&p2 &&!p3&& <h4 className="contentInfo"><img className="trophy" src={trophy}/>{p2 ? "Level 2" : "Active"}</h4>}
+              {p3&&p2&&p1 && <h4 className="contentInfo"><img className="trophy" src={trophy}/>{p3 ? "Level 3" : "Active"}</h4>}
+            </div>
+            <div className="contentContainer">
+              <h4 className="contentTitle">Sleep</h4>
 
+              {s1&&!s2&&!s3&& <h4 className="contentInfo"> <img className="trophy" src={trophy}/>{s1 ? "Level 1" : "Active"}</h4>}
+              {s1&&s2 &&!s3&& <h4 className="contentInfo"> <img className="trophy" src={trophy}/>{s2 ? "Level 2" : "Active"}</h4>}
+              {s3&&s2&&s1 && <h4 className="contentInfo"> <img className="trophy" src={trophy}/>{s3 ? "Level 3" : "Active"}</h4>}
+            </div>
+            <div className="contentContainer">
+              <h4 className="contentTitle">Anxiety</h4>
+
+              {a1&&!a2&&!a3 && <h4 className="contentInfo"><img className="trophy" src={trophy}/> {a1 ? "Level 1" : "Active"}</h4>}
+              {a2 && a1&&!a3&&<h4 className="contentInfo"> <img className="trophy" src={trophy}/>{a2 ? "Level 2" : "Active"}</h4>}
+              {a1&&a2&&a3 && <h4 className="contentInfo"> <img className="trophy" src={trophy}/>{a3 ? "Level 3" : "Active"}</h4>}
+            </div>
           </div>
         </div>
         <div className="login-form-changePass">
           <h1 className="display-6">Update Profile</h1>
           <div className="containerLogin">
-          <p>User Name</p>
+            <p className="label">User Name</p>
             <input
               type={"text"}
               className="mb-1"
@@ -127,7 +141,7 @@ function ChangePass() {
               onChange={(e) => setName(e.target.value)}
               value={name}
             />
-            <p>Email</p>
+            <p className="label">Email</p>
             <input
               type={"text"}
               className="mb-1"
@@ -137,7 +151,7 @@ function ChangePass() {
               disabled
             />
 
-            <p>Old Password</p>
+            <p className="label">Old Password</p>
             <input
               className="mb-1"
               type={"password"}
@@ -146,7 +160,7 @@ function ChangePass() {
               value={oldPass}
             />
 
-            <p>New Password</p>
+            <p className="label">New Password</p>
             <input
               className="mb-1"
               type={"password"}
@@ -154,7 +168,7 @@ function ChangePass() {
               onChange={(e) => setNewPass(e.target.value)}
               value={newPass}
             />
-            <p>Confirm New Password</p>
+            <p className="label">Confirm New Password</p>
             <input
               className="mb-1"
               type={"password"}

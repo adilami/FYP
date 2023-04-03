@@ -56,6 +56,18 @@
   padding-right: 24px;
   /* margin-bottom: 50px; */
 }
+.howContent{
+  width: 72%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 42px;
+  padding-bottom: 42px;
+  padding-left: 24px;
+  padding-right: 24px;
+  /* margin-bottom: 50px; */
+}
 .aboutCard{
   width: 100%;
   display: flex;

@@ -111,7 +111,7 @@ function Register(){
             <button className="create-acount-btn" onClick={sendReq}>
               Register
             </button>
-            <p>Already have an account?</p>
+            <p className="label">Already have an account?</p>
             <button className="mb-1 sig-in-btn" onClick={handleClick}>
               Login
             </button>

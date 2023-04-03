@@ -40,7 +40,7 @@ function FetchReview() {
       <h1 className="display-5">Reviews</h1>
       <div className="homeH">
         <div className='table1'>
-      <table className='table table-dark  table-hover table-bordered table-striped'>
+      <table className='table table-hover table-bordered table-striped'>
         <thead>
           <tr>
             <th scope="col" width='8%'>Name</th>

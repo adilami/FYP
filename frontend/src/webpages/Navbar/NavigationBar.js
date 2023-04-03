@@ -66,7 +66,7 @@ function NavigationBar() {
                 <span className="bar"></span>
                 <span className="bar"></span></button>
                   <ul class="dropdown-menu dropdown-menu-dark">
-                   <li> <a class="dropdown-item" href="/changePassword">User Profile</a></li>
+                   <li> <a class="dropdown-item" href="/userProfile">User Profile</a></li>
                     <li><a class="dropdown-item">
                       <button className="sign-in-btn" onClick={toggleLogout}>
                         Sign out

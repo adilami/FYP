@@ -48,6 +48,9 @@ function LandinNav() {
                 <a className="navbar-button" href="#aboutUs">
                   About Us
                 </a>
+                <a className="navbar-button" href="/#howWeWork">
+                  How We Work
+                </a>
                 <a className="navbar-button" href="/#contactUs">
                   Contact Us
                 </a>
@@ -88,6 +91,9 @@ function LandinNav() {
                 </a>
                 <a className="navbar-button" href="/aboutUs">
                   About Us
+                </a>
+                <a className="navbar-button" href="/#howWeWork">
+                  How We Work
                 </a>
                 <a className="navbar-button" href="/contactUs">
                   Contact Us

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 // });
 
 function Que() {
-const history = useNavigate();
+  const history = useNavigate();
   useEffect(() => {
     console.log();
   });
@@ -28,18 +28,18 @@ const history = useNavigate();
 
     if (document.getElementById("sleep").checked) {
       toast.success("Sleep problem");
-      history("/sleep")
+      history("/sleep");
     }
     if (document.getElementById("focus").checked) {
       toast.success("Focus problem");
-      history("/prod")
+      history("/prod");
     }
     if (document.getElementById("both").checked) {
-      history("/anxiety")
+      history("/anxiety");
       toast.success("Anxiety problem");
     }
     if (document.getElementById("none").checked) {
-      history("/videos")
+      history("/videos");
       toast.success("Hurray! No problems.");
     }
   };
@@ -49,36 +49,63 @@ const history = useNavigate();
       <NavigationBar />
       <div className="mainDiv">
         <div className="questions">
-      <h1>What are the problems that your are facing?</h1>
+          <h1>What are the problems that your are facing?</h1>
           <form onSubmit={sub}>
-            {/* {questions.map(v=>{
-              console.log(v)
-              // return <RadioQuestion q={v} {...{questionsValue,setQuestionValue}} />
-            })} */}
             <ul>
               <li className="questionList">
-                <input className="queInput" type="radio" id="sleep" name="1" value="y" onClick={sub}/>
+                <input
+                  className="queInput"
+                  type="radio"
+                  id="sleep"
+                  name="1"
+                  value="y"
+                  onClick={sub}
+                />
                 <label className="queLabel" for="sleep" id="sleep">
                   Having Problem Sleeping
                 </label>
               </li>
-              <li className="questionList" > 
-                <input className="queInput" type="radio" id="focus" name="1" value="y" onClick={sub}/>
+              <li className="questionList">
+                <input
+                  className="queInput"
+                  type="radio"
+                  id="focus"
+                  name="1"
+                  value="y"
+                  onClick={sub}
+                />
                 <label className="queLabel" for="focus">
                   Having problem to focus
                 </label>
               </li>
-              <li className="questionList" >
-                <input className="queInput" type="radio" id="both" name="1" value="y" onClick={sub}/>
-                <label className="queLabel" for="both">Anxiety problems</label>
+              <li className="questionList">
+                <input
+                  className="queInput"
+                  type="radio"
+                  id="both"
+                  name="1"
+                  value="y"
+                  onClick={sub}
+                />
+                <label className="queLabel" for="both">
+                  Anxiety problems
+                </label>
               </li>
-              <li className="questionList" >
-                <input className="queInput" type="radio" id="none" name="1" value="y" onClick={sub}/>
-                <label className="queLabel" for="none">No problems at the moment</label>
+              <li className="questionList">
+                <input
+                  className="queInput"
+                  type="radio"
+                  id="none"
+                  name="1"
+                  value="y"
+                  onClick={sub}
+                />
+                <label className="queLabel" for="none">
+                  No problems at the moment
+                </label>
               </li>
             </ul>
           </form>
-          {/* <button className="submit" onClick={sub}>Submit</button> */}
         </div>
       </div>
       <ToastContainer />
@@ -87,38 +114,3 @@ const history = useNavigate();
 }
 
 export default Que;
-
-// const  RadioQuestion=({q,setQuestionValue,questionsValue})=>{
-//   const {id,question} = q
-//   return (
-//   <>
-//   <h1>Questions</h1>
-//             <h1>{question}</h1>
-//             <input
-//               type="radio"
-//               id="yes1"
-//               name={id}
-//               value="y"
-//               onClick={() => {
-//                 setQuestionValue(temp=>{
-//                   return {...temp,[id]:{...temp[id],isSelected:true}}
-//                 })
-
-//               }}
-//             />
-//             <label for="1">Yes</label>
-//             <input
-//               type="radio"
-//               id="no1"
-//               name={id}
-//               value="n"
-//               onClick={() => {
-//                 setQuestionValue(temp=>{
-//                   return {...temp,[id]:{...temp[id],isSelected:false}}
-//                 })
-//               }}
-//             />
-//             <label for="1">No</label>
-//             {questionsValue[id].isSelected == false && (<> show someting</>)}
-//             </>)
-// }
