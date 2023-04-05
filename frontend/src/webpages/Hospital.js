@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavigationBar from "./Navbar/NavigationBar";
-import ktmdata from "../database/ktm";
-import pkrdata from "../database/pkr";
+import ktmdata from "../hospitalData/ktm";
+import pkrdata from "../hospitalData/pkr";
 import "../webpages/hospital.css";
 import Paginations from "../pagination";
 

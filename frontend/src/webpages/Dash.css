@@ -16,23 +16,38 @@
   align-items: center;
   justify-content: space-around;
 }
+.centerDash{
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+}
 .card1{
-  width: 55%;
-  height:40%;
-  border: 2px black solid;
-  border-radius: 8px;
+  width: 30%;
+  height:80%;
+  border-radius: 0px 8px 8px 0px;
   background-image: url("./pictures/card1.png");
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   color: white;
 }
+.card1Dash{
+  width: 35%;
+  height:80%;
+  border-radius: 8px 0px 0px 8px;
+  background-color:rgb(243, 241, 251);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+  align-items: center;
+}
+
 
 .card2{
-  width: 55%;
-  height:40%;
-  border: 2px black solid;
-  border-radius: 8px;
+  width: 30%;
+  height:80%;
+  border-radius: 0px 8px 8px 0px;
   background-image: url("./pictures/yoga.png");
   display: flex;
   flex-direction: column;

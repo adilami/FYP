@@ -126,6 +126,18 @@ nav {
   font-weight: 600;
   box-shadow: 3px 4px rgba(0, 0, 0, 0.3);
 }
+.m-sign-in-btn-Dash {
+  /* padd:20px; */
+  width: 8vw;
+  height: 16%;
+  background-color: #5e5ef7;
+  border: 0;
+  margin-left: -3rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 3px 4px rgba(0, 0, 0, 0.3);
+}
 .m-sign-in-btn1 {
   /* padd:20px; */
   width: 12vw;
