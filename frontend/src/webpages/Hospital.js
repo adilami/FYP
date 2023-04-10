@@ -93,7 +93,7 @@ function Hospital() {
           {KTM && (
             <div className="table1">
               <h1 className="display-6">Help centers in {name}</h1>
-              <table className="table table-hover table-striped">
+              <table className="table table-hover table-responsive table-striped">
                 <thead>
                   <tr>
                     <th className="header" scope="col">

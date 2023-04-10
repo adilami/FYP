@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import "./navbar.css";
 import logo from "./wellbeing.png";
 
-
 function NavigationBar() {
   const history = useNavigate();
   const sendReqLogout = async () => {
@@ -33,10 +32,9 @@ function NavigationBar() {
   // const hamburger = () =>{
   //   hamburger.
   // }
-  const [navbar, setNavbar] = useState(false); 
+  const [navbar, setNavbar] = useState(false);
   return (
     <>
-
       <div className="main">
         <div className="components">
           <div className="first">
@@ -58,22 +56,31 @@ function NavigationBar() {
                 <a className="navbar-button" href="/hospital">
                   Hospitals
                 </a>
-
               </div>
               <div class="dropdown">
-                  {/* <img className="avatar" src={avatar}></img> */}
-                  <button  class="btn " type="button" data-bs-toggle="dropdown">                    <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span></button>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                   <li> <a class="dropdown-item" href="/userProfile">User Profile</a></li>
-                    <li><a class="dropdown-item">
+                {/* <img className="avatar" src={avatar}></img> */}
+                <button class="btn " type="button" data-bs-toggle="dropdown">
+                  {" "}
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    {" "}
+                    <a class="dropdown-item" href="/userProfile">
+                      User Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item">
                       <button className="sign-in-btn" onClick={toggleLogout}>
                         Sign out
                       </button>
-                    </a></li>
-                    </ul>
-                  </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </nav>
           </div>
           <div
@@ -93,7 +100,6 @@ function NavigationBar() {
                 <span className="bar"></span>
               </>
             )}
-            
           </div>
         </div>
       </div>
@@ -111,10 +117,10 @@ function NavigationBar() {
           <a className="navbar-button" href="/hospital">
             Hospitals
           </a>
-          <a className="navbar-button" href="/changePassword">
-            Change Password
+          <a className="navbar-button" href="/userProfile">
+            User Profile
           </a>
-          
+
           <button className="m-sign-in-btn" href="" onClick={toggleLogout}>
             Sign out
           </button>

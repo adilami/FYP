@@ -9,21 +9,20 @@ axios.defaults.withCredentials = true;
 function ProdLevel() {
   const [dataP, setDataP] = useState([]);
   const [userId, setUserId] = useState(null);
-  const [level2, setLevel2]= useState(false);
-  const [level3, setLevel3]= useState(false);
+  const [level2, setLevel2] = useState(false);
+  const [level3, setLevel3] = useState(false);
   const [counter, setCounter] = useState(0);
   const [form, setForm] = useState(false);
-    const [id, setId] = useState([]);
+  const [id, setId] = useState([]);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-
+  const [time, setTime] = useState("");
 
   useEffect(() => {
     fetchUserP();
     handleLevel2();
     handleLevel3();
     toggleForm();
-    
   }, []);
   const fetchUserP = () => {
     fetch("http://localhost:8000/getVideoPlevel", {
@@ -58,7 +57,7 @@ function ProdLevel() {
   }
 
   const toggleForm = () => {
-    if ((counter.count) % 10 == 0) {
+    if (counter.count % 10 == 0) {
       setForm(true);
       toast.success("Please fill the review form!!!");
     }
@@ -73,9 +72,8 @@ function ProdLevel() {
         });
         const data = await response.json();
         setUserId(data.use._id);
-        setLevel2(data.use.PLevel2)
-        setLevel3(data.use.PLevel3)
-
+        setLevel2(data.use.PLevel2);
+        setLevel3(data.use.PLevel3);
       } catch (error) {
         console.error(error);
       }
@@ -106,14 +104,14 @@ function ProdLevel() {
       .catch((err) => console.error(err));
   };
 
-  const handleLevel2 = async () => {
-    console.log(userId);
-
+  const handleLevel2 = async (timeSum) => {
+    setTimeout(async () => {
       try {
         const timestamp = Date.now();
         const response = await axios.put(
-          `http://localhost:8000/api/pLevel2/${userId}`,{
-            body: JSON.stringify({timestamp})
+          `http://localhost:8000/api/pLevel2/${userId}`,
+          {
+            body: JSON.stringify(),
           }
         );
 
@@ -122,17 +120,17 @@ function ProdLevel() {
           setLevel2(true);
         }
       } catch (error) {
-        console.error(error);}
+        console.error(error);
+      }
+    }, timeSum * 60 * 1000);
   };
-  const handleLevel3 = async () => {
-    console.log(userId);
-    const timestamp = Date.now();
-
-
+  const handleLevel3 = async (timeSum) => {
+    setTimeout(async () => {
       try {
         const response = await axios.put(
-          `http://localhost:8000/api/pLevel3/${userId}`,{
-            body: JSON.stringify({timestamp})
+          `http://localhost:8000/api/pLevel3/${userId}`,
+          {
+            body: JSON.stringify(),
           }
         );
 
@@ -143,18 +141,24 @@ function ProdLevel() {
       } catch (error) {
         console.error(error);
       }
+    }, timeSum * 60 * 1000);
   };
+  const levelOneTimeSum = newDataLevel1.reduce((t, i) => {
+    return t + i.time;
+  }, 0);
+  const levelTwoTimeSum = newDataLevel2.reduce((t, i) => {
+    return t + i.time;
+  }, 0);
+
   return (
     <>
       <NavigationBar />
 
       {!form && (
         <div>
-          <h1 className="text-3xl font-bold underline"> Productivity Videos</h1>
-          <h1>Level 1</h1>
-          {/* {userId&&<h3>Count: {(counter.count)}</h3>} */}
-          {userId ? <h1>User ID: {userId}</h1> : <h1>Loading user ID...</h1>}
-          { userId && <h1>Counter: {counter.count}</h1> }
+          <h1 className="display-5"> Productivity Videos</h1>
+          <h1 className="display-6">Level 1</h1>
+
           <div className="main-container">
             {newDataLevel1.map((i) => {
               return (
@@ -163,93 +167,97 @@ function ProdLevel() {
                   <div className="video-container">
                     <div className="video-card">
                       <div className="video-responsive1">
-                          <img
-                      className="cardImg"
-                      src={i.imgUrl}
-                      onClick={() => {
-                        setId(i.vidUrl);
-                        setDesc(i.description);
-                        setTitle(i.name);
-                        handleBlur()
-                        handleLevel2();
+                        <img
+                          className="cardImg"
+                          src={i.imgUrl}
+                          onClick={() => {
+                            setId(i.vidUrl);
+                            setDesc(i.description);
+                            setTitle(i.name);
+                            handleBlur();
+                            setTime(i.time);
 
-                      }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    ></img>
-                        </div>
-                      <h5 className="h5">Name: {i.name}</h5>
-                      <h5 className="h6">Description: {i.description}</h5>
+                            handleLevel2(levelOneTimeSum);
+                          }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                        ></img>
+                      </div>
+                      <h5 className="h5">{i.name}</h5>
                     </div>
                   </div>
                 </>
               );
             })}
           </div>
-          <h1>Level 2</h1>
+          <h1 className="display-6">Level 2</h1>
 
-          {level2&&<div className="main-container">
-            {newDataLevel2.map((i) => {
-              return (
-                <>
-                  {console.log(i.name)}
-                  <div className="video-container">
-                    <div className="video-card">
-                      <div className="video-responsive1">
-                       <img
-                      className="cardImg"
-                      src={i.imgUrl}
-                      onClick={() => {
-                        setId(i.vidUrl);
-                        setDesc(i.description);
-                        setTitle(i.name);
-                        handleBlur()
-                        handleLevel3();
+          {level2 && (
+            <div className="main-container">
+              {newDataLevel2.map((i) => {
+                return (
+                  <>
+                    {console.log(i.name)}
+                    <div className="video-container">
+                      <div className="video-card">
+                        <div className="video-responsive1">
+                          <img
+                            className="cardImg"
+                            src={i.imgUrl}
+                            onClick={() => {
+                              setId(i.vidUrl);
+                              setDesc(i.description);
+                              setTitle(i.name);
+                              handleBlur();
+                            setTime(i.time);
 
-                      }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    ></img>
+                              handleLevel3(levelTwoTimeSum);
+                            }}
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          ></img>
+                        </div>
+                        <h5 className="h5">{i.name}</h5>
                       </div>
-                      <h5 className="h5">Name: {i.name}</h5>
-                      <h5 className="h6">Description: {i.description}</h5>
                     </div>
-                  </div>
-                </>
-              );
-            })}
-          </div>}
-          <h1>Level 3</h1>
-          {level3&&<div className="main-container">
-            {newDataLevel3.map((i) => {
-              return (
-                <>
-                  {console.log(i.name)}
-                  <div className="video-container">
-                    <div className="video-card">
-                      <div className="video-responsive1">
-                         <img
-                      className="cardImg"
-                      src={i.imgUrl}
-                      onClick={() => {
-                        setId(i.vidUrl);
-                        setDesc(i.description);
-                        setTitle(i.name);
-                        handleBlur()
-                      }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    ></img>
-                      </div>
-                      <h5 className="h5">Name: {i.name}</h5>
-                      <h5 className="h6">Description: {i.description}</h5>
-                    </div>
-                  </div>
-                </>
-              );
-            })}
-          </div>}
+                  </>
+                );
+              })}
+            </div>
+          )}
+          <h1 className="display-6">Level 3</h1>
+          {level3 && (
+            <div className="main-container">
+              {newDataLevel3.map((i) => {
+                return (
+                  <>
+                    {console.log(i.name)}
+                    <div className="video-container">
+                      <div className="video-card">
+                        <div className="video-responsive1">
+                          <img
+                            className="cardImg"
+                            src={i.imgUrl}
+                            onClick={() => {
+                              setId(i.vidUrl);
+                              setDesc(i.description);
+                              setTitle(i.name);
+                            setTime(i.time);
 
+                              handleBlur();
+                            }}
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          ></img>
+                        </div>
+                        <h5 className="h5">{i.name}</h5>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
       {form && (
@@ -292,6 +300,9 @@ function ProdLevel() {
                 </h5>
                 <h5 class="modal-title fs-5 text-start">
                   <strong>Description:</strong> {desc}
+                </h5>
+                <h5 class="modal-title fs-5 text-start">
+                  <strong>Time:</strong> {time}
                 </h5>
               </div>
             </div>

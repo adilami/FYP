@@ -56,7 +56,7 @@ function Videos() {
             <>
               {console.log(i.name)}
               <div className="video-container">
-                <div className="video-card">
+                <div className="video-card-Gen">
                   <div className="video-responsive1">
                     <img
                       className="cardImg"

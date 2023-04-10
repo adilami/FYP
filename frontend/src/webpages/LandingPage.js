@@ -19,18 +19,17 @@ function LandingPage() {
       </div>
       <div className="bottom">
         <div id="home">
-          <div className="container rounded mt-4">
             <div
               id="carouselExampleAutoplaying"
               class="carousel slide"
               data-bs-ride="carousel"
             >
-              <div class="carousel-inner rounded-4">
+              <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img className="fill rounded" src={slider} alt="..." />
-                  <div class="carousel-caption d-none d-md-block">
-                    <h1 style={{ color: "white" }}>"Not until we are lost,</h1>
-                    <h1 style={{ color: "white" }}>
+                  <div class="carousel-caption">
+                    <h1 className="imageText" style={{ color: "white" }}>"Not until we are lost,</h1>
+                    <h1 className="imageText" style={{ color: "white" }}>
                       do we begin to understand ourselves"
                     </h1>
                   </div>
@@ -38,10 +37,10 @@ function LandingPage() {
                 <div class="carousel-item">
                   <img className="fill rounded" src={slider1} alt="..." />
                   <div class="carousel-caption d-none d-md-block">
-                    <h1 style={{ color: "white" }}>
+                    <h1  className="imageText" style={{ color: "white" }}>
                       "Mental Health is not a destination, but a process,
                     </h1>
-                    <h1 style={{ color: "white" }}>
+                    <h1 className="imageText" style={{ color: "white" }}>
                       It's about how you drive, not where you're going"
                     </h1>
                   </div>
@@ -49,8 +48,8 @@ function LandingPage() {
                 <div class="carousel-item">
                   <img className="fill rounded" src={slider2} alt="..." />
                   <div class="carousel-caption d-none d-md-block">
-                    <h1 style={{ color: "white" }}>"Young people,</h1>
-                    <h1 style={{ color: "white" }}>
+                    <h1 className="imageText" style={{ color: "white" }}>"Young people,</h1>
+                    <h1 className="imageText" style={{ color: "white" }}>
                       have an almost biological destiny to be hopeful"
                     </h1>
                   </div>
@@ -81,7 +80,6 @@ function LandingPage() {
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
-          </div>
         </div>
         <div id="aboutUs" className="aboutCard text-bg-success">
           <div className="aboutContent">

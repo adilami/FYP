@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   height: 70vh;
   width: 66vh;
+  min-width: 20vw;
   text-align: center;
   padding: 2rem;
   padding-top: 4rem;

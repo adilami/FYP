@@ -31,7 +31,6 @@ function ManageUser() {
         if (response.status === 200) {
           toast.success("User banned succesfully!");
           window.location.reload();
-
         }
       } catch (error) {
         console.error(error);
@@ -91,40 +90,72 @@ function ManageUser() {
   const paginate = (pageN) => setCurrentPage(pageN);
   let tableContent = currentPost.map((i) => {
     return (
-
-        <tr>
-          <td>{i._id}</td>
-          <td>{i.userName}</td>
-          <td>{i.email}</td>
-          <td>{i.isBan ? "Banned" : "Active"}</td>{" "}
-          {/* React doesnt render boolean value so using ternary operator to show the results.*/}
-          {console.log(i.createdAt)}
-          <td>
-            <div className="actio">
-              <button
-                type="button"
-                class="btn btn-outline-danger btn-sm"
-                onClick={() => handleBanClick(i._id, i.userName)}
-              >
-                Ban User
-              </button>
-              <button
-                type="button"
-                class="btn btn-outline-success btn-sm"
-                onClick={() => handleunBanClick(i._id, i.userName)}
-              >
-                Un-Ban User
-              </button>
-              <button
-                type="button"
-                class="btn btn-outline-danger btn-sm"
-                onClick={() => removeUser(i._id, i.userName)}
-              >
-                Remove User
-              </button>
-            </div>
-          </td>
-        </tr>
+      <tr>
+        <td>{i._id}</td>
+        <td>{i.userName}</td>
+        <td>{i.email}</td>
+        <td>
+          {i.PLevel1 && !i.PLevel2 && !i.PLevel3 && (
+            <h6>{i.PLevel1 ? "Level 1" : "Not Complete"}</h6>
+          )}
+          {i.PLevel1 && i.PLevel2 && !i.PLevel3 && (
+            <h6>{i.PLevel2 ? "Level 2" : "Not Complete"}</h6>
+          )}
+          {i.PLevel1 && i.PLevel2 && i.PLevel3 && (
+            <h6>{i.PLevel3 ? "Level 3" : "Not Complete"}</h6>
+          )}
+        </td>
+        <td>
+          {i.SLevel1 && !i.SLevel2 && !i.SLevel3 && (
+            <h6>{i.SLevel1 ? "Level 1" : "Not Complete"}</h6>
+          )}
+          {i.SLevel1 && i.SLevel2 && !i.SLevel3 && (
+            <h6>{i.SLevel2 ? "Level 2" : "Not Complete"}</h6>
+          )}
+          {i.SLevel1 && i.SLevel2 && i.SLevel3 && (
+            <h6>{i.SLevel3 ? "Level 3" : "Not Complete"}</h6>
+          )}
+        </td>
+        <td>
+          {i.ALevel1 && !i.ALevel2 && !i.ALevel3 && (
+            <h6>{i.ALevel1 ? "Level 1" : "Not Complete"}</h6>
+          )}
+          {i.ALevel1 && i.ALevel2 && !i.ALevel3 && (
+            <h6>{i.ALevel2 ? "Level 2" : "Not Complete"}</h6>
+          )}
+          {i.ALevel1 && i.ALevel2 && i.ALevel3 && (
+            <h6>{i.ALevel3 ? "Level 3" : "Not Complete"}</h6>
+          )}
+        </td>
+        <td>{i.isBan ? "Banned" : "Active"}</td>{" "}
+        {/* React doesnt render boolean value so using ternary operator to show the results.*/}
+        {console.log(i.createdAt)}
+        <td>
+          <div className="actio">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              onClick={() => handleBanClick(i._id, i.userName)}
+            >
+              Ban User
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-success btn-sm"
+              onClick={() => handleunBanClick(i._id, i.userName)}
+            >
+              Un-Ban User
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              onClick={() => removeUser(i._id, i.userName)}
+            >
+              Remove User
+            </button>
+          </div>
+        </td>
+      </tr>
     );
   });
   return (
@@ -140,13 +171,14 @@ function ManageUser() {
                 <th>User Id</th>
                 <th>UserName</th>
                 <th>Email</th>
+                <th>Prod Level</th>
+                <th>Sleep Level</th>
+                <th>Yoga Level</th>
                 <th>Ban Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody className="table-group-divider">
-            {tableContent}
-            </tbody>
+            <tbody className="table-group-divider">{tableContent}</tbody>
           </table>
         </div>
 

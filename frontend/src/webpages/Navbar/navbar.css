@@ -128,11 +128,13 @@ nav {
 }
 .m-sign-in-btn-Dash {
   /* padd:20px; */
-  width: 8vw;
-  height: 16%;
+  width: 10vw;
+  height: 20%;
   background-color: #5e5ef7;
   border: 0;
   margin-left: -3rem;
+  margin-top: 24px;
+  margin-bottom: 24px;
   border-radius: 8px;
   color: white;
   font-weight: 600;

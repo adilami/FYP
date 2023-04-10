@@ -3,9 +3,13 @@
   margin: 0%;
 }
 .centerHome{
-  margin-top: 1%;
+  /* margin-top: 1%; */
+  width: 100vw;
+  height: auto;
+  background-image: url("./pictures/fyphome.png");
+  background-position: center;
 }
-.containerHome{
+/* .containerHome{
   width: 100vw;
   height: 100vh;
   background-image: url("./pictures/fyphome.png");
@@ -15,6 +19,9 @@
   justify-content: center;
   align-items: center;
   justify-content: space-around;
+} */
+.containerHome{
+  padding:50px ;
 }
 .centerDash{
   height: 80vh;
@@ -22,18 +29,21 @@
   flex-direction: row;
 }
 .card1{
-  width: 30%;
-  height:80%;
+  width: 100%;
+  background-repeat: no-repeat;
   border-radius: 0px 8px 8px 0px;
-  background-image: url("./pictures/card1.png");
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  color: white;
+
+}
+  .img-custom{
+   width: 99.9%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 0px 0px 12px;
+
 }
 .card1Dash{
   width: 35%;
-  height:80%;
+  height:100%;
   border-radius: 8px 0px 0px 8px;
   background-color:rgb(243, 241, 251);
   display: flex;
@@ -41,12 +51,28 @@
   justify-content: space-around;
   color: white;
   align-items: center;
+  text-align: left;
+}
+.cardHead{
+  text-align: left;
+}
+.cardBackground{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-
+.rowDash{
+  width: 100%;
+  height:auto;
+  background-color: white;
+}
 .card2{
   width: 30%;
-  height:80%;
+  height:100%;
   border-radius: 0px 8px 8px 0px;
   background-image: url("./pictures/yoga.png");
   display: flex;

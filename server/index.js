@@ -85,7 +85,7 @@ app.post("/addVidP", (req, res) => {
       res.status(201).send(data);
     }
   });
-});
+}); 
 app.post("/addVidPlevel", (req, res) => {
   const vid = req.body;
   console.log(vid);

@@ -71,7 +71,7 @@ function AdminNav() {
                 </div>
 
                 <a className="navbar-button" href="/fetchreview">
-                  Check Reviews
+                  Check Feedback
                 </a>
               </div>
               <div className="navbutton">
@@ -116,7 +116,7 @@ function AdminNav() {
             Manage Leveled Videos
           </a>
           <a className="navbar-button" href="/fetchreview">
-            Check Reviews
+            Check Feedback
           </a>
           <button className="m-sign-in-btn" href="" onClick={toggleLogout}>
             Sign out

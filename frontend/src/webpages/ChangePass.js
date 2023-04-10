@@ -79,7 +79,7 @@ function ChangePass() {
         setS3(data.use.SLevel3);
         setA1(data.use.ALevel1);
         setA2(data.use.ALevel2);
-        setA3(data.use.ALevel2);
+        setA3(data.use.ALevel3);
       } catch (error) {
         console.error(error);
       }

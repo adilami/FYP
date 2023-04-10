@@ -14,6 +14,7 @@ function SleepLevel() {
   const [id, setId] = useState([]);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+  const [time, setTime]=useState("");
   useEffect(() => {
     fetchUserP();
   }, []);
@@ -90,57 +91,62 @@ function SleepLevel() {
       .catch((err) => console.error(err));
   };
 
-  const handleLevel2 = async () => {
-    console.log(userId);
+  const handleLevel2 = async (timeSum) => {
+    setTimeout(async () => {
+      try {
+        const response = await axios.put(
+          `http://localhost:8000/api/sLevel2/${userId}`,
+          {
+            body: JSON.stringify(),
+          }
+        );
 
-    try {
-      const timestamp = Date.now();
-      const response = await axios.put(
-        `http://localhost:8000/api/sLevel2/${userId}`,
-        {
-          body: JSON.stringify({ timestamp }),
+        if (response.status === 200) {
+          toast.success("Level 2 unlocked!");
+          setLevel2(true);
         }
-      );
-
-      if (response.status === 200) {
-        toast.success("Level 2 unlocked!");
-        setLevel2(true);
-
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
+    }, timeSum * 60 * 1000);
   };
-  const handleLevel3 = async () => {
-    console.log(userId);
-    const timestamp = Date.now();
+  const handleLevel3 = async (timeSum) => {
+    setTimeout(async () => {
+
 
     try {
       const response = await axios.put(
         `http://localhost:8000/api/sLevel3/${userId}`,
         {
-          body: JSON.stringify({ timestamp }),
+          body: JSON.stringify(),
         }
       );
 
       if (response.status === 200) {
         toast.success("Level 3 unlocked!");
         setLevel3(true);
-
       }
     } catch (error) {
       console.error(error);
     }
+  },timeSum*60*1000);
   };
+
+  const levelOneTimeSum = newDataLevel1.reduce((t, i) => {
+    return t + i.time;
+  }, 0);
+  const levelTwoTimeSum = newDataLevel2.reduce((t, i) => {
+    return t + i.time;
+  }, 0);
+
   return (
     <>
       <NavigationBar />
 
       {!form && (
         <div>
-          <h1>User ID: {userId}</h1>
-          <h1> Sleep Videos</h1>
-          <h3>Level 1</h3>
+          <h1 className="display-5"> Sleep Videos</h1>
+          <h1 className="display-6">Level 1</h1>
           <div className="main-container">
             {newDataLevel1.map((i) => {
               return (
@@ -148,33 +154,32 @@ function SleepLevel() {
                   {console.log(i.name)}
                   <div className="video-container">
                     <div className="video-card">
-                      <div className="video-responsive">
-                        <div className="video-responsive">
-                          <img
-                            className="cardImg"
-                            src={i.imgUrl}
-                            onClick={() => {
-                              setId(i.vidUrl);
-                              setDesc(i.description);
-                              setTitle(i.name);
-                              handleBlur();
-                              handleLevel2();
-                            }}
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                          ></img>
-                        </div>
+                      <div className="video-responsive1">
+                        <img
+                          className="cardImg"
+                          src={i.imgUrl}
+                          onClick={() => {
+                            setId(i.vidUrl);
+                            setDesc(i.description);
+                            setTitle(i.name);
+                            handleBlur();
+                            setTime(i.time);
+
+                            handleLevel2(levelOneTimeSum);
+                          }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                        ></img>
                       </div>
                       <h5 className="h5">Name: {i.name}</h5>
                       <h5 className="h6">Description: {i.description}</h5>
-                      <h1>You clicked {counter} times</h1>
                     </div>
                   </div>
                 </>
               );
             })}
           </div>
-          <h3>Level 2</h3>
+          <h1 className="display-6">Level 2</h1>
 
           {level2 && (
             <div className="main-container">
@@ -184,7 +189,7 @@ function SleepLevel() {
                     {console.log(i.name)}
                     <div className="video-container">
                       <div className="video-card">
-                        <div className="video-responsive">
+                        <div className="video-responsive1">
                           <img
                             className="cardImg"
                             src={i.imgUrl}
@@ -193,7 +198,9 @@ function SleepLevel() {
                               setDesc(i.description);
                               setTitle(i.name);
                               handleBlur();
-                              handleLevel3();
+                              setTime(i.time);
+
+                              handleLevel3(levelTwoTimeSum);
                             }}
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal"
@@ -201,6 +208,7 @@ function SleepLevel() {
                         </div>
                         <h5 className="h5">Name: {i.name}</h5>
                         <h5 className="h6">Description: {i.description}</h5>
+                        <h5 className="h6">Time: {i.time}</h5>
                       </div>
                     </div>
                   </>
@@ -208,7 +216,7 @@ function SleepLevel() {
               })}
             </div>
           )}
-          <h3>Level 3</h3>
+          <h1 className="display-6">Level 3</h1>
           {level3 && (
             <div className="main-container">
               {newDataLevel3.map((i) => {
@@ -217,7 +225,7 @@ function SleepLevel() {
                     {console.log(i.name)}
                     <div className="video-container">
                       <div className="video-card">
-                        <div className="video-responsive">
+                        <div className="video-responsive1">
                           <img
                             className="cardImg"
                             src={i.imgUrl}
@@ -225,6 +233,7 @@ function SleepLevel() {
                               setId(i.vidUrl);
                               setDesc(i.description);
                               setTitle(i.name);
+                              setTime(i.time);
                               handleBlur();
                             }}
                             data-bs-toggle="modal"
@@ -282,6 +291,9 @@ function SleepLevel() {
                 </h5>
                 <h5 class="modal-title fs-5 text-start">
                   <strong>Description:</strong> {desc}
+                </h5>
+                <h5 class="modal-title fs-5 text-start">
+                  <strong>Time:</strong> {time} minutes
                 </h5>
               </div>
             </div>
