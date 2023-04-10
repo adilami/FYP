@@ -85,55 +85,60 @@ function Hospital() {
   return (
     <>
       <NavigationBar />
-      <div className="homeH">
-        <div className="tableContainer">
-          <h1 className="display-5">
-            Present country: {country} and City: {name}
-          </h1>
-          {KTM && (
-            <div className="table1">
-              <h1 className="display-6">Help centers in {name}</h1>
-              <table className="table table-hover table-responsive table-striped">
-                <thead>
-                  <tr>
-                    <th className="header" scope="col">
-                      Name
-                    </th>
-                    <th className="header" scope="col">
-                      Location
-                    </th>
-                    <th className="header" scope="col">
-                      Maps Link
-                    </th>
-                    <th className="header" scope="col">
-                      Phone Number
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="table-group-divider">{ktm}</tbody>
-              </table>
-            </div>
-          )}
-          {KTM && (
-            <h6 className="head5">
-              Showing {currentPostKTM.length}/{ktmdata.length} hospitals
-            </h6>
-          )}
+      <div className="container">
+        <div className="row">
+          <div className="table-responsive col-lg-12">
+            <h1 className="display-5">
+              Present country: {country} and City: {name}
+            </h1>
+            {KTM && (
+              <div>
+                <h1 className="display-6">Help centers in {name}</h1>
+                <table className="table table-hover table-responsive table-striped">
+                  <thead className="table-dark">
+                    <tr>
+                      <th className="header" scope="col">
+                        Name
+                      </th>
+                      <th className="header" scope="col">
+                        Location
+                      </th>
+                      <th className="header" scope="col">
+                        Maps Link
+                      </th>
+                      <th className="header" scope="col">
+                        Phone Number
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="table-group-divider">{ktm}</tbody>
+                </table>
+              </div>
+            )}
+            <div className="homeH">
+              {KTM && (
+                <h6 className="head5">
+                  Showing {currentPostKTM.length}/{ktmdata.length} hospitals
+                </h6>
+              )}
 
-          <br />
-          {KTM && (
-            <Paginations
-              post={post}
-              totalPosts={ktmdata.length}
-              paginate={paginate}
-            />
-          )}
+              <br />
+              {KTM && (
+                <Paginations
+                  post={post}
+                  totalPosts={ktmdata.length}
+                  paginate={paginate}
+                />
+              )}
+            </div>
+          </div>
         </div>
+
         {PKR && (
           <div className="table1">
             <h1 className="display-6">Help centers in {name}</h1>
             <table className="table  table-hover table-bordered table-striped">
-              <thead>
+              <thead className="table-dark">
                 <tr>
                   <th className="header" scope="col">
                     Name
@@ -153,6 +158,7 @@ function Hospital() {
             </table>
           </div>
         )}
+        <div className="homeH">
         {PKR && (
           <h6 className="head5">
             Showing {currentPostPKR.length}/{pkrdata.length} Hospitals
@@ -165,12 +171,13 @@ function Hospital() {
             paginate={paginate}
           />
         )}
+        </div>
 
         {ALL && (
-          <div className="table1">
+          <div>
             <h1 className="display-6">Help centers in Kathmandu</h1>
             <table className="table table-hover table-bordered table-striped">
-              <thead>
+              <thead className="table-dark">
                 <tr>
                   <th className="header" scope="col">
                     Name
@@ -190,6 +197,7 @@ function Hospital() {
             </table>
           </div>
         )}
+        <div className="homeH">
         {ALL && (
           <h6 className="head5">
             Showing {currentPostKTM.length}/{ktmdata.length} Hospitals
@@ -204,12 +212,13 @@ function Hospital() {
             paginate={paginate}
           />
         )}
+        </div>
 
         {ALL && (
           <div className="table1">
             <h1 className="display-6">Help centers in Pokhara</h1>
             <table className="table table-hover table-bordered table-striped">
-              <thead>
+              <thead className="table-dark">
                 <tr>
                   <th className="header" scope="col">
                     Name
@@ -229,21 +238,23 @@ function Hospital() {
             </table>
           </div>
         )}
-      {ALL && (
-        <h6 className="head5">
-          Showing {currentPostPKR.length}/{pkrdata.length} Hospitals
-        </h6>
-      )}
-      <br />
-      {ALL && (
-        <Paginations
-          post={post}
-          totalPosts={pkrdata.length}
-          paginate={paginate}
-        />
-      )}
-      </div>
+        <div className="homeH">
 
+        {ALL && (
+          <h6 className="head5">
+            Showing {currentPostPKR.length}/{pkrdata.length} Hospitals
+          </h6>
+        )}
+        <br />
+        {ALL && (
+          <Paginations
+            post={post}
+            totalPosts={pkrdata.length}
+            paginate={paginate}
+          />
+        )}
+      </div>
+      </div>
     </>
   );
 }

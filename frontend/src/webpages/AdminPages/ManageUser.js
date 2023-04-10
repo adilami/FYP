@@ -161,29 +161,31 @@ function ManageUser() {
   return (
     <>
       <AdminNav />
-      <div className="homeH">
-        <h1 className="display-5">Manage User</h1>
-        <div className="table1">
-          <div className="table-responsive"></div>
-          <table className="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>User Id</th>
-                <th>UserName</th>
-                <th>Email</th>
-                <th>Prod Level</th>
-                <th>Sleep Level</th>
-                <th>Yoga Level</th>
-                <th>Ban Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody className="table-group-divider">{tableContent}</tbody>
-          </table>
+      <h1 className="display-5">Manage User</h1>
+      <div className="container">
+        <div className="row">
+          <div className="table-responsive col-lg-12">
+            <table className="table table-bordered table-hover table-striped">
+              <thead className="table-dark">
+                <tr>
+                  <th>User Id</th>
+                  <th>UserName</th>
+                  <th>Email</th>
+                  <th>Prod Level</th>
+                  <th>Sleep Level</th>
+                  <th>Yoga Level</th>
+                  <th>Ban Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">{tableContent}</tbody>
+            </table>
+          </div>
         </div>
+      </div>
 
-        <ToastContainer />
-
+      <ToastContainer />
+      <div className="homeH">
         <h5 className="head5">
           Showing {currentPost.length}/{data.length} Users
         </h5>

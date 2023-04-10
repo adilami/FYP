@@ -112,121 +112,121 @@ function DelLevelVid() {
         <h1 className="display-5">Manage Leveled Videos</h1>
         <h1 className="display-6">Sleep</h1>
       </div>
-      <div className="homeH">
-        <div className="table1">
-          <table className="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Video URL</th>
-                <th>Level</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody className="table-group-divider">
-
-            {data.map((i) => {
-              return (
-                  <tr>
-                    <td>{i._id}</td>
-                    <td>{i.name}</td>
-                    <td>{i.vidUrl}</td>
-                    <td>{i.level}</td>
-                    <td>
-                      <button
-                        type="button"
-                        class="btn btn-outline-danger btn-sm"
-                        onClick={() => removeVidS(i._id)}
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-              );
-            })}
-                </tbody>
-
-          </table>
+      <div className="container">
+        <div className="row">
+          <div className="table-responsive col-lg-12">
+            <table className="table table-bordered table-hover table-striped">
+              <thead className="table-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Video URL</th>
+                  <th>Level</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">
+                {data.map((i) => {
+                  return (
+                    <tr>
+                      <td>{i._id}</td>
+                      <td>{i.name}</td>
+                      <td>{i.vidUrl}</td>
+                      <td>{i.level}</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-outline-danger btn-sm"
+                          onClick={() => removeVidS(i._id)}
+                        >
+                          Remove
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <h1 className="display-6">Yoga</h1>
-      <div className="homeH">
-        <div className="table1">
-          <table className="table table-hover table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Video URL</th>
-                <th>Level</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody className="table-group-divider">
-
-            {dataY.map((i) => {
-              return (
-                  <tr>
-                    <td>{i._id}</td>
-                    <td>{i.name}</td>
-                    <td>{i.vidUrl}</td>
-                    <td>{i.level}</td>
-                    {console.log(i.level)}
-                    <td>
-                      <button
-                        type="button"
-                        class="btn btn-outline-danger btn-sm"
-                        onClick={() => removeVidY(i._id)}
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-              );
-            })}
-                </tbody>
-
-          </table>
+      <div className="container">
+        <div className="row">
+          <div className="table-responsive col-lg-12">
+            <table className="table table-hover table-bordered table-striped">
+              <thead className="table-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Video URL</th>
+                  <th>Level</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">
+                {dataY.map((i) => {
+                  return (
+                    <tr>
+                      <td>{i._id}</td>
+                      <td>{i.name}</td>
+                      <td>{i.vidUrl}</td>
+                      <td>{i.level}</td>
+                      {console.log(i.level)}
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-outline-danger btn-sm"
+                          onClick={() => removeVidY(i._id)}
+                        >
+                          Remove
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <h1 className="display-6">Productivity</h1>
-      <div className="homeH">
-        <div className="table1">
-          <table className="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Video URL</th>
-                <th>Level</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody className="table-group-divider">
-
-            {dataP.map((i) => {
-              return (
-                  <tr>
-                    <td>{i._id}</td>
-                    <td>{i.name}</td>
-                    <td>{i.vidUrl}</td>
-                    <td>{i.level}</td>
-                    <td>
-                      <button
-                        type="button"
-                        class="btn btn-outline-danger btn-sm"
-                        onClick={() => removeVidP(i._id)}
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-              );
-            })}
-                </tbody>
-
-          </table>
+      <div className="container">
+        <div className="row">
+          <div className="table-responsive col-lg-12">
+            <table className="table table-bordered table-hover table-striped">
+              <thead className="table-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Video URL</th>
+                  <th>Level</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">
+                {dataP.map((i) => {
+                  return (
+                    <tr>
+                      <td>{i._id}</td>
+                      <td>{i.name}</td>
+                      <td>{i.vidUrl}</td>
+                      <td>{i.level}</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-outline-danger btn-sm"
+                          onClick={() => removeVidP(i._id)}
+                        >
+                          Remove
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </>

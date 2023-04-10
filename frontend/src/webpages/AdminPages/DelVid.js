@@ -146,20 +146,20 @@ function DelVid() {
 
   const Prod = dataP.map((i) => {
     return (
-        <tr>
-          <td>{i._id}</td>
-          <td>{i.name}</td>
-          <td>{i.vidUrl}</td>
-          <td>
-            <button
-              type="button"
-              class="btn btn-outline-danger btn-sm"
-              onClick={() => removeVidP(i._id)}
-            >
-              Remove
-            </button>
-          </td>
-        </tr>
+      <tr>
+        <td>{i._id}</td>
+        <td>{i.name}</td>
+        <td>{i.vidUrl}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            onClick={() => removeVidP(i._id)}
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
     );
   });
   return (
@@ -169,51 +169,57 @@ function DelVid() {
         <h1 className="display-5">Manage Generic Videos</h1>
         <h1 className="display-6">Sleep</h1>
       </div>
-      <div className="homeH">
-        <div className="table1">
-          <table className="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Video URL</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody className="table-group-divider">{Sleep}</tbody>
-          </table>
+      <div className="container">
+        <div className="row">
+          <div className="table-responsive col-lg-12">
+            <table className="table table-bordered table-hover table-striped">
+              <thead className="table-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Video URL</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">{Sleep}</tbody>
+            </table>
+          </div>
         </div>
       </div>
       <h1 className="display-6">Yoga</h1>
-      <div className="homeH">
-        <div className="table1">
-          <table className="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Video URL</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody className="table-group-divider">{Yoga}</tbody>
-          </table>
+      <div className="container">
+        <div className="row">
+          <div className="table-responsive col-lg-12">
+            <table className="table table-bordered table-hover table-striped">
+              <thead className="table-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Video URL</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">{Yoga}</tbody>
+            </table>
+          </div>
         </div>
       </div>
       <h1 className="display-6">Productivity</h1>
-      <div className="homeH">
-        <div className="table1">
-          <table className="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Video URL</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody className="table-group-divider">{Prod}</tbody>
-          </table>
+      <div className="container">
+        <div className="row">
+          <div className="table-responsive col-lg-12">
+            <table className="table table-bordered table-hover table-striped">
+              <thead className="table-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Video URL</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">{Prod}</tbody>
+            </table>
+          </div>
         </div>
       </div>
     </>
