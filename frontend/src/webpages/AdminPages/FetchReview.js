@@ -41,7 +41,7 @@ function FetchReview() {
     <>
       <AdminNav />
       <div>
-        <h1 className="display-5">Reviews</h1>
+        <h1 className="display-5">Feedback</h1>
       <div className="container">
         <div className="row">
             <div className="table-responsive col-lg-12">

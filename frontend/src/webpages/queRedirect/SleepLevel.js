@@ -84,7 +84,6 @@ function SleepLevel() {
       .catch((err) => console.error(err));
   };
   const fetchCount = () => {
-    console.log("user", userId);
     axios
       .get(`http://localhost:8000/getsleepCount/${userId}`)
       .then((res) => parseInt(setCounter(res.data.user.prodCount)))
@@ -138,7 +137,7 @@ function SleepLevel() {
   const levelTwoTimeSum = newDataLevel2.reduce((t, i) => {
     return t + i.time;
   }, 0);
-
+  console.log("Total time of level 1 sleep video is ",levelOneTimeSum, 'minutes');
   return (
     <>
       <NavigationBar />

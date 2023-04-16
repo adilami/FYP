@@ -6,7 +6,7 @@ const vidSchema = mongoose.Schema({
   level:String,
   imgUrl:String,
   description:String,
-  time:Number,
+  time:Number
 
 });
 module.exports = mongoose.model("levelProd", vidSchema);

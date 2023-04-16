@@ -41,7 +41,7 @@ function ChangePass() {
 
       // console.log('hh',data);
       if (res.status === 200) {
-        toast.success("Password Changed Successfully");
+        toast.success("Profile Updated successsfully!!!");
         setEmail("");
         setOldPass("");
         setNewPass("");

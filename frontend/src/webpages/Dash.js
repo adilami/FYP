@@ -66,7 +66,7 @@ function Dash() {
                           history("/videos");
                         }}
                       >
-                        Daily Check-in <i class="bi bi-arrow-right-short"></i>
+                        Videos <i class="bi bi-arrow-right-short"></i>
                       </button>
                     </div>
                   </div>
