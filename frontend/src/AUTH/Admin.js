@@ -25,6 +25,8 @@ function Admin() {
   // const sendReq = () => {
   //   history("/adminDash");
   // }
+  let console1;
+  console.log(console);
   const sendReq = async () => {
     try {
       const res = await axios.post("http://localhost:8000/api/Adminlogin", {
@@ -33,7 +35,8 @@ function Admin() {
       });
 
       if (res.status === 200) {
-        localStorage.setItem("tokenAdmin", res.data);
+       console1= console.log(res);
+        localStorage.setItem("tokenAdmin", true);
         history("/adminDash");
         window.location.reload();
         toast.success("Logged In Successfully");

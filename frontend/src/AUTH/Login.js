@@ -50,7 +50,7 @@ function Login() {
           toast.error("The user is banned!!!")
         }
         if (res.status === 200) {
-          localStorage.setItem("token", res.data);
+          localStorage.setItem("token", true);
           history("/home");
           window.location.reload();
 

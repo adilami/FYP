@@ -71,7 +71,7 @@ const login = async (req, res) => {
   }
   res.cookie(String(existingUser._id), token, {
     path: "/",
-    expires: new Date(Date.now() + 1000 * 3000),
+    expires: new Date(Date.now() + 1000 * 3600),
     httpOnly: true,
     sameSite: "lax",
   });

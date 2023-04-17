@@ -27,23 +27,26 @@ function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<LandingPage />} />
-        {user && <Route exact path="/home" element={<Dash />} />}
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/adminLogin" element={<Admin />} />
+        
+        {!user&&!admin&&<Route exact path="/" element={<LandingPage />} />}
+
+        {user && <Route exact path="/" element={<Dash />} />}
+        {admin && <Route exact path="/" element={<AdminDash />} />}
+        {!user&&!admin&&<Route exact path="/login" element={<Login />} />}
+        {!user&&!admin&&<Route exact path="/adminLogin" element={<Admin />} />}
         {admin&&<Route exact path="/adminDash" element={<AdminDash />} />}
         {admin&&<Route exact path="/addVid" element={<AddVid />} />}
         {admin&&<Route exact path="/deleteVid" element={<DelVid />} />}
         {admin&&<Route exact path="/deleteLevelVid" element={<DelLevelVid />} />}
         {admin&&<Route exact path="/manageUser" element={<ManageUser />} />}
         {admin&&<Route exact path="/fetchReview" element={<FetchReview />} />}
-        <Route exact path="/register" element={<Register />} />
+        {!admin&&!user&&<Route exact path="/register" element={<Register />} />}
         {user&&<Route exact path="/home" element={<Dash />} />}
         {user&&<Route exact path="/videos" element={<Videos />} />}
         {user&&<Route exact path="/hospital" element={<Hospital />} />}
         {user&&<Route exact path="/que" element={<Que />} />}
         {user&&<Route exact path="/userProfile" element={<ChangePass />} />}
-        {user&&<Route exact path="/prod" element={<ProdLevel userId={user.toString()}/>} />}
+        {user&&<Route exact path="/prod" element={<ProdLevel />} />}
         {user&&<Route exact path="/sleep" element={<SleepLevel />} />}
         {user&&<Route exact path="/anxiety" element={<AnxietyLevel />} />}
 

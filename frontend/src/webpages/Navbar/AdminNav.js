@@ -16,7 +16,7 @@ function AdminNav() {
     // }
 
     if (res.status === 200) {
-      history("/adminLogin");
+      history("/");
     } else {
       toast.error("Cant logout!");
     }
@@ -24,7 +24,7 @@ function AdminNav() {
   const toggleLogout = () => {
     localStorage.removeItem("tokenAdmin");
     sendReqLogout();
-    history("/adminLogin");
+    history("/");
     window.location.reload();
     toast.success("Logged out Successfully!");
   };
