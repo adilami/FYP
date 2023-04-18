@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import card1 from "./pictures/card1.png";
 import card2 from "./pictures/yoga.png";
 
-
 function Dash() {
   const history = useNavigate();
   return (
@@ -18,11 +17,9 @@ function Dash() {
         <div className="centerHome">
           <div className="containerHome">
             <div className="container">
-              
-              <div className="rowDash rounded-4">
-                
+              <div className="rowDash mt-5 rounded-4">
                 <div className="row">
-                <div className="col-lg-4">
+                  <div className="col-lg-4">
                     <div className="card1">
                       <img className="img-custom" src={card1}></img>
                     </div>
@@ -48,7 +45,7 @@ function Dash() {
               </div>
               <div className="rowDash mt-5 rounded-4">
                 <div className="row">
-                <div className="col-lg-4">
+                  <div className="col-lg-4">
                     <div className="card1">
                       <img className="img-custom" src={card2}></img>
                     </div>
@@ -70,7 +67,6 @@ function Dash() {
                       </button>
                     </div>
                   </div>
-                  
                 </div>
               </div>
             </div>

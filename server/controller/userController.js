@@ -64,14 +64,14 @@ const login = async (req, res) => {
       .json({ message: "The Email/Password is Incorrect!" });
   }
   const token = jwt.sign({ id: existingUser._id }, jwtSecretKey, {
-    expiresIn: "1hr",
+    expiresIn: "10hr",
   });
   if (req.cookies[`${existingUser._id}`]) {
     req.cookies[`${existingUser._id}`] = "";
   }
   res.cookie(String(existingUser._id), token, {
     path: "/",
-    expires: new Date(Date.now() + 1000 * 3600),
+    expires: new Date(Date.now() + 1000 * 36000),
     httpOnly: true,
     sameSite: "lax",
   });

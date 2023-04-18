@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import NavigationBar from "./Navbar/NavigationBar";
 import trophy from '../webpages/pictures/trophy.png'
+import { useNavigate } from "react-router-dom";
 function ChangePass() {
+  const history=useNavigate();
   const [email, setEmail] = useState("");
   const [oldPass, setOldPass] = useState("");
   const [newPass, setNewPass] = useState("");
@@ -66,6 +68,13 @@ function ChangePass() {
           method: "GET",
           credentials: "include",
         });
+        if (response.status ===500){
+          localStorage.removeItem("token");
+          localStorage.removeItem("tokenAdmin");
+          
+          history("/");
+          window.location.reload();
+        }
         const data = await response.json();
         setUserId(data.use._id);
         setEmail(data.use.email);

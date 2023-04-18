@@ -18,9 +18,4 @@ router.put("/sLevel2/:id", SLevel2);
 router.put("/sLevel3/:id", SLevel3);
 router.put("/aLevel2/:id", ALevel2);
 router.put("/aLevel3/:id", ALevel3);
-
-
-
-
-
 module.exports = router;

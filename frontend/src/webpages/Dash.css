@@ -5,9 +5,19 @@
 .centerHome{
   /* margin-top: 1%; */
   width: 100vw;
-  height: auto;
+  height: 100vh;
   background-image: url("./pictures/fyphome.png");
   background-position: center;
+}
+
+@media (max-width: 987px) {
+  .centerHome{
+    /* margin-top: 1%; */
+    width: 100vw;
+    height: auto;
+    background-image: url("./pictures/fyphome.png");
+    background-position: center;
+  }
 }
 /* .containerHome{
   width: 100vw;

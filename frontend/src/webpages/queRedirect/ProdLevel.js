@@ -4,9 +4,12 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import NavigationBar from "../Navbar/NavigationBar";
 import YoutubeEmbed from "../YoutubeEmbed";
+import { useNavigate } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 function ProdLevel() {
+  const history =useNavigate();
+
   const [dataP, setDataP] = useState([]);
   const [userId, setUserId] = useState(null);
   const [level2, setLevel2] = useState(false);
@@ -70,6 +73,13 @@ function ProdLevel() {
           method: "GET",
           credentials: "include",
         });
+        if (response.status ===500){
+          localStorage.removeItem("token");
+          localStorage.removeItem("tokenAdmin");
+          
+          history("/");
+          window.location.reload();
+        }
         const data = await response.json();
         setUserId(data.use._id);
         setLevel2(data.use.PLevel2);
@@ -184,6 +194,7 @@ function ProdLevel() {
                         ></img>
                       </div>
                       <h5 className="h5">{i.name}</h5>
+                      <h5 className="h6">{i.description}</h5>
                     </div>
                   </div>
                 </>
@@ -209,7 +220,7 @@ function ProdLevel() {
                               setDesc(i.description);
                               setTitle(i.name);
                               handleBlur();
-                            setTime(i.time);
+                              setTime(i.time);
 
                               handleLevel3(levelTwoTimeSum);
                             }}
@@ -218,6 +229,7 @@ function ProdLevel() {
                           ></img>
                         </div>
                         <h5 className="h5">{i.name}</h5>
+                        <h5 className="h6">{i.description}</h5>
                       </div>
                     </div>
                   </>
@@ -242,7 +254,7 @@ function ProdLevel() {
                               setId(i.vidUrl);
                               setDesc(i.description);
                               setTitle(i.name);
-                            setTime(i.time);
+                              setTime(i.time);
 
                               handleBlur();
                             }}
@@ -251,6 +263,7 @@ function ProdLevel() {
                           ></img>
                         </div>
                         <h5 className="h5">{i.name}</h5>
+                        <h5 className="h6">{i.description}</h5>
                       </div>
                     </div>
                   </>
@@ -302,7 +315,7 @@ function ProdLevel() {
                   <strong>Description:</strong> {desc}
                 </h5>
                 <h5 class="modal-title fs-5 text-start">
-                  <strong>Time:</strong> {time}
+                  <strong>Time:</strong> {time} minutes
                 </h5>
               </div>
             </div>

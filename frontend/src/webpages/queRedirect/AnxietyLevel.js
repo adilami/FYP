@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import NavigationBar from "../Navbar/NavigationBar";
 import YoutubeEmbed from "../YoutubeEmbed";
+import { useNavigate } from "react-router-dom";
 function AnxietyLevel() {
+  const history =useNavigate();
+
   const [dataP, setDataP] = useState([]);
   const [userId, setUserId] = useState(null);
   const [level2, setLevel2] = useState(false);
@@ -63,6 +66,13 @@ function AnxietyLevel() {
           method: "GET",
           credentials: "include",
         });
+        if (response.status ===500){
+          localStorage.removeItem("token");
+          localStorage.removeItem("tokenAdmin");
+          
+          history("/");
+          window.location.reload();
+        }
         const data = await response.json();
         setUserId(data.use._id);
         setLevel2(data.use.ALevel2);

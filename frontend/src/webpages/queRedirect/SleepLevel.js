@@ -18,6 +18,7 @@ function SleepLevel() {
   useEffect(() => {
     fetchUserP();
   }, []);
+  const history =useNavigate();
   const fetchUserP = () => {
     fetch("http://localhost:8000/getVideoSlevel", {
       method: "GET",
@@ -64,6 +65,13 @@ function SleepLevel() {
           method: "GET",
           credentials: "include",
         });
+        if (response.status ===500){
+          localStorage.removeItem("token");
+          localStorage.removeItem("tokenAdmin");
+          
+          history("/");
+          window.location.reload();
+        }
         const data = await response.json();
         setUserId(data.use._id);
         setLevel2(data.use.SLevel2);
