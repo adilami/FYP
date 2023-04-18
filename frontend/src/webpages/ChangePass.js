@@ -71,7 +71,6 @@ function ChangePass() {
         if (response.status ===500){
           localStorage.removeItem("token");
           localStorage.removeItem("tokenAdmin");
-          
           history("/");
           window.location.reload();
         }

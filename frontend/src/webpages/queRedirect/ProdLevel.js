@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 function ProdLevel() {
-  const history =useNavigate();
+  const history = useNavigate();
 
   const [dataP, setDataP] = useState([]);
   const [userId, setUserId] = useState(null);
@@ -73,10 +73,10 @@ function ProdLevel() {
           method: "GET",
           credentials: "include",
         });
-        if (response.status ===500){
+        if (response.status === 500) {
           localStorage.removeItem("token");
           localStorage.removeItem("tokenAdmin");
-          
+
           history("/");
           window.location.reload();
         }

@@ -14,11 +14,11 @@ function SleepLevel() {
   const [id, setId] = useState([]);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  const [time, setTime]=useState("");
+  const [time, setTime] = useState("");
   useEffect(() => {
     fetchUserP();
   }, []);
-  const history =useNavigate();
+  const history = useNavigate();
   const fetchUserP = () => {
     fetch("http://localhost:8000/getVideoSlevel", {
       method: "GET",
@@ -65,10 +65,9 @@ function SleepLevel() {
           method: "GET",
           credentials: "include",
         });
-        if (response.status ===500){
+        if (response.status === 500) {
           localStorage.removeItem("token");
           localStorage.removeItem("tokenAdmin");
-          
           history("/");
           window.location.reload();
         }
@@ -119,24 +118,22 @@ function SleepLevel() {
   };
   const handleLevel3 = async (timeSum) => {
     setTimeout(async () => {
+      try {
+        const response = await axios.put(
+          `http://localhost:8000/api/sLevel3/${userId}`,
+          {
+            body: JSON.stringify(),
+          }
+        );
 
-
-    try {
-      const response = await axios.put(
-        `http://localhost:8000/api/sLevel3/${userId}`,
-        {
-          body: JSON.stringify(),
+        if (response.status === 200) {
+          toast.success("Level 3 unlocked!");
+          setLevel3(true);
         }
-      );
-
-      if (response.status === 200) {
-        toast.success("Level 3 unlocked!");
-        setLevel3(true);
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  },timeSum*60*1000);
+    }, timeSum * 60 * 1000);
   };
 
   const levelOneTimeSum = newDataLevel1.reduce((t, i) => {
@@ -145,7 +142,11 @@ function SleepLevel() {
   const levelTwoTimeSum = newDataLevel2.reduce((t, i) => {
     return t + i.time;
   }, 0);
-  console.log("Total time of level 1 sleep video is ",levelOneTimeSum, 'minutes');
+  console.log(
+    "Total time of level 1 sleep video is ",
+    levelOneTimeSum,
+    "minutes"
+  );
   return (
     <>
       <NavigationBar />

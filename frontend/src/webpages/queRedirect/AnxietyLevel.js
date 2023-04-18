@@ -5,7 +5,7 @@ import NavigationBar from "../Navbar/NavigationBar";
 import YoutubeEmbed from "../YoutubeEmbed";
 import { useNavigate } from "react-router-dom";
 function AnxietyLevel() {
-  const history =useNavigate();
+  const history = useNavigate();
 
   const [dataP, setDataP] = useState([]);
   const [userId, setUserId] = useState(null);
@@ -66,10 +66,9 @@ function AnxietyLevel() {
           method: "GET",
           credentials: "include",
         });
-        if (response.status ===500){
+        if (response.status === 500) {
           localStorage.removeItem("token");
           localStorage.removeItem("tokenAdmin");
-          
           history("/");
           window.location.reload();
         }
@@ -109,7 +108,6 @@ function AnxietyLevel() {
 
   const handleLevel2 = async (timeSum) => {
     setTimeout(async () => {
-
       try {
         const response = await axios.put(
           `http://localhost:8000/api/aLevel2/${userId}`,
@@ -161,7 +159,6 @@ function AnxietyLevel() {
         <div>
           <h1 className="display-5"> Yoga Videos</h1>
           <h1 className="display-6">Level 1</h1>
-         
 
           <div className="main-container">
             {newDataLevel1.map((i) => {
